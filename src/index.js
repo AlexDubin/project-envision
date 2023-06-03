@@ -1,3 +1,6 @@
+
+
+
 import './js/header';
 
 import './js/home_page/section_hero';
@@ -15,3 +18,5 @@ import './js/modals/modal_team';
 import './js/modals/modal_trailer';
 
 import './js/footer';
+
+import './js/loader';

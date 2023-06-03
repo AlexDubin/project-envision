@@ -4,7 +4,7 @@
 
 // features
 
-
+@import './base/variables.scss';
 @import './features/animations.scss';
 @import './features/breakpoints.scss';
 @import './features/loader.scss';
@@ -14,7 +14,7 @@
 
 @import './base/reset';
 @import './base/fonts.scss';
-@import './base/variables.scss';
+
 @import './base/base';
 @import './base/typography.scss';
 
