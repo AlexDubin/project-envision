@@ -1,0 +1,15 @@
+.container {
+    max-width: 280px;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include screen(tablet) {
+        max-width: 704px;
+        padding: 0 32px;
+    }
+
+    @include screen(desktop) {
+        max-width: 1216px;
+    }
+}
