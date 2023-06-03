@@ -22,6 +22,8 @@ const STORAGE_KEY = 'movies-library';
 export function saveMovie(movie) {
   const movies = loadMovies();
 
+  if (movie.id === undefined) throw new Error('No id');
+
   if (movies.some(savedMovie => savedMovie.id === movie.id))
     throw new Error('Already in library');
 
