@@ -2,11 +2,13 @@
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
-   <link rel="icon" type="image/svg+xml" href="/src/public/icons8-бобина-с-пленкой-64.png" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/src/public/icons8-бобина-с-пленкой-64.png"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My library</title>
-
-    
 
     <!-- Normalize -->
 
@@ -15,50 +17,32 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
     />
 
-  
-
     <!-- Styles -->
 
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
-    
-
     <!-- Loads the specified .html file -->
-    
 
     <!-- header -->
-    <include src="partials/header.html" />
+    <include src="partials/header.html"></include>
 
     <main>
-
       <!-- hero -->
-      <include src="partials/libraru_page/section_hero.html" />
+      <include src="partials/libraru_page/section_hero.html"></include>
 
       <!-- catalog -->
-      <include src="partials/libraru_page/section_library.html" />
-
-     
-
-      
-
-      
+      <include src="partials/libraru_page/section_library.html"></include>
     </main>
 
     <!--  footer -->
-    <load src="partials/footer.html" />
+    <include src="partials/footer.html"></include>
 
     <!-- Modals -->
-    <load src="partials/modals/modal_film.html" />
-    <load src="partials/modals/modal_team.html" />
-    <load src="partials/modals/modal_trailer.html" />
+    <include src="partials/modals/modal_film.html"></include>
+    <include src="partials/modals/modal_team.html"></include>
+    <include src="partials/modals/modal_trailer.html"></include>
 
-    
-
-    
-    
     <script type="module" src="/src/index.js"></script>
-    
-    
   </body>
 </html>
