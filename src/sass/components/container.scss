@@ -4,12 +4,12 @@
     margin-left: auto;
     margin-right: auto;
 
-    @include screen(tablet) {
+    @include media-query(tablet) {
         max-width: 704px;
         padding: 0 32px;
     }
 
-    @include screen(desktop) {
+    @include media-query(desktop) {
         max-width: 1216px;
     }
 }

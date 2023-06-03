@@ -4,6 +4,7 @@
 
 // features
 
+
 @import './features/animations.scss';
 @import './features/breakpoints.scss';
 @import './features/loader.scss';
@@ -13,12 +14,13 @@
 
 @import './base/reset';
 @import './base/fonts.scss';
+@import './base/variables.scss';
 @import './base/base';
 @import './base/typography.scss';
-@import './base/variables.scss';
+
 
 //components
-@import './components/container.scss';
+
 @import './components/section';
 @import './components/buttons.scss';
 @import './components/footer.scss';
@@ -27,6 +29,7 @@
 @import './components/modal_team.scss';
 @import './components/modal_trailer.scss';
 @import './components/pagination.scss';
+
 
 // Home page
 
@@ -41,6 +44,9 @@
 // Library page
 @import './pages/library/hero.scss';
 @import './pages/library/library.scss';
+
+
+@import './components/container.scss';
 
 
 
