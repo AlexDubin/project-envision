@@ -2,35 +2,28 @@ $breakpoints: (
     mobile: 320px,
     tablet: 768px,
     desktop: 1280px,
-    
 );
 
-@each $breakpoint,
-$value in $breakpoints {
+@mixin media-query($breakpoint) {
     @if $breakpoint ==mobile {
-        @mixin #{$breakpoint} {
-            @media only screen and (max-width: #{ $value - 1}) {
-                @content;
-            }
+        @media only screen and (max-width: #{map-get($breakpoints, $breakpoint) - 1}) {
+            @content;
         }
     }
 
     @else if $breakpoint ==tablet {
-        @mixin #{$breakpoint} {
-            @media only screen and (min-width: #{ $value }) and (max-width: #{$breakpoints[desktop] - 1}) {
-                @content;
-            }
+        $min-width: map-get($breakpoints, $breakpoint);
+        $max-width: map-get($breakpoints, desktop) - 1;
+
+        @media only screen and (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+            @content;
         }
     }
 
-    @else if $breakpoint ==twok {
-        @mixin #{$breakpoint} {
-            @media only screen and (min-width: #{ $value }) and (max-width: #{$breakpoints[fourk] - 1}) {
-                @content;
-            }
+    @else if $breakpoint ==desktop {
+        @media only screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+            @content;
         }
     }
-
-    
 }
 
