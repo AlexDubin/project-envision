@@ -1,1 +1,50 @@
 // Стили кнопок
+
+.to-top-btn {
+    display: none;
+}
+
+@media screen and (min-width: 470px) {
+    .to-top-btn {
+        font-family: Roboto;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        bottom: 70px;
+        right: -35px;
+        writing-mode: vertical-rl;
+        background-color: transparent;
+        border: none;
+        opacity: 0;
+        color: $orange-color;
+        transform: rotate(-90deg);
+        transition: opacity 1s $transition-cubic-bezier, transform 1s $transition-cubic-bezier;
+        writing-mode: vertical-rl;
+    }
+
+    .to-top-btn svg {
+        margin-left: 5px;
+        fill: $orange-color;
+    }
+
+    .to-top-btn:hover,
+    .to-top-btn:focus {
+        transform: rotate(-90deg) translateX(10px);
+    }
+
+    .to-top-btn.show-btn {
+        opacity: 1;
+    }
+
+    .to-top-btn.remove-btn {
+        opacity: 0;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+   
+
+    .to-top-btn {
+        right: 0;
+    }
+}

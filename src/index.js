@@ -20,3 +20,4 @@ import './js/modals/modal_trailer';
 import './js/footer';
 
 import './js/loader';
+import './js/go_to_top_btn';

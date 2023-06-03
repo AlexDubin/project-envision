@@ -5,8 +5,10 @@
 // features
 
 @import './base/variables.scss';
-@import './features/animations.scss';
 @import './features/breakpoints.scss';
+@import './components/container.scss';
+@import './features/animations.scss';
+
 @import './features/loader.scss';
 @import './features/visually_hidden.scss';
 
@@ -46,7 +48,7 @@
 @import './pages/library/library.scss';
 
 
-@import './components/container.scss';
+
 
 
 
