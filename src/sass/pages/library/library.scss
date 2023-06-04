@@ -68,6 +68,11 @@
     @include standard-orange-button();
   }
 
+  // TODO: Вынести это в отдельный общий класс
+  &.is-hidden {
+    display: none;
+  }
+
   @include media-query(mobile) {
     padding: 40px 0;
   }
