@@ -1,0 +1,90 @@
+.library {
+}
+
+@mixin flex-center-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lib-empty {
+  @include flex-center-column();
+
+  #{&}__text {
+    font-family: $font-family;
+    text-align: center;
+    color: $white-color;
+
+    @include media-query(mobile) {
+      margin-bottom: 20px;
+      line-height: 140%;
+      font-size: 1.25rem;
+      min-height: 120px;
+    }
+    @include media-query(tablet) {
+      margin-bottom: 24px;
+      line-height: 133.333333%;
+      font-size: 1.5rem;
+      min-height: 104px;
+    }
+    @include media-query(desktop) {
+      margin-bottom: 28px;
+      line-height: 112.5%;
+      font-size: 2rem;
+      min-height: 124px;
+    }
+  }
+
+  #{&}__search-btn {
+    @include standard-orange-button();
+  }
+
+  // TODO: Вынести это в отдельный общий класс
+  &.is-hidden {
+    display: none;
+  }
+
+  @include media-query(mobile) {
+    padding-top: 44px;
+    padding-bottom: 42px;
+  }
+  @include media-query(tablet) {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+  @include media-query(desktop) {
+    padding-top: 160px;
+    padding-bottom: 108px;
+  }
+}
+
+.lib-catalog {
+  @include flex-center-column();
+
+  #{&}__list {
+  }
+
+  #{&}__load-more {
+    @include standard-orange-button();
+  }
+
+  // TODO: Вынести это в отдельный общий класс
+  &.is-hidden {
+    display: none;
+  }
+
+  @include media-query(mobile) {
+    padding: 40px 0;
+  }
+
+  @include media-query(tablet) {
+    padding: 60px 0;
+  }
+
+  @include media-query(desktop) {
+    padding-top: 80px;
+    padding-bottom: 96px;
+  }
+
+  @include custom-select(173px, 144px, 260px);
+}
