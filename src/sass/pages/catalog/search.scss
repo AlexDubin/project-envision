@@ -1,0 +1,103 @@
+.search-form {
+    width: 100%;
+    padding: 20px;
+    background: rgb(0,59,70);
+    background: linear-gradient(150deg, rgba(0,59,70,1) 10%, rgba(7,87,91,1) 40%, rgba(102,165,173,1) 75%);
+    text-align: center;
+  }
+  
+  .search-form input[name="searchQuery"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 14px;
+    color: #003B46;
+    background-color: #c4dfe6;
+    border: 2px solid #66a5ad;
+    border-radius: 5px;
+    transition: 0.3s all;
+  }
+  
+  .search-form input[name="searchQuery"]::placeholder {
+    color: #003B46;
+    font-size: 14px;
+  }
+  
+  .search-form input[name="searchQuery"]:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .search-form button[type="submit"],
+  .load-more {
+    padding: 12px 20px 10px;
+    font-size: 12px;
+    color: #C4DFE6;
+    background-color: #003B46;
+    border: 2px solid #003B46;
+    border-radius: 5px;
+    transition: 0.3s all;
+  }
+  
+  .search-form button[type="submit"]:hover,
+  .search-form button[type="submit"]:focus,
+  .load-more:hover,
+  .load-more:focus {
+    color: #003B46;
+    background-color: #C4DFE6;
+    border: 2px solid #C4DFE6;
+  }
+  
+  .gallery {
+    max-width: 1216px;
+    padding: 70px 30px;
+    margin: 0 auto;
+    display: flex;
+    gap: 16px;
+    row-gap: 32px;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+  
+  .gallery .photo-card {
+    flex-basis: calc((100% - 32px) / 3);
+  }
+  
+  .gallery .photo-card .gallery__link {
+    display: flex;
+  }
+  
+  .gallery .photo-card .card-image {
+    min-height: 574px;
+    object-fit: fill;
+    border-radius: 10px;
+  }
+  
+  .gallery .photo-card .info {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  
+  .gallery .photo-card .info .info-item {
+    font-size: 18px;
+    flex-basis: calc((100% - 40px) / 4);
+    color: #003B46;
+  }
+  
+  .clear-btn {
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 15px 35px;
+    font-size: 16px;
+    display: none;
+  }
+  
+  .clear-btn.is-active {
+    display: block;
+  }
+  
+  .tui-pagination {
+    display: flex;
+    justify-content: center;
+  }
