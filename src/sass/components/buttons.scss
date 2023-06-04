@@ -57,8 +57,8 @@
       $gradient-orange-color 9.4%,
       $gradient-red-color 91.91%
     );
-    font-family: 'Roboto';
-    font-weight: 500;
+    font-family: $font-family;
+    font-weight: $font-weight-medium;
     font-size: 0.75rem;
     line-height: 117.166667%; /* 14.06px / 12px */
     color: $black-color;
@@ -68,6 +68,7 @@
     &:hover {
       text-decoration: none;
       color: $orange-color;
+      // TODO: Заменить $black-color на CSS переменную темы
       background: linear-gradient($black-color, $black-color) padding-box,
         linear-gradient(
             141.22deg,
@@ -84,7 +85,7 @@
     }
   
     @include media-query(desktop) {
-      font-size: 18px;
+      font-size: 1.125rem;
       line-height: 156%;
     }
   }
