@@ -143,14 +143,14 @@
   width: 0;
 }
 
-@media screen and(max-width: 767px) {
+@media screen and (max-width: 767px) {
   .item-movie-card:nth-child(2),
   .item-movie-card:nth-child(3) {
     display: none;
   }
 }
 // --------tablet-------
-@media screen and(min-width: 768px) {
+@media screen and (min-width: 768px) {
   .title-weekly-trends {
     font-size: 24px;
     line-height: 1.16;
@@ -167,7 +167,7 @@
   }
 }
 // --------desktop-------
-@media screen and(min-width: 1280px) {
+@media screen and (min-width: 1280px) {
   .title-weekly-trends {
     font-size: 28px;
     line-height: 1.17;
