@@ -1,7 +1,7 @@
+// -----mobile
 .weekly-trends {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  font-size: 16;
   padding-left: 20px;
   padding-right: 20px;
   color: white;
@@ -15,20 +15,20 @@
   margin-bottom: 24px;
 }
 .title-weekly-trends {
+  font-size: 16px;
+  line-height: 1.18;
   color: white;
 }
 .link-weekly-trends {
   color: #f87719;
 }
-// -------cards
 
+// -------cards
 .list-movie-card {
   display: flex;
   flex-wrap: wrap;
   row-gap: 16px;
   justify-content: center;
-  padding: 0;
-  margin: 0;
 }
 .item-movie-card {
   position: relative;
@@ -72,7 +72,7 @@
   gap: 12px;
   justify-content: space-between;
 
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   color: #b7b7b7;
 }
 
@@ -94,7 +94,6 @@
 .rating {
   display: flex;
   align-items: flex-end;
-  font-size: 15px;
 }
 .rating-body {
   position: relative;
@@ -119,7 +118,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  color: yellow;
+  color: #f87719;
 }
 
 .rating-items {
@@ -135,10 +134,54 @@
   flex: 0 0 20%;
   height: 100%;
   opacity: 0;
+  width: 14px;
+  height: 14px;
 }
 
 .rating-value {
   visibility: hidden;
   width: 0;
 }
+
+@media screen and(max-width: 767px) {
+  .item-movie-card:nth-child(2),
+  .item-movie-card:nth-child(3) {
+    display: none;
+  }
+}
 // --------tablet-------
+@media screen and(min-width: 768px) {
+  .title-weekly-trends {
+    font-size: 24px;
+    line-height: 1.16;
+  }
+  .list-movie-card {
+    column-gap: 16px;
+  }
+  .item-movie-card {
+    width: 224px;
+    width: calc((100% - 2 * 16px) / 3);
+  }
+  .info-movie-card {
+    line-height: 1.5;
+  }
+}
+// --------desktop-------
+@media screen and(min-width: 1280px) {
+  .title-weekly-trends {
+    font-size: 28px;
+    line-height: 1.17;
+  }
+
+  .list-movie-card {
+    column-gap: 15px;
+  }
+  .item-movie-card {
+    width: 395px;
+    width: calc((100% - 2 * 15px) / 3);
+  }
+  .info-movie-card {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+}
