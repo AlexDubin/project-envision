@@ -19,9 +19,14 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "countries-list": "^2.6.1",
+    "jquery": "^3.7.0",
     "modern-normalize": "^1.1.0",
     "normalize.css": "^8.0.1",
-    "notiflix": "^3.2.6"
+    "notiflix": "^3.2.6",
+    "select2": "^4.1.0-rc.0",
+    "selectize": "^0.12.6",
+    "tui-pagination": "^3.4.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
