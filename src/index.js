@@ -1,6 +1,4 @@
 
-
-
 import './js/header';
 
 import './js/home_page/section_hero';
@@ -21,3 +19,4 @@ import './js/footer';
 
 import './js/loader';
 import './js/go_to_top_btn';
+import './js/api/libraryAPI';
