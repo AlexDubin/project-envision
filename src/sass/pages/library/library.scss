@@ -11,7 +11,7 @@
   @include flex-center-column();
 
   #{&}__text {
-    font-family: 'Roboto';
+    font-family: $font-family;
     text-align: center;
     color: $white-color;
 
