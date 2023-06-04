@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
-    "custom-select": "^1.1.15",
     "countries-list": "^2.6.1",
+    "custom-select": "^1.1.15",
     "jquery": "^3.7.0",
     "modern-normalize": "^1.1.0",
     "normalize.css": "^8.0.1",
