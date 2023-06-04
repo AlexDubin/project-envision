@@ -4,9 +4,11 @@
 
 // features
 
-
-@import './features/animations.scss';
+@import './base/variables.scss';
 @import './features/breakpoints.scss';
+@import './components/container.scss';
+@import './features/animations.scss';
+
 @import './features/loader.scss';
 @import './features/visually_hidden.scss';
 
@@ -14,7 +16,7 @@
 
 @import './base/reset';
 @import './base/fonts.scss';
-@import './base/variables.scss';
+
 @import './base/base';
 @import './base/typography.scss';
 
@@ -46,7 +48,7 @@
 @import './pages/library/library.scss';
 
 
-@import './components/container.scss';
+
 
 
 
