@@ -1,0 +1,114 @@
+@mixin remove-before {
+  &::before {
+    content: none;
+  }
+}
+
+@mixin custom-select(
+  $mobile-width,
+  $tablet-width,
+  $desktop-width,
+  $separator: true
+) {
+  .custom-select-container {
+    font-family: $font-family;
+    font-weight: $font-weight-medium;
+    font-size: 0.875rem;
+
+    .custom-select-panel {
+      background-color: $darker-grey-color;
+      border-radius: 8px;
+
+      transition: max-height $transition * 1.5 $transition-cubic-bezier,
+        overflow-y 0.1s 0.5s;
+    }
+
+    .custom-select-opener {
+      min-width: $mobile-width;
+      display: flex;
+      justify-content: space-between;
+
+      border: 1px solid $white-color;
+      border-radius: 8px;
+
+      background-color: transparent;
+      color: $light-grey-color;
+
+      padding: 12px;
+      padding-left: 16px;
+
+      line-height: 114.285714%; /* 16px / 14px */
+
+      &::after {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 10.25L8 5.75L12.5 10.25" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+        transform: rotate(180deg);
+        transition: transform $transition $transition-cubic-bezier;
+      }
+
+      @include media-query(tablet) {
+        padding-left: 20px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        min-width: $tablet-width;
+      }
+
+      @include media-query(desktop) {
+        min-width: $desktop-width;
+      }
+    }
+
+    &.is-open {
+      .custom-select-opener::after {
+        transform: rotate(0deg);
+      }
+      .custom-select-panel {
+        border: 1px solid $white-color;
+        max-height: 44px * 6;
+      }
+    }
+  }
+
+  .custom-select-option {
+    color: $off-white-color;
+    cursor: pointer;
+    line-height: 143%;
+    padding: 14px 20px 10px 20px;
+  }
+
+  .custom-select-option {
+    &.has-focus {
+      background-color: transparent;
+      color: $orange-color;
+      @include remove-before();
+    }
+
+    &.is-selected {
+      @include remove-before();
+    }
+
+    &:first-child {
+      // Хак для "Не выбранного" варианта (По сути visually-hidden)
+      position: absolute;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+
+      white-space: nowrap;
+      clip-path: inset(100%);
+    }
+
+    @if ($separator) {
+      &:nth-child(n + 3) {
+        border-top: 0.5px solid $light-grey-color;
+      }
+    }
+  }
+}
