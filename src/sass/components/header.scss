@@ -3,6 +3,8 @@
 .head-div{
     display: flex;
     align-items: baseline;
+    padding: 12px 0px 12px 88px;
+    margin-left: unset;
     }
     
     .header-link-one:hover,
@@ -21,10 +23,7 @@
     
        @media screen and (min-width: 768px){
     
-        .container{
-            padding: 12px 0px 12px 88px;
-            margin-left: unset;
-            } 
+ 
     
         .header-list{
             display: flex;
