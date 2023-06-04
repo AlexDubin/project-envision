@@ -1,11 +1,10 @@
+import axios from 'axios';
+
 const upcoming = document.querySelector('.upcoming');
 
 const API_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2FhN2IzMjk5NmM0N2RhMTQxZWI1N2IwZTVjZTQ3NiIsInN1YiI6IjY0N2M5OTdkZTMyM2YzMDEyNzUyM2IzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Blrs7t4WoJ6-3sy6A_Vz3twkTCmEg9nM0JyuAHg88WM';
-
 const API_KEY = 'ccaa7b32996c47da141eb57b0e5ce476';
-
-import axios from 'axios';
 
 const options = {
   method: 'GET',
@@ -35,11 +34,3 @@ axios
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
   }
-
-  
-  function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
-  }
-  
