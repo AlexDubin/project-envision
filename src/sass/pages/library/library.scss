@@ -85,4 +85,6 @@
     padding-top: 80px;
     padding-bottom: 96px;
   }
+
+  @include custom-select(173px, 144px, 260px);
 }
