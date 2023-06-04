@@ -39,6 +39,7 @@
     @include standard-orange-button();
   }
 
+  // TODO: Вынести это в отдельный общий класс
   &.is-hidden {
     display: none;
   }
@@ -65,5 +66,18 @@
 
   #{&}__load-more {
     @include standard-orange-button();
+  }
+
+  @include media-query(mobile) {
+    padding: 40px 0;
+  }
+
+  @include media-query(tablet) {
+    padding: 60px 0;
+  }
+
+  @include media-query(desktop) {
+    padding-top: 80px;
+    padding-bottom: 96px;
   }
 }
