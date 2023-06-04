@@ -1,10 +1,14 @@
 .library {
 }
 
-.lib-empty {
+@mixin flex-center-column {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.lib-empty {
+  @include flex-center-column();
 
   #{&}__text {
     font-family: 'Roboto';
@@ -32,43 +36,7 @@
   }
 
   #{&}__search-btn {
-    padding: 12px 24px;
-    border-radius: 74px;
-    background-image: linear-gradient(
-      141.22deg,
-      $gradient-orange-color 9.4%,
-      $gradient-red-color 91.91%
-    );
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 0.75rem;
-    line-height: 114.285714%; /* 16px / 14px */
-    color: $black-color;
-    transition: color $transition-cubic-bezier;
-
-    &:focus-visible,
-    &:hover {
-      text-decoration: none;
-      color: $orange-color;
-      background: linear-gradient($black-color, $black-color) padding-box,
-        linear-gradient(
-            141.22deg,
-            $gradient-orange-color 9.4%,
-            $gradient-red-color 91.91%
-          )
-          border-box;
-      padding: 11px 23px;
-      border: 1px solid transparent;
-    }
-
-    @include media-query(tablet) {
-      font-size: 0.875rem;
-    }
-
-    @include media-query(desktop) {
-      font-size: 18px;
-      line-height: 156%;
-    }
+    @include standard-orange-button();
   }
 
   &.is-hidden {
@@ -86,5 +54,16 @@
   @include media-query(desktop) {
     padding-top: 160px;
     padding-bottom: 108px;
+  }
+}
+
+.lib-catalog {
+  @include flex-center-column();
+
+  #{&}__list {
+  }
+
+  #{&}__load-more {
+    @include standard-orange-button();
   }
 }
