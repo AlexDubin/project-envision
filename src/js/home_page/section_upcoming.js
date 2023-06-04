@@ -22,8 +22,8 @@ axios
   .request(options)
   .then(response => {
     console.log(response.data);
-    console.log(response.data.results[10]);
-    upcoming.innerHTML = `${response.data.results[10].overview}`;
+    console.log(response.data.results[0]);
+    upcoming.innerHTML = `${response.data.results[0].overview}`;
   })
   .catch(error => {
     console.error(error);
