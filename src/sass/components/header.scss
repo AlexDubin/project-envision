@@ -1,1 +1,110 @@
 // Стили хедера
+//---------------------HEADER------------------//
+.container{
+    display: flex;
+    align-items: baseline;
+    }
+    
+    .header-link-one:hover,
+    .header-link-one:focus,
+    .header-link-two:hover, 
+    .header-link-two:focus,
+    .header-link-three:hover, 
+    .header-link-three:focus{
+    color: $orange-color;
+    text-decoration: none;
+    }
+    
+    
+    
+    //-----------------TABLET------------------//
+    
+       @media screen and (min-width: 768px){
+    
+        .container{
+            padding: 12px 0px 12px 88px;
+            margin-left: unset;
+            } 
+    
+        .header-list{
+            display: flex;
+            gap: 32px;
+            margin-left: 59px;
+        }
+    
+    
+    .header{
+        height: 60px;
+    }
+    
+        .head-logo{
+            padding: 4px 0px 4px 36px;
+            font-family: $font-family;
+            font-style: normal;
+            font-weight: $font-weight-regular;
+            font-size: $font-size-subbody;
+            line-height: $font-size-subheader;
+            color: $white-color;
+            }
+    
+    
+    
+            .header-link-three{
+                width: 80px;
+                height: 16px;
+                font-family: $font-family;
+                font-style: normal;
+                font-weight: $font-weight-medium;
+                font-size: $font-size-tiny;
+                line-height: $font-size-small;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            text-transform: uppercase;
+             color: $light-grey-color;
+            }
+            
+            .header-link-two{
+                width: 62px;
+                height: 16px;
+                font-family: $font-family;
+                font-style: normal;
+                font-weight: $font-weight-medium;
+                font-size: $font-size-tiny;
+                line-height: $font-size-small;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            text-transform: uppercase;
+             color: $light-grey-color;
+            }
+            
+            .header-link-one{
+                width: 40px;
+                height: 16px;
+                font-family: $font-family;
+                font-style: normal;
+                font-weight: $font-weight-medium;
+                font-size: $font-size-tiny;
+                line-height: $font-size-small;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            text-transform: uppercase;
+            color: $light-grey-color;
+            }
+    
+    
+       }
+    
+       //-----------------DEKSTOP------------------//
+    
+       @media screen and (min-width: 1280px){
+               
+        .header-list{
+            gap: 40px;
+            margin-left: 307px;
+        }
+        
+    
+    }
