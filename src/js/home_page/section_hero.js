@@ -12,13 +12,11 @@ const options = {
 
 const poster = document.querySelector('.hero__wrap');
 const heroContainer = document.querySelector('.hero');
-// const defaultPoster = document.querySelector('.hero__default');
-// console.log(defaultPoster);
 
 const fetchTrendingMoviesByDay = async () => {
   try {
     const response = await axios.get(
-      `${BASE_URL}/trending/movie/day?language=en-US`,
+      `${BASE_URL}/rending/movie/day?language=en-US`,
       options
     );
     return response.data;
@@ -28,10 +26,13 @@ const fetchTrendingMoviesByDay = async () => {
 };
 
 const markupRandomTrendingMovie = () => {
+  let markup = '';
+
   fetchTrendingMoviesByDay()
     .then(({ results }) => {
+      // heroContainer.classList.remove('hero--bg');
       const randomNum = Math.floor(Math.random() * 20) + 0;
-      let markup = '';
+
       let posterUrl = '';
       console.log(results[randomNum]);
       const { title, overview, poster_path, backdrop_path, vote_average } =
@@ -72,10 +73,9 @@ const markupRandomTrendingMovie = () => {
         </div>
 
       </div>`;
-      // poster.innerHTML = markup;
+      poster.innerHTML = markup;
     })
     .catch(() => {
-      // defaultPoster.classList.toggle('hero__thumb--hidden');
       heroContainer.classList.toggle('hero--bg');
       markup = `
       <div class="hero__thumb hero__thumb--bg">
@@ -99,16 +99,8 @@ const markupRandomTrendingMovie = () => {
 
         <div class="hero__overlay"></div>
       </div>`;
-    })
-    .finally(() => (poster.innerHTML = markup));
+      poster.innerHTML = markup;
+    });
 };
 
 markupRandomTrendingMovie();
-
-// window.addEventListener('resize', function () {
-//   if (window.matchMedia('(min-width: 500px)').matches) {
-//     console.log('Screen width is at least 500px');
-//   } else {
-//     console.log('Screen less than 500px');
-//   }
-// });
