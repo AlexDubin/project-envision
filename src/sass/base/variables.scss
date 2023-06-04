@@ -36,4 +36,5 @@ $font-size-helper: 10px;
 
 // Animation
 
-$transition-cubic-bezier: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+$transition: 250ms;
