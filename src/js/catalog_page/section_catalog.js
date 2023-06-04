@@ -66,7 +66,8 @@ function buildGallery(movies) {
     .filter((movies) => !Object.values(movies).includes(null))
     .map((movies) => {
         return `<li class="photo-card">
-            <a class="gallery__link" href="${base_img_url}${movies.poster_path}"><img class="card-image" src="${base_img_url}${movies.poster_path}" alt="${movies.media_type}" loading="lazy"></a>
+            <a class="gallery__link" href="${base_img_url}${movies.poster_path}"><img class="card-image" src="${base_img_url}${movies.poster_path}" alt="${movies.media_type}" loading="lazy">
+            </a>
         </li>`;
     })
     .join("");
