@@ -45,11 +45,13 @@ export function removeMovie(id) {
 
 /**
  * Loads movies from localStorage
+ * @param {number} limit - Limit of returned movies
  * @returns Array of movies
  * @throws {SyntaxError} Can throw this error cause JSON
  */
-export function loadMovies() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
+export function loadMovies(limit = -1) {
+  const movies = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
+  return limit > 0 ? movies.slice(0, limit) : movies;
 }
 
 function saveMovies(movies) {

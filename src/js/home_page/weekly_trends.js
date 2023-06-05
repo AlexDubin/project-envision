@@ -62,7 +62,7 @@ if (movieList) {
           }
         }
         return `<li class='item-movie-card'>
-          <img class='poster-movie-card' src='https://image.tmdb.org/t/p/w200${poster_path}' alt='${title}'>
+          <img class='poster-movie-card' src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}'>
           <div class='overlay-movie-card'></div>
           <div class='info-movie-card'>
             <h4 class='title-movie-card'>${title}</h4>
