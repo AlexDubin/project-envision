@@ -1,1 +1,81 @@
 // Стили футера
+.footer-wrap {
+  margin-left: auto;
+  margin-right: auto;
+  width: 266px;
+  text-align: center;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  color: $light-grey-color;
+}
+.site-footer {
+  //   position: fixed;
+
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  background: #111111;
+  padding-top: 40px;
+  padding-bottom: 28px;
+}
+.footer-link {
+  color: $light-grey-color;
+  text-decoration: underline;
+  display: inline;
+  margin-top: 6px;
+  transition-property: color;
+  transition-duration: $transition;
+  transition-timing-function: $transition-cubic-bezier;
+}
+.footer-link:hover,
+.footer-link:focus {
+  color: $orange-color;
+}
+.heart-icon {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.footer-descr-copyright {
+  margin-bottom: 8px;
+}
+.descr-developed {
+  //   display: flex;
+  //   align-items: center;
+}
+.descr-rights {
+  border-left: 1px solid $light-grey-color;
+  border-right: 1px solid $light-grey-color;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+@media screen and (min-width: 320px) {
+  .footer-wrap {
+    font-size: 12px;
+    line-height: calc(14 / 12);
+  }
+  .footer-link {
+    margin-top: 0px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 542px;
+    font-size: 16px;
+    line-height: calc(19 / 16);
+  }
+  .footer-descr-copyright {
+    margin-bottom: 0px;
+  }
+  .descr-developed {
+    margin-left: 4px;
+  }
+}
+@media screen and (min-width: 1280px) {
+}
