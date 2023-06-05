@@ -85,7 +85,6 @@ function markupMovie(moviesToShow, genresObject) {
                     <div class="rating-value">${vote_average}</div>
                 </div>
               </div>
-<<<<<<< Updated upstream
             </div>
           </div>
         </li>`;
