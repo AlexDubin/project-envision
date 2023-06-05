@@ -1,91 +1,91 @@
 // Стили кнопок
 
 .to-top-btn {
-    display: none;
+  display: none;
 }
 
 @media screen and (min-width: 470px) {
-    .to-top-btn {
-        font-family: Roboto;
-        position: fixed;
-        display: flex;
-        align-items: center;
-        bottom: 70px;
-        right: -35px;
-        writing-mode: vertical-rl;
-        background-color: transparent;
-        border: none;
-        opacity: 0;
-        color: $orange-color;
-        transform: rotate(-90deg);
-        transition: opacity 1s $transition-cubic-bezier, transform 1s $transition-cubic-bezier;
-        writing-mode: vertical-rl;
-    }
+  .to-top-btn {
+    font-family: Roboto;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    bottom: 70px;
+    right: -35px;
+    writing-mode: vertical-rl;
+    background-color: transparent;
+    border: none;
+    opacity: 0;
+    color: $orange-color;
+    transform: rotate(-90deg);
+    transition: opacity 1s $transition-cubic-bezier,
+      transform 1s $transition-cubic-bezier;
+    writing-mode: vertical-rl;
+  }
 
-    .to-top-btn svg {
-        margin-left: 5px;
-        fill: $orange-color;
-    }
+  .to-top-btn svg {
+    margin-left: 5px;
+    fill: $orange-color;
+  }
 
-    .to-top-btn:hover,
-    .to-top-btn:focus {
-        transform: rotate(-90deg) translateX(10px);
-    }
+  .to-top-btn:hover,
+  .to-top-btn:focus {
+    transform: rotate(-90deg) translateX(10px);
+  }
 
-    .to-top-btn.show-btn {
-        opacity: 1;
-    }
+  .to-top-btn.show-btn {
+    opacity: 1;
+  }
 
-    .to-top-btn.remove-btn {
-        opacity: 0;
-    }
+  .to-top-btn.remove-btn {
+    opacity: 0;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-   
-
-    .to-top-btn {
-        right: 0;
-    }
+  .to-top-btn {
+    right: 0;
+  }
 }
 
 @mixin standard-orange-button {
-    padding: 12px 24px;
-    border-radius: 74px;
-    background-image: linear-gradient(
+  padding: 11px 23px;
+  border-radius: 74px;
+  background: linear-gradient(
       141.22deg,
       $gradient-orange-color 9.4%,
       $gradient-red-color 91.91%
-    );
-    font-family: $font-family;
-    font-weight: $font-weight-medium;
-    font-size: 0.75rem;
-    line-height: 117.166667%; /* 14.06px / 12px */
-    color: $black-color;
-    transition: color $transition $transition-cubic-bezier;
-  
-    &:focus-visible,
-    &:hover {
-      text-decoration: none;
-      color: $orange-color;
-      // TODO: Заменить $black-color на CSS переменную темы
-      background: linear-gradient($black-color, $black-color) padding-box,
-        linear-gradient(
-            141.22deg,
-            $gradient-orange-color 9.4%,
-            $gradient-red-color 91.91%
-          )
-          border-box;
-      padding: 11px 23px;
-      border: 1px solid transparent;
-    }
-  
-    @include media-query(tablet) {
-      font-size: 0.875rem;
-    }
-  
-    @include media-query(desktop) {
-      font-size: 1.125rem;
-      line-height: 156%;
-    }
+    )
+    border-box;
+  font-family: $font-family;
+  font-weight: $font-weight-medium;
+  font-size: 0.75rem;
+  line-height: 117.166667%; /* 14.06px / 12px */
+  color: $black-color;
+  transition: color $transition $transition-cubic-bezier;
+  border: 1px solid transparent;
+
+  &:focus-visible,
+  &:hover {
+    text-decoration: none;
+    color: $orange-color;
+    // TODO: Заменить $black-color на CSS переменную темы
+    background: linear-gradient($black-color, $black-color) padding-box,
+      linear-gradient(
+          141.22deg,
+          $gradient-orange-color 9.4%,
+          $gradient-red-color 91.91%
+        )
+        border-box;
+    // padding: 11px 23px;
   }
+
+  @include media-query(tablet) {
+    font-size: 0.875rem;
+  }
+
+  @include media-query(desktop) {
+    font-size: 1.125rem;
+    line-height: 156%;
+  }
+}
