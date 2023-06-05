@@ -85,33 +85,11 @@ function markupMovie(moviesToShow, genresObject) {
                     <div class="rating-value">${vote_average}</div>
                 </div>
               </div>
-<<<<<<< Updated upstream
-            </div>
-          </div>
-        </li>`;
-      })
-      .join('');
-    initRatings();
-  }
-  
-  function initRatings() {
-    console.log(4);
-    const ratings = document.querySelectorAll('.rating');
-    ratings.forEach(rating => {
-      initRating(rating);
-    });
-  }
-  function initRating(rating) {
-    const ratingActive = rating.querySelector('.rating-active');
-    const ratingValue = rating.querySelector('.rating-value');
-    console.log(ratingValue, ratingActive);
-=======
             </li>`;
     })
     .join('');
   initRatings();
 }
->>>>>>> Stashed changes
 
 function getGenres(genresObject, genre_ids) {
   let genreNames = '';
