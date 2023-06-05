@@ -24,7 +24,7 @@ const fetchTrendingMoviesByDay = async () => {
   }
 };
 
-const markupRandomTrendingMovie = () => {
+export const markupRandomTrendingMovie = () => {
   let markup = '';
 
   fetchTrendingMoviesByDay()
