@@ -73,8 +73,8 @@ $transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
         rgba(17, 17, 17, 0) 64.67%
       ),
       url('../img/hero/poster-mobile@1x.jpg');
-    background-size: cover;
     background-repeat: no-repeat;
+    background-size: cover;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -87,7 +87,7 @@ $transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
         url('../img/hero/poster-mobile@2x.jpg');
     }
 
-    @include screen(tablet) {
+    @include screen(mobile) {
       height: 432px;
       background-image: linear-gradient(
           79.49deg,
@@ -105,6 +105,27 @@ $transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
             rgba(17, 17, 17, 0) 64.67%
           ),
           url('../img/hero/poster-tablet@2x.jpg');
+      }
+    }
+
+    @include screen(tablet) {
+      height: 432px;
+      background-image: linear-gradient(
+          79.49deg,
+          #111111 34.1%,
+          rgba(17, 17, 17, 0) 64.67%
+        ),
+        url('../img/hero/poster-desktop@1x.jpg');
+
+      @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: linear-gradient(
+            79.49deg,
+            #111111 34.1%,
+            rgba(17, 17, 17, 0) 64.67%
+          ),
+          url('../img/hero/poster-desktop@2x.jpg');
       }
     }
 
@@ -130,63 +151,24 @@ $transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 
-  &__thumb {
-    position: relative;
-    height: 380px;
-    margin: 0 auto;
-
-    @include screen(tablet) {
-      height: 432px;
-    }
-
-    @include screen(desktop) {
-    }
-  }
-
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      86.77deg,
-      #111111 30.38%,
-      rgba(17, 17, 17, 0) 65.61%
-    );
-  }
-
   &__inner {
-    padding-left: 20px;
+    height: 380px;
     padding-top: 40px;
 
     @include screen(tablet) {
-      padding-left: 0px;
+      height: 432px;
       padding-top: 96px;
     }
 
     @include screen(desktop) {
-    }
-  }
-
-  &__content {
-    position: absolute;
-    top: 49;
-    left: 0;
-    z-index: 2;
-    width: 240px;
-
-    @include screen(tablet) {
-      width: 300px;
-      top: 96;
-    }
-
-    @include screen(desktop) {
+      height: 720px;
+      padding-top: 178px;
+      padding-left: 103px;
     }
   }
 
   &__title {
+    width: 200px;
     color: #ffffff;
     font-weight: 700;
     font-size: 32px;
@@ -194,16 +176,15 @@ $transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     margin-bottom: 12px;
 
     @include screen(tablet) {
-      width: 450px;
+      width: 375px;
       font-size: 44px;
       line-height: 1.18;
     }
 
     @include screen(desktop) {
-    }
-
-    &.default {
-      width: 200px;
+      width: 465px;
+      font-size: 64px;
+      line-height: 1.17;
     }
   }
 
@@ -212,18 +193,19 @@ $transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 14px;
     line-height: 1.14;
     color: $text-color-secondary;
-    width: 166px;
+    width: 150px;
     margin-bottom: 20px;
 
     @include screen(tablet) {
-      width: 295px;
+      width: 340px;
       margin-bottom: 28px;
     }
 
     @include screen(desktop) {
+      width: 380px;
     }
 
-    &--truncate {
+    &--trunc {
       width: 180px;
       display: -webkit-box;
       -webkit-line-clamp: 4;
@@ -237,17 +219,22 @@ $transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
       @include screen(desktop) {
       }
     }
+
+    &--add {
+      display: none;
+
+      @include screen(tablet) {
+        display: inline;
+      }
+    }
   }
 
-  &__nav {
+  &__btns {
     display: flex;
-    justify-content: space-between;
-
-    @include screen(tablet) {
-      width: 262px;
-    }
+    gap: 8px;
 
     @include screen(desktop) {
+      gap: 14px;
     }
   }
 
