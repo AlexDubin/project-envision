@@ -1,12 +1,18 @@
 <section class="section-catalog">
   <div class="container">
     <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
+      <div class="box">
+        <div class="input-div">
+          <input
+            class="form-input"
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            required
+          />
+          <span>Search</span>
+        </div>
+      </div>
       <button class="clear-btn" type="button">Clear</button>
       <button type="submit">Search</button>
     </form>

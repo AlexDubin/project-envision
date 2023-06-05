@@ -93,6 +93,7 @@ if (movieList) {
       .join('');
     initRatings();
   }
+  
   function initRatings() {
     console.log(4);
     const ratings = document.querySelectorAll('.rating');
