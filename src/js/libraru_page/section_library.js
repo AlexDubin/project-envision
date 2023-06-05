@@ -2,11 +2,11 @@ import data from '../genres.json';
 import customSelect from 'custom-select';
 import 'custom-select/build/custom-select.css';
 
+const genresSelectEl = document.getElementById('genres-select');
+
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  const genresSelectEl = document.getElementById('genres-select');
-
   populateGenresOptions(data.genres);
 
   customSelect(genresSelectEl);
