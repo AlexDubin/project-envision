@@ -85,7 +85,7 @@ function markupMovie(moviesToShow, genresObject) {
                     <div class="rating-value">${vote_average}</div>
                 </div>
               </div>
-        </li>`;
+        </li>`
       })
       .join('');
     initRatings();
