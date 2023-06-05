@@ -1,4 +1,5 @@
 import axios from 'axios';
+import genres from '../genres.json';
 
 const upcoming = document.querySelector('.upcoming');
 
@@ -6,39 +7,9 @@ const API_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2FhN2IzMjk5NmM0N2RhMTQxZWI1N2IwZTVjZTQ3NiIsInN1YiI6IjY0N2M5OTdkZTMyM2YzMDEyNzUyM2IzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Blrs7t4WoJ6-3sy6A_Vz3twkTCmEg9nM0JyuAHg88WM';
 const API_KEY = 'ccaa7b32996c47da141eb57b0e5ce476';
 
-// const options = {
-//   method: 'GET',
-//   url: 'https://api.themoviedb.org/3/movie/upcoming',
-//   params: { language: '', page: '1' },
-//   headers: {
-//     accept: 'application/json',
-//     Authorization:
-//       'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2FhN2IzMjk5NmM0N2RhMTQxZWI1N2IwZTVjZTQ3NiIsInN1YiI6IjY0N2M5OTdkZTMyM2YzMDEyNzUyM2IzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Blrs7t4WoJ6-3sy6A_Vz3twkTCmEg9nM0JyuAHg88WM',
-//   },
-// };
-
-// axios
-//   .request(options)
-//   .then(response => {
-//     console.log(response.data);
-//     console.log(response.data.results[0]);
-//     upcoming.innerHTML = `${response.data.results[0].overview}`;
-//   })
-//   .catch(error => {
-//     console.error(error);
-//   });
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
-}
-
 const BASE_URL = 'https://api.themoviedb.org/3/movie/upcoming';
 const options = {
   method: 'GET',
-  // url: 'https://api.themoviedb.org/3/movie/upcoming',
-  // params: { language: '', page: '1' },
   headers: {
     accept: 'application/json',
     Authorization:
@@ -64,10 +35,10 @@ getUpcomingMovies()
   .catch(err => console.log(err));
 
 function markupUpcomingMovies({ results }) {
-  console.log(results);
+  // console.log(results);
   const randomIndex = Math.floor(Math.random() * results.length);
-  console.log(randomIndex);
-  console.log(results[randomIndex]);
+  // console.log(randomIndex);
+  // console.log(results[randomIndex]);
   const {
     adult,
     backdrop_path,
@@ -85,12 +56,44 @@ function markupUpcomingMovies({ results }) {
     vote_count,
   } = results[randomIndex];
 
-  // console.log(results.release_date);
-  upcoming.innerHTML = title + ' sssssss      ' + overview;
-  // const randomIndex = [];
-  // while (randomIndexes.length < 3) {
-  //   const randomIndex = Math.floor(Math.random() * results.length);
-  //   if (!randomIndexes.includes(randomIndex)) {
-  //     randomIndexes.push(randomIndex);
-  //   }
+  upcoming.innerHTML = `<div class="container">
+  
+  <h2 class="title-weekly-trends">UPCOMING THIS MONTH</h2>
+  <div class="">
+    <div class="">
+    <img class="" src='https://image.tmdb.org/t/p/original${backdrop_path}' alt='${title}'>
+         </div>
+    <div class="">
+      <h3 class="">${title}</h3>
+      <ul class="list">
+        <li class="">
+          <div class="">
+            <p class="">Release date</p>
+            <p class="">${release_date}</p>
+          </div>
+          <div class="">
+            <p class="">Vote / Votes</p>
+            <p class="">
+              <span class="">${vote_average}</span> /
+              <span class="">${vote_count}</span>
+            </p>
+          </div>
+        </li>
+        <li class="">
+          <div class="">
+            <p class="">Popularity</p>
+            <p class="">${popularity}</p>
+          </div>
+          <div class="">
+            <p class="">Genre</p>
+            <p class="">${genre_ids}</p>
+          </div>
+        </li>
+      </ul>
+      <h4 class="">About</h4>
+      <p class="">${overview}</p>
+      <button class="xbutton" type="button" id="addToMyLibrary"><p>Add to my library</p></button>
+      </div>
+  </div>
+</div>`;
 }
