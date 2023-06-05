@@ -1,5 +1,7 @@
 import genres from '../genres.json';
 import axios from 'axios';
+import movieCardMarkup from '../markup/movieCardMarkup';
+import initRatings from '../utils/initRating';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const options = {
@@ -52,96 +54,9 @@ function createMarkupMovies({ results }, genresObject) {
   markupMovie(moviesToShow, genresObject);
 }
 
-function markupMovie(moviesToShow, genresObject) {
-  movieList.innerHTML = moviesToShow
-    .map(({ poster_path, title, vote_average, genre_ids, release_date }) => {
-      const genreNames = getGenres(genresObject, genre_ids);
-
-      return `<li class='item-movie-card'>
-              <img class='poster-movie-card' src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}'>
-              <div class='overlay-movie-card'></div>
-              <div class='info-movie-card'>
-                <h4 class='title-movie-card'>${title}</h4>
-                <div class='wrapper-movie-card'>
-                  <div class='genre-year-movie-card'>
-                    <p class='genre-movie-card span'>${genreNames}</p>
-                    <span class='divider-movie-card'>&#124</span>
-                    <p class='year-movie-card span'>${release_date.slice(
-                      0,
-                      4
-                    )}</p>
-                  </div>
-                    <div class="rating">
-                      <div class="rating-body">
-                        <div class="rating-active"></div>
-                        <div class="rating-items">
-                          <input type="radio" class="rating-item" value="1" name="rating" />
-                          <input type="radio" class="rating-item" value="2" name="rating" />
-                          <input type="radio" class="rating-item" value="3" name="rating" />
-                          <input type="radio" class="rating-item" value="4" name="rating" />
-                          <input type="radio" class="rating-item" value="5" name="rating" />
-                        </div>
-                      </div>
-                    <div class="rating-value">${vote_average}</div>
-                </div>
-              </div>
-        </li>`
-      })
-      .join('');
-    initRatings();
-  }
-  
-  function initRatings() {
-    console.log(4);
-    const ratings = document.querySelectorAll('.rating');
-    ratings.forEach(rating => {
-      initRating(rating);
-    });
-  }
-function initRating(rating) {
-  const ratingActive = rating.querySelector('.rating-active');
-  const ratingValue = rating.querySelector('.rating-value');
-  console.log(ratingValue, ratingActive);
-}
-
-
-
-function getGenres(genresObject, genre_ids) {
-  let genreNames = '';
-  const mainGenre = genresObject[genre_ids[0]];
-  const anotherGenre = genresObject[genre_ids[1]];
-
-  if (genre_ids.length > 0) {
-    if (mainGenre.length > 17) {
-      genreNames = mainGenre.split('');
-    }
-    if (mainGenre.length + anotherGenre.length > 17) {
-      genreNames = mainGenre;
-    } else {
-      genreNames = `${mainGenre}, ${anotherGenre}`;
-    }
-  }
-  return genreNames;
-}
-
-function initRatings() {
-  const ratings = document.querySelectorAll('.rating');
-  ratings.forEach(rating => {
-    initRating(rating);
-  });
-}
-function initRating(rating) {
-  const ratingActive = rating.querySelector('.rating-active');
-  const ratingValue = rating.querySelector('.rating-value');
-
-  if (ratingValue) {
-    setRatingActiveWidth(ratingActive, ratingValue.innerHTML);
-  }
-}
-
-function setRatingActiveWidth(ratingActive, index) {
-  const ratingActiveWidth = (index / 10) * 100;
-  ratingActive.style.width = `${ratingActiveWidth}%`;
+function markupMovie(moviesToShow) {
+  movieList.innerHTML = moviesToShow.map(movieCardMarkup).join('');
+  initRatings();
 }
 
 function getRandomMovieToShow(results) {
