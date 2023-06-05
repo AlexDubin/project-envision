@@ -11,11 +11,15 @@ const STORAGE_KEY = 'movies-library';
 */
 
 // Максимально простая версия
-// TODO: Сделать `movie` более конкретным
 /**
  * Saves movie object to localStorage
  * @param {Object} movie - movie to save
  * @param {number} movie.id - id of movie (Required)
+ * @param {string} movie.poster_path - path to movie poster
+ * @param {string} movie.title - title of movie
+ * @param {number} movie.vote_average - average vote of movie
+ * @param {Array} movie.genre_ids - array of movies genres
+ * @param {string} movie.release_date - release date of movie
  * @throws Will throw an error if movie already in library
  * @throws {SyntaxError} Can throw this error cause JSON
  */
