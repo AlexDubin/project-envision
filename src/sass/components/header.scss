@@ -2,8 +2,8 @@
 //---------------------HEADER------------------//
 .head-div{
     display: flex;
-    align-items: baseline;
-    padding: 12px 0px 12px 88px;
+    align-items: center;
+    padding: 10px 0px 10px 88px;
     margin-left: unset;
     }
     
@@ -17,13 +17,183 @@
     text-decoration: none;
     }
     
+    .mob-menu{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 204px;
+    height: 100%;
+    background: #171717;
+border-radius: 0px 8px 8px 0px;
+    }
+
+    .mob-container{
+        padding-top: 8px;
+        padding-left: 20px;
+    }
     
+
+    .is-hidden{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    }
+
+    .no-scroll{
+        overflow: hidden;
+      }
+
+      .menu-logo{
+        cursor: pointer;
+        margin-bottom: 40px;
+        
+      }
+
+      
+
+//-------------------MOBILE-------------------//
+@media screen and (min-width: 280px){
+
+    .mob-container{
+        padding-top: 8px;
+        padding-left: 20px;
+    }
+
+    .icon-button{
+        padding-left: 20px;
+    }
+    
+
+    .is-hidden{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    }
+
+    .no-scroll{
+        overflow: hidden;
+      }
+
+      .menu-logo{
+        cursor: pointer;
+        margin-bottom: 40px;
+        
+      }
+
+    .icon-logo{
+        height: 32px;
+        width: 32px;
+    }
+
+.menu-item:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+    .head-div{
+        display: flex;
+        align-items: center;
+        padding: 8px 0px;
+        margin-left: unset;
+        }
+
+.header-list{
+    display: none;
+}
+
+.head-logo{
+    display: none;
+}
+
+.paragraph-head{
+margin-left: 93px;    
+font-family: $font-family;
+font-style: normal;
+font-weight: $font-weight-medium;
+font-size: $font-size-caption;
+line-height: $font-size-tiny;
+display: flex;
+align-items: center;
+text-align: center;
+text-transform: uppercase;
+color: $light-grey-color;
+}
+
+.menu-link-one{
+width: 40px;
+height:$font-size-small;
+font-family: $font-family;
+font-style: normal;
+font-weight: $font-weight-regular;
+font-size: $font-size-tiny;
+line-height: $font-size-small;
+text-transform: uppercase;
+color: $white-color;
+}
+
+.menu-link-two{
+width: 61px;
+height: $font-size-small;
+font-family: $font-family;
+font-style: normal;
+font-weight: $font-weight-regular;
+font-size: $font-size-tiny;
+line-height: $font-size-small;
+text-transform: uppercase;
+color: $white-color;
+}
+
+.menu-link-three{
+width: 79px;
+height:$font-size-small;
+font-family: $font-family;
+font-style: normal;
+font-weight: $font-weight-regular;
+font-size: $font-size-tiny;
+line-height: $font-size-small;
+text-transform: uppercase;
+color: $white-color;
+}
+
+.menu-link-one:hover,
+.menu-link-one:focus,
+.menu-link-two:hover,
+.menu-link-two:focus,
+.menu-link-three:hover,
+.menu-link-three:focus{
+    color: $orange-color;
+    text-decoration: none;
+}
+
+}
+
+
+
+
     
     //-----------------TABLET------------------//
     
        @media screen and (min-width: 768px){
+
+        .no-scroll{
+            overflow: unset;
+        }
     
- 
+.mob-menu{
+    display: none;
+}
+
+        .icon-logo{
+            width: 40px;
+            height: 40px;
+        }
+
+        .head-div{
+            padding: 10px 0px 10px 88px;
+            }
+
+.paragraph-head{
+    display: none;
+}
     
         .header-list{
             display: flex;
@@ -37,13 +207,15 @@
     }
     
         .head-logo{
-            padding: 4px 0px 4px 36px;
+            margin-left: 9.5px;
+            padding: 4px 0px;
             font-family: $font-family;
             font-style: normal;
             font-weight: $font-weight-regular;
             font-size: $font-size-subbody;
             line-height: $font-size-subheader;
             color: $white-color;
+            display: block;
             }
     
     
