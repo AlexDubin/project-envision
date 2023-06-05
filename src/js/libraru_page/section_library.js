@@ -18,9 +18,3 @@ function populateGenresOptions(genres) {
     genresSelectEl.appendChild(optionEl);
   });
 }
-
-const year = 2003;
-const country = undefined;
-const yearParam = year ? `&year=${year}` : '';
-const countryParam = country ? `&region=${country}` : '';
-const params = `lang=en${yearParam}${countryParam}`;
