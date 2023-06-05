@@ -58,6 +58,7 @@
 
   #{&}__list {
     margin-bottom: 40px;
+    justify-content: start;
 
     @include media-query(mobile) {
       margin-bottom: 24px;
@@ -84,6 +85,7 @@
   @include custom-select(173px, 144px, 260px);
 
   .custom-select-container {
+    align-self: flex-start;
     margin-bottom: 16px;
 
     @include media-query(tablet) {
