@@ -24,7 +24,7 @@ const fetchTrendingMoviesByDay = async () => {
   }
 };
 
-const markupRandomTrendingMovie = () => {
+export const markupRandomTrendingMovie = () => {
   let markup = '';
 
   fetchTrendingMoviesByDay()
@@ -73,7 +73,7 @@ const markupRandomTrendingMovie = () => {
       <div class="hero__wrap">
         <div class="container">
           <div class="hero__inner">
-            <h1 class="hero__title">Let’s Make Your Own Cinema</h1>
+            <h1 class="hero__title hero__title--default">Let’s Make Your Own Cinema</h1>
             <p class="hero__text">
               Is a guide to creating a personalized movie theater experience.
               You'll need a projector, screen, and speakers. 
@@ -81,7 +81,7 @@ const markupRandomTrendingMovie = () => {
             </p>
             
             <div class="hero__btns">
-              <a href="./library.html">
+              <a href="./catalog.html">
                 <button class="hero__btn hero__btn--primary">
                   Get Started
                 </button>
