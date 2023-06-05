@@ -6,7 +6,6 @@ import { Notify } from 'notiflix';
 import { loadMovies } from '../api/libraryAPI';
 import initRatings from '../utils/initRating';
 import axios from 'axios';
-import { fn } from 'jquery';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const options = {
