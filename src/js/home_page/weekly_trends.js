@@ -85,8 +85,6 @@ function markupMovie(moviesToShow, genresObject) {
                     <div class="rating-value">${vote_average}</div>
                 </div>
               </div>
-            </div>
-          </div>
         </li>`;
       })
       .join('');
@@ -105,6 +103,7 @@ function initRating(rating) {
   const ratingValue = rating.querySelector('.rating-value');
   console.log(ratingValue, ratingActive);
 }
+
 
 
 function getGenres(genresObject, genre_ids) {
