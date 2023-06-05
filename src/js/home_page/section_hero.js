@@ -10,13 +10,12 @@ const options = {
   },
 };
 
-const poster = document.querySelector('.hero__wrap');
 const heroContainer = document.querySelector('.hero');
 
 const fetchTrendingMoviesByDay = async () => {
   try {
     const response = await axios.get(
-      `${BASE_URL}/rending/movie/day?language=en-US`,
+      `${BASE_URL}/trending/movie/day?language=en-US`,
       options
     );
     return response.data;
@@ -30,77 +29,69 @@ const markupRandomTrendingMovie = () => {
 
   fetchTrendingMoviesByDay()
     .then(({ results }) => {
-      // heroContainer.classList.remove('hero--bg');
-      const randomNum = Math.floor(Math.random() * 20) + 0;
-
       let posterUrl = '';
-      console.log(results[randomNum]);
-      const { title, overview, poster_path, backdrop_path, vote_average } =
+      const randomNum = Math.floor(Math.random() * 20) + 0;
+      const { id, title, overview, poster_path, backdrop_path, vote_average } =
         results[randomNum];
       const ratingValue = vote_average * 10;
 
-      window.innerWidth > 768
+      window.innerWidth > 320
         ? (posterUrl = `https://image.tmdb.org/t/p/original/${backdrop_path}`)
-        : (posterUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`);
+        : (posterUrl = `https://image.tmdb.org/t/p/w400/${poster_path}`);
 
       markup = `
-      <div class="hero__thumb" style="background: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(${posterUrl}); background-size: cover; background-repeat: no-repeat;">
-        
-
-        <div class="hero__inner">
-          <div class="hero__content">
-            <h1 class="hero__title">${title}</h1>
-            <div class="rating">
-              <div class="rating__body">
-                <div class="rating__active" style="width: ${ratingValue}%;"></div>
-                <div class="rating__items">
-                  <input type="radio" class="rating__item" value="1" name="rating" />
-                  <input type="radio" class="rating__item" value="2" name="rating" />
-                  <input type="radio" class="rating__item" value="3" name="rating" />
-                  <input type="radio" class="rating__item" value="4" name="rating" />
-                  <input type="radio" class="rating__item" value="5" name="rating" />
+        <div class="hero__wrap" style="background: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(${posterUrl}); background-size: cover; background-repeat: no-repeat;">
+          <div class="container">
+            <div class="hero__inner" >
+              <h1 class="hero__title">${title}</h1>
+              <div class="rating">
+                <div class="rating__body">
+                  <div class="rating__active" style="width: ${ratingValue}%;"></div>
+                  <div class="rating__items">
+                    <input type="radio" class="rating__item" value="1" name="rating" />
+                    <input type="radio" class="rating__item" value="2" name="rating" />
+                    <input type="radio" class="rating__item" value="3" name="rating" />
+                    <input type="radio" class="rating__item" value="4" name="rating" />
+                    <input type="radio" class="rating__item" value="5" name="rating" />
+                  </div>
                 </div>
               </div>
-            </div>
-            <p class="hero__text hero__text--truncate">
-              ${overview}
-            </p>
-            <div class="hero__nav">
-              <button class="hero__btn hero__btn--primary">Watch trailer</button>
-              <button class="hero__btn hero__btn--secondary">More details</button>
+              <p class="hero__text hero__text--trunc">
+                ${overview}
+              </p>
+              <div class="hero__btns" id="${id}">
+                <button class="hero__btn hero__btn--primary">Watch trailer</button>
+                <button class="hero__btn hero__btn--secondary">More details</button>
+              </div>
             </div>
           </div>
-        </div>
-
-      </div>`;
-      poster.innerHTML = markup;
+        </div>`;
     })
     .catch(() => {
       heroContainer.classList.toggle('hero--bg');
       markup = `
-      <div class="hero__thumb hero__thumb--bg">
-        <div class="hero__inner">
-          <div class="hero__content">
-            <h1 class="hero__title default">Let’s Make Your Own Cinema</h1>
+      <div class="hero__wrap">
+        <div class="container">
+          <div class="hero__inner">
+            <h1 class="hero__title">Let’s Make Your Own Cinema</h1>
             <p class="hero__text">
               Is a guide to creating a personalized movie theater experience.
-              You'll need a projector, screen, and speakers.
+              You'll need a projector, screen, and speakers. 
+              <span class="hero__text--add">Decorate your space, choose your films, and stock up on snacks for the full experience.</span>
             </p>
-            <div class="hero__nav">
+            
+            <div class="hero__btns">
               <a href="./library.html">
                 <button class="hero__btn hero__btn--primary">
                   Get Started
                 </button>
               </a>
-              <button class="hero__btn-secondary vhidden">More details</button>
             </div>
           </div>
         </div>
-
-        <div class="hero__overlay"></div>
       </div>`;
-      poster.innerHTML = markup;
-    });
+    })
+    .finally(() => (heroContainer.innerHTML = markup));
 };
 
 markupRandomTrendingMovie();

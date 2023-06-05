@@ -7,10 +7,6 @@
     ),
     url('../img/hero/lib-poster-mobile@1x.jpg');
   background-size: cover;
-
-  // background-size: 320px 380px;
-  // background-position: center;
-
   background-repeat: no-repeat;
 
   @media (min-device-pixel-ratio: 2),
@@ -24,8 +20,7 @@
       url('../img/hero/lib-poster-mobile@2x.jpg');
   }
 
-  @include screen(tablet) {
-    height: 432px;
+  @include screen(mobile) {
     background-image: linear-gradient(
         79.49deg,
         #111111 34.1%,
@@ -42,6 +37,27 @@
           rgba(17, 17, 17, 0) 64.67%
         ),
         url('../img/hero/lib-poster-tablet@2x.jpg');
+    }
+  }
+
+  @include screen(tablet) {
+    height: 432px;
+    background-image: linear-gradient(
+        79.49deg,
+        #111111 34.1%,
+        rgba(17, 17, 17, 0) 64.67%
+      ),
+      url('../img/hero/lib-poster-desktop@1x.jpg');
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          79.49deg,
+          #111111 34.1%,
+          rgba(17, 17, 17, 0) 64.67%
+        ),
+        url('../img/hero/lib-poster-desktop@2x.jpg');
     }
   }
 
