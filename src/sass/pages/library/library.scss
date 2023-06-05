@@ -1,4 +1,5 @@
 .library {
+  font-family: $font-family;
 }
 
 @mixin flex-center-column {
@@ -11,7 +12,6 @@
   @include flex-center-column();
 
   #{&}__text {
-    font-family: $font-family;
     text-align: center;
     color: $white-color;
 
@@ -39,11 +39,6 @@
     @include standard-orange-button();
   }
 
-  // TODO: Вынести это в отдельный общий класс
-  &.is-hidden {
-    display: none;
-  }
-
   @include media-query(mobile) {
     padding-top: 44px;
     padding-bottom: 42px;
@@ -62,15 +57,15 @@
   @include flex-center-column();
 
   #{&}__list {
+    margin-bottom: 40px;
+
+    @include media-query(mobile) {
+      margin-bottom: 24px;
+    }
   }
 
   #{&}__load-more {
     @include standard-orange-button();
-  }
-
-  // TODO: Вынести это в отдельный общий класс
-  &.is-hidden {
-    display: none;
   }
 
   @include media-query(mobile) {
@@ -87,4 +82,16 @@
   }
 
   @include custom-select(173px, 144px, 260px);
+
+  .custom-select-container {
+    margin-bottom: 16px;
+
+    @include media-query(tablet) {
+      margin-bottom: 36px;
+    }
+
+    @include media-query(desktop) {
+      margin-bottom: 48px;
+    }
+  }
 }

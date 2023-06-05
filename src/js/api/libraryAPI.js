@@ -11,7 +11,6 @@ const STORAGE_KEY = 'movies-library';
 */
 
 // Максимально простая версия
-// TODO: Сделать `movie` более конкретным
 /**
  * Saves movie object to localStorage
  * @param {Object} movie - movie to save
@@ -37,6 +36,9 @@ export function saveMovie(movie) {
  * @throws {SyntaxError} Can throw this error cause JSON
  */
 export function removeMovie(id) {
+  const movieCardToRemove = document.querySelector(`[data-id="${id}"]`);
+  movieCardToRemove?.remove();
+
   let movies = loadMovies();
 
   movies = movies.filter(movie => movie.id !== id);

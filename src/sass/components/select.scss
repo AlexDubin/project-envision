@@ -21,6 +21,7 @@
 
       transition: max-height $transition * 1.5 $transition-cubic-bezier,
         overflow-y 0.1s 0.5s;
+      z-index: 15;
     }
 
     .custom-select-opener {
