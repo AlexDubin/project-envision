@@ -26,31 +26,29 @@ export default ({
   }
 
   return `<li class='item-movie-card' data-genres='${genre_ids}' data-id='${id}'>
-    <img class='poster-movie-card' src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}'>
-    <div class='overlay-movie-card'></div>
-    <div class='info-movie-card'>
-      <h4 class='title-movie-card'>${title}</h4>
-      <div class='wrapper-movie-card'>
-        <div class='genre-year-movie-card'>
-          <p class='genre-movie-card span'>${genreNames}</p>
-          <span class='divider-movie-card'>&#124</span>
-          <p class='year-movie-card span'>${release_date.slice(0, 4)}</p>
-        </div>
-        <div class="form-item">
-          <div class="rating">
-            <div class="rating-body">
-              <div class="rating-active"></div>
-              <div class="rating-items">
-                <input type="radio" class="rating-item" value="1" name="rating" />
-                <input type="radio" class="rating-item" value="2" name="rating" />
-                <input type="radio" class="rating-item" value="3" name="rating" />
-                <input type="radio" class="rating-item" value="4" name="rating" />
-                <input type="radio" class="rating-item" value="5" name="rating" />
-              </div>
-            </div>
-          <div class="rating-value">${vote_average}</div>
-        </div>
+  <img class='poster-movie-card' src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}'>
+  <div class='overlay-movie-card'></div>
+  <div class='info-movie-card'>
+    <h4 class='title-movie-card'>${title}</h4>
+    <div class='wrapper-movie-card'>
+      <div class='genre-year-movie-card'>
+        <p class='genre-movie-card span'>${genreNames}</p>
+        <span class='divider-movie-card'>&#124</span>
+        <p class='year-movie-card span'>${release_date.slice(0, 4)}</p>
       </div>
+        <div class="rating">
+          <div class="rating-body">
+            <div class="rating-active"></div>
+            <div class="rating-items">
+              <input type="radio" class="rating-item" value="1" name="rating" />
+              <input type="radio" class="rating-item" value="2" name="rating" />
+              <input type="radio" class="rating-item" value="3" name="rating" />
+              <input type="radio" class="rating-item" value="4" name="rating" />
+              <input type="radio" class="rating-item" value="5" name="rating" />
+            </div>
+          </div>
+        <div class="rating-value">${vote_average}</div>
     </div>
-  </li>`;
+  </div>
+</li>`;
 };
