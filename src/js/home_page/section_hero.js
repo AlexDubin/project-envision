@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { onTrailerBtnClick } from '../modals/modal_trailer.js';
+
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 const options = {
@@ -60,7 +62,7 @@ export const markupRandomTrendingMovie = () => {
                 ${overview}
               </p>
               <div class="hero__btns" id="${id}">
-                <button class="hero__btn hero__btn--primary">Watch trailer</button>
+              <button id="watch-trailer" class="hero__btn hero__btn--primary hero__btn--watch-trailer" data-movie-id="${id}">Watch trailer</button>
                 <button class="hero__btn hero__btn--secondary">More details</button>
               </div>
             </div>
@@ -93,5 +95,12 @@ export const markupRandomTrendingMovie = () => {
     })
     .finally(() => (heroContainer.innerHTML = markup));
 };
+
+const trailerBtn = document.getElementById('watch-trailer');
+if (trailerBtn) {
+  trailerBtn.addEventListener('click', event => {
+    onTrailerBtnClick(event);
+  });
+}
 
 markupRandomTrendingMovie();
