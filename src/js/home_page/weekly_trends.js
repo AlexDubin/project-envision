@@ -101,17 +101,12 @@ function markupMovie(moviesToShow, genresObject) {
       initRating(rating);
     });
   }
-  function initRating(rating) {
-    const ratingActive = rating.querySelector('.rating-active');
-    const ratingValue = rating.querySelector('.rating-value');
-    console.log(ratingValue, ratingActive);
-=======
-            </li>`;
-    })
-    .join('');
-  initRatings();
+function initRating(rating) {
+  const ratingActive = rating.querySelector('.rating-active');
+  const ratingValue = rating.querySelector('.rating-value');
+  console.log(ratingValue, ratingActive);
 }
->>>>>>> Stashed changes
+
 
 function getGenres(genresObject, genre_ids) {
   let genreNames = '';
