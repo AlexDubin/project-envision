@@ -6,6 +6,7 @@ export default ({
   vote_average,
   genre_ids,
   release_date,
+  id,
 }) => {
   const genresObject = {};
   let genreNames = '';
@@ -24,7 +25,7 @@ export default ({
     }
   }
 
-  return `<li class='item-movie-card' data-genres='${genre_ids}'>
+  return `<li class='item-movie-card' data-genres='${genre_ids}' data-id='${id}'>
     <img class='poster-movie-card' src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}'>
     <div class='overlay-movie-card'></div>
     <div class='info-movie-card'>

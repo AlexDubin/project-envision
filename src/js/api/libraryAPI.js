@@ -36,6 +36,9 @@ export function saveMovie(movie) {
  * @throws {SyntaxError} Can throw this error cause JSON
  */
 export function removeMovie(id) {
+  const movieCardToRemove = document.querySelector(`[data-id="${id}"]`);
+  movieCardToRemove?.remove();
+
   let movies = loadMovies();
 
   movies = movies.filter(movie => movie.id !== id);

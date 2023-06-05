@@ -107,7 +107,7 @@ async function fetchMovie({ id }) {
   } = responce;
   const genre_ids = genres.map(({ id }) => id);
 
-  return { genre_ids, poster_path, title, vote_average, release_date };
+  return { genre_ids, poster_path, title, vote_average, release_date, id };
 }
 
 async function onLoadMore() {
