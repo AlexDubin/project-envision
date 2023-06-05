@@ -41,13 +41,7 @@ function handlerMoviesWeek(genresObject) {
 }
 function createMarkupMovies({ results }, genresObject) {
   const randomIndexes = getRandomMovieToShow(results);
-  // const randomIndexes = [];
-  // while (randomIndexes.length < 3) {
-  //   const randomIndex = Math.floor(Math.random() * results.length);
-  //   if (!randomIndexes.includes(randomIndex)) {
-  //     randomIndexes.push(randomIndex);
-  //   }
-  // }
+
   const moviesToShow = randomIndexes.map(index => results[index]);
   markupMovie(moviesToShow, genresObject);
 }
