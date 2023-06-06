@@ -1,12 +1,12 @@
 import axios from 'axios';
 import genres from '../genres.json';
+// console.log(genres);
 
+let genreNames = '';
 const upcoming = document.querySelector('.upcoming');
-
 const API_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2FhN2IzMjk5NmM0N2RhMTQxZWI1N2IwZTVjZTQ3NiIsInN1YiI6IjY0N2M5OTdkZTMyM2YzMDEyNzUyM2IzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Blrs7t4WoJ6-3sy6A_Vz3twkTCmEg9nM0JyuAHg88WM';
 const API_KEY = 'ccaa7b32996c47da141eb57b0e5ce476';
-
 const BASE_URL = 'https://api.themoviedb.org/3/movie/upcoming';
 const options = {
   method: 'GET',
@@ -53,8 +53,9 @@ function markupUpcomingMovies({ results }) {
     vote_count,
   } = results[randomIndex];
 
-  upcoming.innerHTML = 
-  `<div class="container">
+  convertGenreIds(genre_ids);
+
+  upcoming.innerHTML = `<div class="container">
   <h2 class="upcoming__section-title">UPCOMING THIS MONTH</h2>
   <div class="upcoming__block">
     <div class="upcoming__poster">
@@ -87,7 +88,7 @@ function markupUpcomingMovies({ results }) {
           </div>
           <div class="upcoming__genre">
             <p class="upcoming__genre--title">Genre</p>
-            <p class="upcoming__genre--value">${genre_ids}</p>
+            <p class="upcoming__genre--value">${genreNames}</p>
           </div>
         </li>
       </ul>
@@ -99,4 +100,30 @@ function markupUpcomingMovies({ results }) {
     </div>
   </div>
 </div>`;
+connectLibraryBtn();
+}
+
+function connectLibraryBtn() {
+  const upcomingBtn = document.querySelector('#addToMyLibrary');
+  // upcomingBtn.addEventListener('click', functionAddToMyLibrary);
+  console.log(upcomingBtn);
+}
+
+function convertGenreIds(genre_ids) {
+  const genresObject = {};
+
+  genres.genres.forEach(genre => {
+    genresObject[genre.id] = genre.name;
+  });
+
+  if (genre_ids.length > 0) {
+    if (genre_ids.length === 1 || genre_ids.join(', ').length <= 20) {
+      genreNames = genresObject[genre_ids[0]];
+    } else {
+      genreNames = `${genresObject[genre_ids[0]]}, ${
+        genresObject[genre_ids[1]]
+      }`;
+    }
+  }
+  // console.log(genreNames);
 }
