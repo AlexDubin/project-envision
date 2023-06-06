@@ -1,4 +1,6 @@
 const STORAGE_KEY = 'movies-library';
+const emptyLibEl = document.getElementById('lib-empty');
+const libCatalogEl = document.getElementById('lib-catalog');
 
 /*
 Возможности:
@@ -42,6 +44,12 @@ export function removeMovie(id) {
   let movies = loadMovies();
 
   movies = movies.filter(movie => movie.id !== id);
+
+  if (movies.length === 0) {
+    emptyLibEl?.classList.remove('is-hidden');
+    libCatalogEl?.classList.add('is-hidden');
+  }
+
   saveMovies(movies);
 }
 
