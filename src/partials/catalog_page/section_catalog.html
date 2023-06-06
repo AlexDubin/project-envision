@@ -1,7 +1,7 @@
 <section class="section-catalog">
   <div class="container">
     <form class="search-form" id="search-form">
-      <div class="box">
+      <div class="box-search">
         <div class="input-div">
           <input
             class="form-input"
@@ -9,12 +9,17 @@
             name="searchQuery"
             autocomplete="off"
             required
+            placeholder
           />
           <span>Search</span>
         </div>
       </div>
-      <button class="clear-btn" type="button">Clear</button>
-      <button type="submit">Search</button>
+      <button class="clear-btn" type="reset"></button>
+      <button type="submit">
+        <svg class="search-svg-btn" width="18" height="18">
+          <use href="/src/img/icons.svg#icon-search"></use>
+        </svg>
+      </button>
     </form>
     <ul id="anchor" class="gallery">
       <!-- Карточки изображений -->
