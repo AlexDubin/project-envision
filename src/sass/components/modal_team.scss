@@ -4,6 +4,13 @@
   height: 11px;
   width: 11px;
   margin: 0;
+  transition-property: stroke;
+  transition-duration: $transition;
+  transition-timing-function: $transition-cubic-bezier;
+}
+.close-icon:hover,
+.close-icon:focus {
+  stroke: $orange-color;
 }
 .logo-icon {
   margin-right: 8px;
@@ -28,20 +35,24 @@
   height: 24px;
   margin-bottom: 4px;
   margin-left: auto;
-  background-color: $dark-grey-color;
 }
 .modal-team-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
+
 .team-img {
+  transition: transform 0.3s ease;
   width: 264px;
-  height: 300px;
+  height: 260px;
+}
+.team-img:hover {
+  transform: scale(1.2); /* Збільшити масштаб зображення */
 }
 .backdrop {
   background-color: rgba(35, 35, 42, 0.5);
-
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
@@ -52,7 +63,7 @@
   transition-timing-function: linear;
 }
 .footer-modal {
-  z-index: 30;
+  z-index: 999;
   position: absolute;
   height: 100vh;
   overflow: scroll;
@@ -61,7 +72,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 266px;
-  padding: 24px 24px 24px 24px;
+  padding: 24px 24px 40px 24px;
   background-color: $black-color;
   transform: translate(-50%, -50%);
   transition-property: transform;
@@ -112,6 +123,7 @@
 @media screen and (min-width: 768px) {
   .footer-modal {
     width: 640px;
+    padding-bottom: 60px;
   }
   .modal-team-list {
     display: flex;
@@ -131,6 +143,7 @@
 @media screen and (min-width: 1280px) {
   .footer-modal {
     width: 1280px;
+    padding-bottom: 60px;
   }
   .modal-team-close {
     // margin-right: 45px;
