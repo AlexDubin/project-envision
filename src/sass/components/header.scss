@@ -49,10 +49,60 @@ border-radius: 0px 8px 8px 0px;
         
       }
 
+      .switcher {
+        &__checkbox {
+          opacity: 0;
+          position: absolute;
+        }
+      
+        &__label {
+          background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+          border-radius: 194px;
+          width: 44px;
+          height: 18px;
+          padding: 4px;
+          position: relative;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      
+          & .ball {
+            background-color: #fff;
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            left: 3px;
+            top: 2px;
+            border-radius: 50%;
+            transition: transform $transition, $transition-cubic-bezier;
+          }
+        }
+      
+        & svg {
+          width: 12px;
+          height: 12px;
+        }
+      }
+      
+      .switcher__checkbox:checked + .switcher__label .ball {
+        transform: translateX(24px);
+      }
+
+
       
 
 //-------------------MOBILE-------------------//
 @media screen and (min-width: 280px){
+
+    .switcher{
+        margin-left: 78px;
+    }
+
+    .head-next{
+        cursor: pointer;
+        padding-left: 20px;
+    }
 
     .mob-container{
         padding-top: 8px;
@@ -176,9 +226,13 @@ color: $white-color;
     
        @media screen and (min-width: 768px){
 
+        .switcher{
+            margin-left: 169px;
+        }
+
         .head-next{
             display: flex;
-            cursor: pointer;
+            padding-left: unset;
         }
 
         .no-scroll{
@@ -278,6 +332,10 @@ color: $white-color;
        //-----------------DEKSTOP------------------//
     
        @media screen and (min-width: 1280px){
+
+        .switcher{
+            margin-left: 417px;
+        }
                
         .header-list{
             gap: 40px;

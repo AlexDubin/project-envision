@@ -14,4 +14,10 @@
       refs.body.classList.toggle("no-scroll");
     }
   })();
+
+
+const switcher = document.getElementById('switcher');
+switcher.addEventListener('change', () => {
+document.body.classList.toggle('light');
+});
   
