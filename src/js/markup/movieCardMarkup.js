@@ -25,7 +25,7 @@ export default ({
     }
   }
 
-  return `<li class='item-movie-card' data-genres='${genre_ids}' data-id='${id}'>
+  return `<li class='item-movie-card' data-genres='${genre_ids}' data-id='${id}'><button class="button" data-action="open-modal">
   <img class='poster-movie-card' src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}'>
   <div class='overlay-movie-card'></div>
   <div class='info-movie-card'>
@@ -50,5 +50,6 @@ export default ({
         <div class="rating-value">${vote_average}</div>
     </div>
   </div>
+<button>
 </li>`;
 };
