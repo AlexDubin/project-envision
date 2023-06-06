@@ -2,6 +2,9 @@ import Notiflix from 'notiflix';
 import Pagination from 'tui-pagination'; 
 import axios from 'axios';
 
+import movieCardMarkup from '../markup/movieCardMarkup';
+import initRatings from '../utils/initRating';
+
 const URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NWQzY2MzZDA1Nzk2OGE0YWJlZGY1MzVkOGNiZDIwMiIsInN1YiI6IjY0N2EzNjI3Y2FlZjJkMDExOWJmMDc3ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vnk9Mx4FCU9-aMju8ubwqMt0iiZWjWxQo-T3KlsNAWg';
 const base_img_url = 'https://image.tmdb.org/t/p/original';
@@ -73,7 +76,7 @@ function buildGallery(movies) {
         </li>`;
     })
     .join("");
-    gallery.innerHTML = movies;
+    
 }
 
 async function galleryOfWeek() {
