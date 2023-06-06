@@ -161,6 +161,10 @@ border-radius: 0px 8px 8px 0px;
 //-------------------MOBILE-------------------//
 @media screen and (min-width: 280px){
 
+  .header__theme-switcher{
+    margin-left: 78px;
+  }
+
     .head-next{
         padding-left: 20px;
         cursor: pointer;
@@ -288,6 +292,10 @@ color: $white-color;
     
        @media screen and (min-width: 768px){
 
+        .header__theme-switcher{
+          margin-left: 169px;
+        }
+
         .head-next{
             display: flex;
             padding-left: unset;
@@ -390,6 +398,10 @@ color: $white-color;
        //-----------------DEKSTOP------------------//
     
        @media screen and (min-width: 1280px){
+
+        .header__theme-switcher{
+          margin-left: 417px;
+        }
                
         .header-list{
             gap: 40px;
