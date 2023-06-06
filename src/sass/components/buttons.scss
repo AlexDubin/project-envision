@@ -48,7 +48,7 @@
   }
 }
 
-@mixin standard-orange-button {
+@mixin standard-orange-button($desktop-font-size, $desktop-line-height) {
   padding: 11px 23px;
   border-radius: 74px;
   background: linear-gradient(
@@ -85,7 +85,7 @@
   }
 
   @include media-query(desktop) {
-    font-size: 1.125rem;
-    line-height: 156%;
+    font-size: $desktop-font-size;
+    line-height: $desktop-line-height;
   }
 }
