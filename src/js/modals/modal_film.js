@@ -8,16 +8,14 @@ const API_TOKEN =
 // Отримує Id та повертає промікс з цим фільмом
 
 function getMovieDetails(movieId) {
-  const response = axios.get(
-    `${BASE_URL}movie/${movieId}?api_key=${API_KEY}`
-  );
+  const response = axios.get(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}`);
   return response.data;
 }
 
-const filmCards = document.querySelector('.gallery');//ul з каталогу
-const modBackdrop = document.querySelector('.modal-backdrop');//div мій
-const closeBtn = document.querySelector('.modal__close-btn');//моя кнопка
-const modalListRef = document.querySelector('.cards-film');//ul моє з розмітки
+const filmCards = document.querySelector('.gallery'); //ul з каталогу
+const modBackdrop = document.querySelector('.modal-backdrop'); //div мій
+const closeBtn = document.querySelector('.modal__close-btn'); //моя кнопка
+const modalListRef = document.querySelector('.cards-film'); //ul моє з розмітки
 
 const STORAGE_KEY = 'movies-library';
 
@@ -33,7 +31,7 @@ export function onOpenModal(event) {
     return;
   }
 
- // GET ID
+  // GET ID
   const movieId = getParentalEl.dataset.id;
 
   loadIntoModal(movieId);
@@ -72,10 +70,10 @@ function onEscKeyPress(event) {
 //   const library = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
 //   library.push(data);
-//   localStorage.setItem(STORAGE_KEY, JSON.stringify(library)); 
+//   localStorage.setItem(STORAGE_KEY, JSON.stringify(library));
 // }
 
-// LOAD CARD 
+// LOAD CARD
 // export async function loadIntoModal(idMovie) {
 //   const library = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
@@ -137,8 +135,8 @@ function onEscKeyPress(event) {
 //   return `<li class="film--add" data-id="${id}">
 //   <div class="film-add__wrap">
 //     <img class="film-add__img"
-//         src="${poster_path}" 
-//         alt="${original_title}" 
+//         src="${poster_path}"
+//         alt="${original_title}"
 //         loading="lazy" />
 //   </div>
 //   <div class="film-add__desc">
