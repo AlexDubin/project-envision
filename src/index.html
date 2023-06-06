@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html data-theme="dark">
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
@@ -11,6 +11,15 @@
     <title>Home page</title>
 
     <!-- Normalize -->
+
+    <script>
+      let localS = localStorage.getItem('theme');
+
+      if (localS === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    </script>
+
 
     <link
       rel="stylesheet"

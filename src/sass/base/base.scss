@@ -4,8 +4,9 @@ html {
     box-sizing: border-box;
 }
 
-body {
-    background-color: $black-color;
+body { 
+     background-color: var(--page-bgc);
+    animation:(background-color);
     font-family: 'Roboto';
     &.modal-open {
             overflow: hidden;
