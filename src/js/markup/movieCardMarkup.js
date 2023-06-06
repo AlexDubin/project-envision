@@ -1,5 +1,5 @@
 import genres from '../genres.json';
-
+// ---to do import
 export default ({
   poster_path,
   title,
@@ -24,9 +24,12 @@ export default ({
       }`;
     }
   }
-
-  return `<li class='item-movie-card' data-genres='${genre_ids}' data-id='${id}'><button class="button" data-action="open-modal">
-  <img
+  let imageMovie = '';
+  if (poster_path === null) {
+    // ---to do src
+    imageMovie = `<img  class='poster-movie-card' src='' alt='default poster'>`;
+  } else {
+    imageMovie = `  <img
   class='poster-movie-card'
   src='https://image.tmdb.org/t/p/original${poster_path}'
   srcset='https://image.tmdb.org/t/p/w342${poster_path} 342w,
@@ -40,7 +43,11 @@ export default ({
   height='574'
   alt='${title} poster'
   loading='lazy'
->
+>`;
+  }
+
+  return `<li class='item-movie-card' data-genres='${genre_ids}' data-id='${id}'>
+  <button class="button" data-action="open-modal">${imageMovie}
   <div class='overlay-movie-card'></div>
   <div class='info-movie-card'>
     <h4 class='title-movie-card'>${title}</h4>
