@@ -1,26 +1,26 @@
 // -----mobile
 .weekly-trends {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  padding-left: 20px;
-  padding-right: 20px;
-  color: white;
+  font-family: $font-family, $font-primary;
+  font-weight: $font-weight-medium;
+  padding-top: 40px;
+  padding-bottom: 32px;
+  color: $white-color;
 }
 
 .wrapper-weekly-trends {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 40px;
+  font-size: 16px;
+  line-height: 1.18;
+
   margin-bottom: 24px;
 }
 .title-weekly-trends {
-  font-size: 16px;
-  line-height: 1.18;
-  color: white;
+  color: $white-color;
 }
 .link-weekly-trends {
-  color: #f87719;
+  color: $orange-color;
 }
 
 // -------cards
@@ -44,16 +44,18 @@
   z-index: 20;
   bottom: 0;
   left: 0;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 12px;
+  padding-right: 10px;
+  padding-bottom: 10px;
   font-size: 12px;
   line-height: 1.6;
   width: 100%;
 }
 
 .title-movie-card {
+  text-align: left;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $white-color;
   margin-top: 0;
   margin-bottom: 12px;
 }
@@ -69,25 +71,21 @@
 }
 .wrapper-movie-card {
   display: flex;
-  gap: 12px;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  color: #b7b7b7;
+  color: $light-grey-color;
 }
 
 .genre-year-movie-card {
   display: flex;
   align-items: center;
-  max-width: 125px;
 }
 .divider-movie-card {
   margin: 0 5px;
-  color: #b7b7b7;
+  color: $light-grey-color;
 }
 
 .genre-movie-card {
-  max-width: 100px;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -158,10 +156,15 @@
 }
 // --------tablet-------
 @media screen and (min-width: 768px) {
-  .title-weekly-trends {
+  .weekly-trends {
+    padding-top: 52px;
+    padding-bottom: 44px;
+  }
+  .wrapper-weekly-trends {
     font-size: 24px;
     line-height: 1.16;
   }
+
   .list-movie-card {
     column-gap: 16px;
   }
@@ -171,6 +174,7 @@
   }
   .info-movie-card {
     line-height: 1.5;
+    padding-bottom: 12px;
   }
 
   .rating {
@@ -179,7 +183,12 @@
 }
 // --------desktop-------
 @media screen and (min-width: 1280px) {
-  .title-weekly-trends {
+  .weekly-trends {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+  .wrapper-weekly-trends {
+    margin-bottom: 28px;
     font-size: 28px;
     line-height: 1.17;
   }
@@ -194,6 +203,9 @@
   .info-movie-card {
     font-size: 20px;
     line-height: 1.15;
+    padding-left: 20px;
+    padding-right: 18px;
+    padding-bottom: 20px;
   }
   .rating {
     font-size: 17.5px;
