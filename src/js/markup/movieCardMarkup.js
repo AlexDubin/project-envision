@@ -26,7 +26,21 @@ export default ({
   }
 
   return `<li class='item-movie-card' data-genres='${genre_ids}' data-id='${id}'><button class="button" data-action="open-modal">
-  <img class='poster-movie-card' src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}'>
+  <img
+  class='poster-movie-card'
+  src='https://image.tmdb.org/t/p/original${poster_path}'
+  srcset='https://image.tmdb.org/t/p/w342${poster_path} 342w,
+  https://image.tmdb.org/t/p/w500${poster_path} 500w,
+  https://image.tmdb.org/t/p/w780${poster_path} 780w,
+  https://image.tmdb.org/t/p/original${poster_path} 1500w'
+  sizes='(max-width:767px) 280px,
+  (max-width:1279px) 224px,
+  395px'
+  width='395'
+  height='574'
+  alt='${title} poster'
+  loading='lazy'
+>
   <div class='overlay-movie-card'></div>
   <div class='info-movie-card'>
     <h4 class='title-movie-card'>${title}</h4>
