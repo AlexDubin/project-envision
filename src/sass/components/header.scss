@@ -20,7 +20,7 @@
     .mob-menu{
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 999;
     width: 204px;
     height: 100%;
     background: #171717;
@@ -116,7 +116,9 @@ align-items: center;
 text-align: center;
 text-transform: uppercase;
 color: $light-grey-color;
+cursor: pointer;
 }
+
 
 .menu-link-one{
 width: 40px;
@@ -173,6 +175,11 @@ color: $white-color;
     //-----------------TABLET------------------//
     
        @media screen and (min-width: 768px){
+
+        .head-next{
+            display: flex;
+            cursor: pointer;
+        }
 
         .no-scroll{
             overflow: unset;

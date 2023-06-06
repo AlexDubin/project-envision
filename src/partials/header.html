@@ -1,13 +1,14 @@
 <header class="header">
     <div class="container head-div">
-        <button type="button" class="icon-button" data-menu-open>
+            <a class="head-next" href="/src/index.html">
             <svg class="icon-logo" width="40" height="40">
                 <use href="/src/img/icons.svg#icon-logo"></use>
             </svg>
-        </button>
+            <p class="head-logo">Cinemania</p>
+        </a>
         <div class="mob-menu is-hidden" data-menu>
-            <div class="mob-container">
-                <svg class="menu-logo" width="32" height="32" data-menu-close>
+            <div class="mob-container" data-menu-close>
+                <svg class="menu-logo" width="32" height="32" >
                     <use href="/src/img/icons.svg#icon-logo"></use>
                 </svg> 
            <ul class="menu-list">
@@ -17,8 +18,7 @@
             </ul>
         </div>
         </div>
-    <a class="head-logo" href="/src/index.html">Cinemania</a>
-    <p class="paragraph-head">MENU</p>
+    <p class="paragraph-head" data-menu-open>MENU</p>
     <ul class="header-list">
         <li class="header-item"><a class="header-link-one" href="/src/index.html">Home</a></li>
         <li class="header-item"><a class="header-link-two" href="/src/catalog.html">CATALOG</a></li>
