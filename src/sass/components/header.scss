@@ -68,7 +68,7 @@ border-radius: 0px 8px 8px 0px;
           align-items: center;
       
           & .ball {
-            background-color: #fff;
+            background-color: $white-color;
             width: 14px;
             height: 14px;
             position: absolute;
@@ -78,6 +78,7 @@ border-radius: 0px 8px 8px 0px;
             transition: transform $transition, $transition-cubic-bezier;
           }
         }
+
       
         & svg {
           width: 12px;
@@ -90,13 +91,15 @@ border-radius: 0px 8px 8px 0px;
       }
 
 
+
+
       
 
 //-------------------MOBILE-------------------//
 @media screen and (min-width: 280px){
-
     .switcher{
-        margin-left: 78px;
+        position: absolute;
+        right: 20px;
     }
 
     .head-next{
@@ -227,7 +230,7 @@ color: $white-color;
        @media screen and (min-width: 768px){
 
         .switcher{
-            margin-left: 169px;
+            right: 32px;
         }
 
         .head-next{
@@ -333,9 +336,7 @@ color: $white-color;
     
        @media screen and (min-width: 1280px){
 
-        .switcher{
-            margin-left: 417px;
-        }
+
                
         .header-list{
             gap: 40px;
