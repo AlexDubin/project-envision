@@ -1,7 +1,238 @@
 .upcoming {
-  color: white;
+  padding-top: 32px;
 }
 
-.xbutton {
-  color: white;
+.upcoming__section-title {
+  margin-bottom: 24px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: $white-color;
+}
+
+.upcoming__block {
+  margin-bottom: 40px;
+}
+
+.upcoming__poster {
+  width: 280px;
+  height: 402px;
+  margin-bottom: 24px;
+}
+
+.upcoming__picture {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.upcoming__title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: $white-color;
+  margin-bottom: 20px;
+}
+
+.upcoming__release-date,
+.upcoming__vote,
+.upcoming__popularity,
+.upcoming__genre {
+  display: flex;
+}
+
+.upcoming__release-date--title,
+.upcoming__popularity--title,
+.upcoming__vote--title {
+  width: 150px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 19px;
+  color: $light-grey-color;
+}
+
+.upcoming__genre--title {
+  width: 150px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 19px;
+  color: $light-grey-color;
+}
+
+.upcoming__release-date--value {
+  font-size: 16px;
+  line-height: 19px;
+  color: $orange-color;
+}
+
+.upcoming__vote--value-average,
+.upcoming__vote--value-count {
+  padding: 1px 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: $black-color;
+  background: $white-color;
+  border-radius: 5px;
+}
+
+.upcoming__vote--value{
+  color: $white-color;
+}
+
+.upcoming__popularity--value,
+.upcoming__genre--value {
+  font-size: 16px;
+  line-height: 19px;
+  color: $white-color;
+}
+
+.upcoming__about {
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: $light-grey-color;
+}
+
+.upcoming__overview {
+  width: 280px;
+  height: 220px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: $off-white-color;
+  overflow: hidden;
+}
+
+.upcoming__addToLibrary-button {
+  align-items: center;
+  text-align: center;
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: $black-color;
+  background: linear-gradient(
+    141.22deg,
+    $gradient-orange-color 9.4%,
+    $gradient-red-color 91.91%
+  );
+  border-radius: 74px;
+}
+
+.upcoming__addToLibrary-button:hover {
+  color: $orange-color;
+  background: $white-color;
+}
+
+@media screen and (max-width: 1279px) and (min-width: 768px) {
+  .upcoming {
+    padding-top: 44px;
+  }
+
+  .upcoming__section-title {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .upcoming__block {
+    margin-bottom: 77px;
+  }
+
+  .upcoming__poster {
+    width: 704px;
+    height: 400px;
+    margin-bottom: 32px;
+  }
+
+  .upcoming__title {
+    font-size: 28px;
+    line-height: 33px;
+    margin-bottom: 24px;
+  }
+
+  .upcoming__list-info {
+    display: flex;
+  }
+
+  .upcoming__list-info--left {
+    width: 364px;
+    margin-bottom: 20px;
+  }
+
+  .upcoming__release-date--title,
+  .upcoming__popularity--title {
+    width: 151px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 19px;
+    color: $light-grey-color;
+  }
+
+  .upcoming__vote--title,
+  .upcoming__genre--title {
+    width: 151px;
+    font-size: 16px;
+    line-height: 19px;
+    color: $light-grey-color;
+  }
+
+  .upcoming__overview {
+    width: 625px;
+    height: 100px;
+  }
+
+  .upcoming__addToLibrary-button {
+    font-size: 14px;
+    line-height: 16px;
+    color: $black-color;
+  }
+
+  .upcoming__addToLibrary-button:hover {
+    color: $orange-color;
+    background: $white-color;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .upcoming {
+    padding-top: 60px;
+  }
+
+  .upcoming__section-title {
+    margin-bottom: 28px;
+    font-size: 28px;
+    line-height: 33px;
+  }
+
+  .upcoming__block {
+    display: flex;
+    margin-bottom: 100px;
+    padding-bottom: 5px;
+  }
+
+  .upcoming__info {
+    padding-left: 16px;
+  }
+
+  .upcoming__poster {
+    width: 805px;
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  .upcoming__title {
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 28px;
+  }
+
+  .upcoming__overview {
+    width: 390px;
+    height: 160px;
+  }
 }
