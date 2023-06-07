@@ -95,7 +95,7 @@ new Pagination({
   container: paginationContainer,
   count: pageCount,
   index: pageIndex,
-  
+
 });
 
 
@@ -117,6 +117,9 @@ new Pagination({
 //   instance.getCurrentPage();
   
 // }
+
+
+ 
 
 
 
