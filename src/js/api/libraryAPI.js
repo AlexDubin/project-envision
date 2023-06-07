@@ -70,7 +70,7 @@ export async function loadMovies(limit = 0, page = 0) {
 
     return await Promise.all(moviesToLoad.map(fetchMovie));
   } catch (err) {
-    Notify.failure("Can't load movies.");
+    Notify.failure("Can't load movies. " + err.message);
     console.error(err);
     return [];
   }
