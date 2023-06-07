@@ -72,6 +72,7 @@ function filterMoviesByGenre(evt) {
 }
 
 async function onLoadMore() {
+  resetSelect();
   const movies = await loaderWrapper(loadMovies(PAGE_SIZE, page));
 
   if (movies.length < PAGE_SIZE) {
@@ -81,4 +82,10 @@ async function onLoadMore() {
   page += 1;
 
   appendMoviesToLibrary(movies);
+}
+
+function resetSelect() {
+  refs.genresSelectEl.customSelect.value = '-1';
+  const evt = new Event('change');
+  refs.genresSelectEl.dispatchEvent(evt);
 }
