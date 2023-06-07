@@ -4,8 +4,8 @@ html {
     box-sizing: border-box;
 }
 
-body { 
-     background-color: var(--page-bgc);
+body {
+    background-color: var(--page-bgc);
     animation:(background-color);
     font-family: 'Roboto';
     &.modal-open {
