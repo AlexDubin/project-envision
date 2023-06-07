@@ -3,7 +3,7 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 /**
  * Wraps promise with loader
  * @param {Promise} promise - Any promise to wait
- * @returns {Promise} with you data
+ * @returns your data in promise
  */
 export default async function loaderWrapper(promise) {
   Loading.circle({
