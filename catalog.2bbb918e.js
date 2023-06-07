@@ -38,33 +38,33 @@
               </div>
             </div>
           <button>
-          </li>`}).join("")}async function g(){try{let t=await f(),e=h(t.results);if(l.innerHTML=e,(0,c.default)(),0===t.total_results)return noMovie();!function(t){let e=new s(p,{page:d,totalItems:t.total_pages,visiblePages:4,centerAlign:!0});e.on("beforeMove",t=>{d=t.page,g(),l.scrollIntoView({behavior:"smooth",block:"start",inline:"start"})}),e.getCurrentPage()}(t)}catch(t){console.log(t)}}g();var o=a("dIxxU"),v=a("faU4B");let m={headers:{Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMWYwYzIyMWE2YTRjMTZkOTRjZTUwMDIzYjU4MzMzYiIsInN1YiI6IjY0NGZiYzBhMjNhMzE0MDJlNTdjM2Q0NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kZBqemQQaP5AfqtlQ7E69qa116O60SNbbfSuHzK1gjU",accept:"application/json"}},_=document.querySelector(".hero"),y=async()=>{try{let t=await (0,o.default).get("https://api.themoviedb.org/3/trending/movie/day?language=en-US",m);return t.data}catch(t){console.log(t)}},x=async()=>{let t="";try{let{results:e}=await y(),{id:n,title:i,overview:a,poster_path:r,backdrop_path:s,vote_average:o}=e[Math.floor(20*Math.random())+0];t=`
-      <div class="hero__wrap" style="background: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(${window.innerWidth>320?`https://image.tmdb.org/t/p/original/${s}`:`https://image.tmdb.org/t/p/w400/${r}`}); background-size: cover; background-repeat: no-repeat;">
+          </li>`}).join("")}async function g(){try{let t=await f(),e=h(t.results);if(l.innerHTML=e,(0,c.default)(),0===t.total_results)return noMovie();!function(t){let e=new s(p,{page:d,totalItems:t.total_pages,visiblePages:4,centerAlign:!0});e.on("beforeMove",t=>{d=t.page,g(),l.scrollIntoView({behavior:"smooth",block:"start",inline:"start"})}),e.getCurrentPage()}(t)}catch(t){console.log(t)}}g();var o=a("dIxxU");let v={headers:{Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMWYwYzIyMWE2YTRjMTZkOTRjZTUwMDIzYjU4MzMzYiIsInN1YiI6IjY0NGZiYzBhMjNhMzE0MDJlNTdjM2Q0NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kZBqemQQaP5AfqtlQ7E69qa116O60SNbbfSuHzK1gjU",accept:"application/json"}},m=async()=>{try{let t=await (0,o.default).get("https://api.themoviedb.org/3/trending/movie/day?language=en-US",v);return t.data}catch(t){console.log(t)}};var _=a("faU4B");let y={heroContainer:document.querySelector(".hero"),trailerBtn:document.getElementById("watch-trailer")},x=async()=>{let t="",e="background-size: cover";try{let{results:n}=await m(),{id:i,title:a,overview:r,backdrop_path:s,vote_average:o}=n[Math.floor(20*Math.random())+0],c=`https://image.tmdb.org/t/p/original/${s}`;window.innerWidth<768&&(e="background-size: 768px; background-position: center"),t=`
+      <div class="hero__wrap" style="background: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(${c}); ${e}; background-repeat: no-repeat;">
         <div class="container">
           <div class="hero__inner" >
-            <h1 class="hero__title">${i}</h1>
-            <div class="rating">
-              <div class="rating__body">
-                <div class="rating__active" style="width: ${10*o}%;"></div>
-                <div class="rating__items">
-                  <input type="radio" class="rating__item" value="1" name="rating" />
-                  <input type="radio" class="rating__item" value="2" name="rating" />
-                  <input type="radio" class="rating__item" value="3" name="rating" />
-                  <input type="radio" class="rating__item" value="4" name="rating" />
-                  <input type="radio" class="rating__item" value="5" name="rating" />
+            <h1 class="hero__title">${a}</h1>
+            <div class="hrating">
+              <div class="hrating__body">
+                <div class="hrating__active" style="width: ${10*o}%;"></div>
+                <div class="hrating__items">
+                  <input type="radio" class="hrating__item" value="1" name="rating" />
+                  <input type="radio" class="hrating__item" value="2" name="rating" />
+                  <input type="radio" class="hrating__item" value="3" name="rating" />
+                  <input type="radio" class="hrating__item" value="4" name="rating" />
+                  <input type="radio" class="hrating__item" value="5" name="rating" />
                 </div>
               </div>
             </div>
             <p class="hero__text hero__text--trunc">
-              ${a}
+              ${r}
             </p>
-            <div class="hero__btns" id="${n}">
-              <button id="watch-trailer" class="hero__btn hero__btn--primary hero__btn--watch-trailer" data-movie-id="${n}">Watch trailer</button>
-              <button class="hero__btn hero__btn--secondary">More details</button>
+            <div class="hero__btns" id="${i}">
+              <button id="watch-trailer" class="hero__btn hero__btn--primary hero__btn--watch-trailer" data-movie-id="${i}">Watch trailer</button>
+              <button class="hero__btn hero__btn--secondary" data-movie="info">More details</button>
             </div>
           </div>
         </div>
-      </div>`}catch(e){_.classList.toggle("hero--bg"),t=`
+      </div>`}catch(e){y.heroContainer.classList.toggle("hero--bg"),t=`
       <div class="hero__wrap">
         <div class="container">
           <div class="hero__inner">
@@ -84,11 +84,11 @@
             </div>
           </div>
         </div>
-      </div>`}finally{_.innerHTML=t;let e=document.getElementById("watch-trailer");e&&e.addEventListener("click",t=>{(0,v.onTrailerBtnClick)(t)})}};x(),x();var r=a("6JpON"),b=a("4DnXZ"),o=a("dIxxU"),c=a("14Rx2"),M={};M=JSON.parse('{"year":[{"id":2023,"name":"2023"},{"id":2022,"name":"2022"},{"id":2021,"name":"2021"},{"id":2020,"name":"2020"},{"id":2019,"name":"2019"},{"id":2018,"name":"2018"},{"id":2017,"name":"2017"},{"id":2016,"name":"2016"},{"id":2015,"name":"2015"},{"id":2014,"name":"2014"},{"id":2013,"name":"2013"},{"id":2012,"name":"2012"},{"id":2011,"name":"2011"},{"id":2010,"name":"2010"}]}');let I=document.querySelector("#search-form"),P=document.querySelector('[name="searchQuery"]'),E=document.querySelector(".gallery"),C=document.querySelector(".clear-btn"),w=document.getElementById("year-select"),N=document.getElementById("tui-pagination-container"),B="",O="",L=1;!function(t){t.forEach(t=>{let e=document.createElement("option");e.textContent=t.name,e.value=t.id,w.appendChild(e)})}(t(M).year);let T=t(b)(w)[0];async function j(){try{let{data:t}=await (0,o.default).get(`https://api.themoviedb.org/3/search/movie?query=${B}&page=${L}${O}`,{headers:{Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NWQzY2MzZDA1Nzk2OGE0YWJlZGY1MzVkOGNiZDIwMiIsInN1YiI6IjY0N2EzNjI3Y2FlZjJkMDExOWJmMDc3ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vnk9Mx4FCU9-aMju8ubwqMt0iiZWjWxQo-T3KlsNAWg",accept:"application/json"}});return console.log(t),t}catch(e){t(r).Notify.failure("Sorry, there are no images matching your search query. Please try again.")}}async function k(){try{let t=await j(),e=h(t.results);if(0===t.total_results)return void(N.innerHTML="",E.innerHTML=`
+      </div>`}finally{y.heroContainer.innerHTML=t,trailerBtn&&y.trailerBtn.addEventListener("click",t=>{(0,_.onTrailerBtnClick)(t)})}};x(),x();var r=a("6JpON"),b=a("4DnXZ"),o=a("dIxxU"),c=a("14Rx2"),M={};M=JSON.parse('{"year":[{"id":2023,"name":"2023"},{"id":2022,"name":"2022"},{"id":2021,"name":"2021"},{"id":2020,"name":"2020"},{"id":2019,"name":"2019"},{"id":2018,"name":"2018"},{"id":2017,"name":"2017"},{"id":2016,"name":"2016"},{"id":2015,"name":"2015"},{"id":2014,"name":"2014"},{"id":2013,"name":"2013"},{"id":2012,"name":"2012"},{"id":2011,"name":"2011"},{"id":2010,"name":"2010"}]}');let I=document.querySelector("#search-form"),P=document.querySelector('[name="searchQuery"]'),C=document.querySelector(".gallery"),E=document.querySelector(".clear-btn"),w=document.getElementById("year-select"),N=document.getElementById("tui-pagination-container"),B="",O="",L=1;!function(t){t.forEach(t=>{let e=document.createElement("option");e.textContent=t.name,e.value=t.id,w.appendChild(e)})}(t(M).year);let T=t(b)(w)[0];async function j(){try{let{data:t}=await (0,o.default).get(`https://api.themoviedb.org/3/search/movie?query=${B}&page=${L}${O}`,{headers:{Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NWQzY2MzZDA1Nzk2OGE0YWJlZGY1MzVkOGNiZDIwMiIsInN1YiI6IjY0N2EzNjI3Y2FlZjJkMDExOWJmMDc3ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vnk9Mx4FCU9-aMju8ubwqMt0iiZWjWxQo-T3KlsNAWg",accept:"application/json"}});return console.log(t),t}catch(e){t(r).Notify.failure("Sorry, there are no images matching your search query. Please try again.")}}async function k(){try{let t=await j(),e=h(t.results);if(0===t.total_results)return void(N.innerHTML="",C.innerHTML=`
     <div class="gallery-empty"
         <h2 class="title-empty">OOPS...</h2>
         <p class="text-empty">We are very sorry!
         We don’t have any results matching your search.</p>
     </div>   
-    `);!function(t){let e=new s(N,{page:L,totalItems:t.total_pages,visiblePages:3,firstItemClassName:"first",lastItemClassName:"last",centerAlign:!0});e.on("beforeMove",t=>{L=t.page,k(),scrollToAnchor()}),e.getCurrentPage()}(t),E.innerHTML=e,(0,c.default)()}catch(t){console.log(t)}}T.select.addEventListener("change",function(t){console.log(O=`&primary_release_year=${t.target.value}`)}),P.addEventListener("input",function(){P.value&&C.classList.add("is-active"),(""===P.value||" "===P.value)&&(C.classList.remove("is-active"),L=1,g())}),C.addEventListener("click",function(){P.value="",C.classList.remove("is-active"),E.innerHTML="",L=1,g()}),I.addEventListener("submit",function(e){return(e.preventDefault(),E.innerHTML="",B=P.value.trim(),""===O)?(g(),t(r).Notify.failure("Choose Year, please.")):""===B||" "===B?(g(),t(r).Notify.failure("Type something, please.")):void(L=1,k())}),a("bf8lc"),a("7hKzD"),a("kvC6y"),a("cs2b8")}();
-//# sourceMappingURL=catalog.ae419782.js.map
+    `);!function(t){let e=new s(N,{page:L,totalItems:t.total_pages,visiblePages:3,firstItemClassName:"first",lastItemClassName:"last",centerAlign:!0});e.on("beforeMove",t=>{L=t.page,k(),scrollToAnchor()}),e.getCurrentPage()}(t),C.innerHTML=e,(0,c.default)()}catch(t){console.log(t)}}T.select.addEventListener("change",function(t){console.log(O=`&primary_release_year=${t.target.value}`)}),P.addEventListener("input",function(){P.value&&E.classList.add("is-active"),(""===P.value||" "===P.value)&&(E.classList.remove("is-active"),L=1,g())}),E.addEventListener("click",function(){P.value="",E.classList.remove("is-active"),C.innerHTML="",L=1,g()}),I.addEventListener("submit",function(e){return(e.preventDefault(),C.innerHTML="",B=P.value.trim(),""===O)?(g(),t(r).Notify.failure("Choose Year, please.")):""===B||" "===B?(g(),t(r).Notify.failure("Type something, please.")):void(L=1,k())}),a("bf8lc"),a("7hKzD"),a("kvC6y"),a("cs2b8")}();
+//# sourceMappingURL=catalog.2bbb918e.js.map
