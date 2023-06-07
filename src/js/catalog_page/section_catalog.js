@@ -1,38 +1,29 @@
 import Notiflix from 'notiflix';
 import Pagination from 'tui-pagination'; 
 import axios from 'axios';
-
-import movieCardMarkup from '../markup/movieCardMarkup';
 import initRatings from '../utils/initRating';
+import genres from '../genres.json';
+
+
 
 const URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NWQzY2MzZDA1Nzk2OGE0YWJlZGY1MzVkOGNiZDIwMiIsInN1YiI6IjY0N2EzNjI3Y2FlZjJkMDExOWJmMDc3ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vnk9Mx4FCU9-aMju8ubwqMt0iiZWjWxQo-T3KlsNAWg';
-const base_img_url = 'https://image.tmdb.org/t/p/original';
 
-const form = document.querySelector('#search-form');
-const searchInput = document.querySelector('[name="searchQuery"]');
+
 const gallery = document.querySelector('.gallery');
-const clearBtn = document.querySelector('.clear-btn');
-const pagContainer = document.getElementById('tui-pagination-container');
+const pagaContainer = document.getElementById('tui-pagination-container');
 const Pagination = require('tui-pagination');
 
-let formData = '';
+
 let currentPage = 1;
+
+
 
 function scrollToAnchor() {
     gallery.scrollIntoView({behavior: "smooth", block: "start", inline: "start"});
 }
 
-function noMovie() {
-    pagContainer.innerHTML = '';
-    gallery.innerHTML = `
-    <div class="gallery-empty"
-        <h2 class="title-empty">OOPS...</h2>
-        <p class="text-empty">We are very sorry!
-        We don’t have any results matching your search.</p>
-    </div>   
-    `;
-}
+
 
 async function fetchMoviesOfweek() {
     try {
@@ -49,41 +40,89 @@ async function fetchMoviesOfweek() {
     }
 }
 
-async function fetchMoviesSearch() {
-    try {
-        const {data} = await axios.get(`${URL}search/movie?query=${formData}&page=${currentPage}`, {
-            headers: {
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NWQzY2MzZDA1Nzk2OGE0YWJlZGY1MzVkOGNiZDIwMiIsInN1YiI6IjY0N2EzNjI3Y2FlZjJkMDExOWJmMDc3ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vnk9Mx4FCU9-aMju8ubwqMt0iiZWjWxQo-T3KlsNAWg',
-                accept: 'application/json'
-            }
-        });
-        console.log(data);
-        return data;
-    } catch (error) {
-        Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
-    }
-}
 
-function buildGallery(movies) {
+
+export function buildGallery(movies) {
     return movies
     .filter((movies) => !Object.values(movies).includes(null))
-    .map((movies) => {
-        return `<li class="photo-card">
-            <a class="gallery__link" href="${base_img_url}${movies.poster_path}"><img class="card-image" src="${base_img_url}${movies.poster_path}" alt="${movies.media_type}" loading="fast">
-
-            
-            </a>
-        </li>`;
+    .map(({
+        poster_path,
+        title,
+        vote_average,
+        genre_ids,
+        release_date,
+        id,
+      }) => {
+        const genresObject = {};
+        let genreNames = '';
+      
+        genres.genres.forEach(genre => {
+          genresObject[genre.id] = genre.name;
+        });
+      
+        if (genre_ids.length > 0) {
+          if (genre_ids.length === 1 || genre_ids.join(', ').length <= 20) {
+            genreNames = genresObject[genre_ids[0]];
+          } else {
+            genreNames = `${genresObject[genre_ids[0]]}, ${
+              genresObject[genre_ids[1]]
+            }`;
+          }
+        }
+        
+        if(release_date) {
+            return `<li class='item-movie-card' data-genres='${genre_ids}' data-id='${id}'><button class="button" data-action="open-modal">
+            <img
+            class='poster-movie-card'
+            src='https://image.tmdb.org/t/p/original${poster_path}'
+            srcset='https://image.tmdb.org/t/p/w342${poster_path} 342w,
+            https://image.tmdb.org/t/p/w500${poster_path} 500w,
+            https://image.tmdb.org/t/p/w780${poster_path} 780w,
+            https://image.tmdb.org/t/p/original${poster_path} 1500w'
+            sizes='(max-width:767px) 280px,
+            (max-width:1279px) 224px,
+            395px'
+            width='395'
+            height='574'
+            alt='${title} poster'
+            loading='lazy'
+            >
+            <div class='overlay-movie-card'></div>
+            <div class='info-movie-card'>
+              <h4 class='title-movie-card'>${title}</h4>
+              <div class='wrapper-movie-card'>
+                <div class='genre-year-movie-card'>
+                  <p class='genre-movie-card span'>${genreNames}</p>
+                  <span class='divider-movie-card'>&#124</span>
+                  <p class='year-movie-card span'>${release_date.slice(0, 4)}</p>
+                </div>
+                  <div class="rating">
+                    <div class="rating-body">
+                      <div class="rating-active"></div>
+                      <div class="rating-items">
+                        <input type="radio" class="rating-item" value="1" name="rating" />
+                        <input type="radio" class="rating-item" value="2" name="rating" />
+                        <input type="radio" class="rating-item" value="3" name="rating" />
+                        <input type="radio" class="rating-item" value="4" name="rating" />
+                        <input type="radio" class="rating-item" value="5" name="rating" />
+                      </div>
+                    </div>
+                  <div class="rating-value">${vote_average}</div>
+              </div>
+            </div>
+          <button>
+          </li>`;
+        } 
     })
-    .join("");
-    
+    .join('');
 }
 
-async function galleryOfWeek() {
+export async function galleryOfWeek() {
     try {
         let result = await fetchMoviesOfweek();
         const addingMovies = buildGallery(result.results);
         gallery.innerHTML = addingMovies;
+        initRatings();
         if (result.total_results === 0) {
             return noMovie();
         }
@@ -96,7 +135,7 @@ async function galleryOfWeek() {
 galleryOfWeek();
 
 function paginationWeek(props) {
-    const instance = new Pagination(pagContainer, {
+    const instance = new Pagination(pagaContainer, {
         page: currentPage,
         totalItems: props.total_pages,
         visiblePages: 4,
@@ -109,71 +148,6 @@ function paginationWeek(props) {
         scrollToAnchor();
     });
     instance.getCurrentPage();
-    
-}
-
-function paginationSeach(props) {
-    const instance = new Pagination(pagContainer, {
-        page: currentPage,
-        totalItems: props.total_pages,
-        visiblePages: 4,
-        centerAlign: true
-    });
-    instance.on("beforeMove", (eventData) => {
-        const perPage = eventData;
-        currentPage = perPage.page;
-        searchMovie();
-        scrollToAnchor();
-    });
-    instance.getCurrentPage(); 
-}
-
-async function searchMovie() {
-    try {
-        const result = await fetchMoviesSearch();
-        const addingMovies = buildGallery(result.results);
-        if (result.total_results === 0) {
-            return noMovie();
-        }
-        paginationSeach(result);
-        gallery.innerHTML = addingMovies;  
-    } catch (error) {
-        console.log(error);
-    } 
 }
 
 
-function inputSubmit(event) {
-    event.preventDefault();
-    gallery.innerHTML = '';
-    formData = searchInput.value.trim();  
-    if(formData === '' || formData === ' ') {
-        return Notiflix.Notify.failure('Type something, please.');
-    }
-    currentPage = 1;
-    searchMovie();
-}
-
-function clearInput() {
-    searchInput.addEventListener("input", function() {
-        if (searchInput.value) {
-            clearBtn.classList.add('is-active');
-        }
-        if (searchInput.value === '' || searchInput.value === ' ') {
-            clearBtn.classList.remove('is-active');
-            currentPage = 1;
-            galleryOfWeek();
-        }
-    });
-    clearBtn.addEventListener('click', function() {
-        searchInput.value = '';
-        clearBtn.classList.remove('is-active');
-        gallery.innerHTML = '';
-        currentPage = 1;
-        galleryOfWeek();
-    });
-}
-
-clearInput();
-
-form.addEventListener('submit', inputSubmit);
