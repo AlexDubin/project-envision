@@ -20,9 +20,9 @@ async function getMovieDetails(movieId) {
 }
 
 const filmTrendsCards = document.querySelector('.list-movie-card');//ul трендів
-const filmCatalogCards = document.querySelector('.item-movie-card');//li з каталогу
+const filmCatalogCards = document.querySelector('.js-gallery');//li з каталогу
 const modBackdrop = document.querySelector('.modal-backdrop');//div мій
-const closeBtn = document.querySelector('.trailer-modal__button-close');//моя кнопка
+const closeBtn = document.querySelector('.modal__close-btn');//моя кнопка
 const modalListRef = document.querySelector('.cards-film');//ul моє з розмітки
 
 
@@ -57,6 +57,19 @@ function onCloseModalFilm() {
   document.body.classList.remove('modal-open');
   modBackdrop.classList.add('is-hidden');
 }
+
+// function onCloseModalFilm(event) {
+//   if (
+//     event.target === modBackdrop ||
+//     event.target === closeBtn ||
+//     event.code === 'Escape'
+//   ) {
+//     onCloseModalFilm();
+//   } else if (event.target === filmTrendsCards) {
+//     onOpenModalFilm();
+//   }
+//   return;
+// }
 
 
 // CLOSE MODAL by CLICKING BACKDROP
@@ -111,7 +124,7 @@ function createCardMarkup(data) {
   return `<li class="film--add" data-id="${id}">
   <div class="film-add__wrap">
     <img class="film-add__img"
-        src="${poster_path}" 
+        src="https://image.tmdb.org/t/p/original/${poster_path}" 
         alt="${original_title}" 
         loading="lazy" />
   </div>
@@ -140,8 +153,10 @@ function createCardMarkup(data) {
       <p class="film-add__text">${overview}</p>
     </div>
 
-    <button type="button" class="film-add__btn btn">Add to my library</button>
+    <button class="upcoming__addToLibrary-button" type="button" id="addToMyLibrary">
+        <p>Add to my library</p>
+      </button>
   </div>
 </li>`;
 } 
-export {onOpenModalFilm}
+// export {onOpenModalFilm}

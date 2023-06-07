@@ -134,20 +134,34 @@ export async function galleryOfWeek() {
 
 galleryOfWeek();
 
-function paginationWeek(props) {
-    const instance = new Pagination(pagaContainer, {
-        page: currentPage,
-        totalItems: props.total_pages,
-        visiblePages: 4,
-        centerAlign: true
-    });
-    instance.on("beforeMove", (eventData) => {
-        const perPage = eventData;
-        currentPage = perPage.page;
-        galleryOfWeek();
-        scrollToAnchor();
-    });
-    instance.getCurrentPage();
-}
+
+import Pagination from '../utils/pagination';
+
+const paginationContainer = document.querySelector('.pagination ul');
+
+const pageCount = 100;
+let pageIndex = 1;
+
+new Pagination({
+  container: paginationContainer,
+  count: pageCount,
+  index: pageIndex,
+});
+
+// function paginationWeek(props) {
+//     const instance = new Pagination(pagaContainer, {
+//         page: currentPage,
+//         totalItems: props.total_pages,
+//         visiblePages: 4,
+//         centerAlign: true
+//     });
+//     instance.on("beforeMove", (eventData) => {
+//         const perPage = eventData;
+//         currentPage = perPage.page;
+//         galleryOfWeek();
+//         scrollToAnchor();
+//     });
+//     instance.getCurrentPage();
+// }
 
 

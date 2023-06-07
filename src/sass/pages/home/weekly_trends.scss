@@ -36,9 +36,15 @@
   border-radius: 5px;
   overflow: hidden;
 }
+
+.item-movie-card:hover {
+  box-shadow: 1px 1px 7px 2px rgba(255, 107, 8, 0.42);
+}
+
 .poster-movie-card {
   width: 100%;
 }
+
 .info-movie-card {
   position: absolute;
   z-index: 20;
