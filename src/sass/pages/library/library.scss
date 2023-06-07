@@ -55,18 +55,20 @@
 
 .lib-catalog {
   @include flex-center-column();
+  align-items: start;
 
   #{&}__list {
-    margin-bottom: 40px;
     justify-content: start;
-
-    @include media-query(mobile) {
-      margin-bottom: 24px;
-    }
+    width: 100%;
   }
 
   #{&}__load-more {
     @include standard-orange-button(1.125rem, 156%);
+    align-self: center;
+    margin-top: 40px;
+    @include media-query(mobile) {
+      margin-top: 24px;
+    }
   }
 
   @include media-query(mobile) {
@@ -85,7 +87,6 @@
   @include custom-select(173px, 144px, 260px);
 
   .custom-select-container {
-    align-self: flex-start;
     margin-bottom: 16px;
 
     @include media-query(tablet) {
