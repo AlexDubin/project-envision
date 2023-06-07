@@ -7,7 +7,7 @@
   max-width: 100%;
   margin-bottom: 16px;
   display: flex;
-
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
@@ -58,6 +58,7 @@
 
 .form-input {
   width: 224px;
+  width: 173px;
   font-size: 14px;
   outline: none;
 
@@ -112,6 +113,61 @@
 .form-input:valid {
   border: 2px solid white;
   color: white;
+}
+
+.custom-select-container {
+  width: 95px;
+  display: flex;
+  align-items: center;
+  
+  justify-content: center;
+
+  
+  height: 40px;
+  
+
+  /* White */
+
+  border: 1px solid $light-grey-color;
+  border-radius: 8px;
+}
+
+.custom-select-opener {
+  cursor: pointer;
+  width: 100%;
+  background-color: transparent;
+  padding: 0.5em;
+  display: block;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: $light-grey-color;
+  font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.custom-select-panel {
+  cursor: pointer;
+  width: 100%;
+  background-color: black;
+  padding: 0.5em;
+  display: block;
+  
+  justify-content: center;
+  align-items: center;
+  color: $light-grey-color;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  z-index: 3;
+  max-height: 269px;
+  
+  border: 1px solid $light-grey-color;
+    border-radius: 8px;
 }
 
 //
@@ -247,68 +303,139 @@
 
 //
 
-.tui-pagination {
+// .tui-pagination {
+//   display: flex;
+//   justify-content: center;
+//   column-gap: 8px;
+// }
+
+// strong {
+//   width: 24px;
+//   height: 24px;
+//   font-family: 'Roboto';
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 10px;
+//   line-height: 10px;
+//   display: flex;
+//   align-items: center;
+//   color: #ffffff;
+//   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+//   border-radius: 50%;
+//   justify-content: center;
+// }
+
+// .tui-prev {
+//   color: #ffffff;
+// }
+
+// .tui-page-btn {
+//   font-family: 'Roboto';
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 10px;
+//   line-height: 10px;
+//   /* identical to box height, or 100% */
+
+//   display: flex;
+//   align-items: center;
+
+//   color: #b7b7b7;
+
+//   width: 24px;
+//   height: 24px;
+
+//   border: 1px solid #b7b7b7;
+//   border-radius: 50%;
+//   justify-content: center;
+// }
+
+// .last {
+//   color: #f84119;
+// }
+
+// .tui-ico-first {
+//   display: none;
+// }
+
+// .tui-ico-last {
+//   display: none;
+// }
+
+
+
+.pagination ul {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  column-gap: 8px;
-}
-
-strong {
-  width: 24px;
-  height: 24px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 10px;
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  border-radius: 50%;
-  justify-content: center;
-}
-
-
-
-.tui-prev {
-  color: #ffffff;
-}
-
-.tui-page-btn {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 10px;
-  /* identical to box height, or 100% */
-
-  display: flex;
-  align-items: center;
-
+  flex-wrap: wrap;
+  background: transparent;
   
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  
+}
 
-  color: #b7b7b7;
+.pagination ul li {
+  font-family: 'Roboto';
+  color: $light-grey-color;
+  font-style: normal;
+  line-height: 10px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
 
+.pagination ul li.list-item {
+  list-style: none;
+  display: flex;
   width: 24px;
   height: 24px;
-
-
-
-  border: 1px solid #b7b7b7;
+  margin: 0 4px;
+  
   border-radius: 50%;
+  border: 1px solid #B7B7B7;
   justify-content: center;
+  align-items: center;
+  font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 10px;
 }
 
-
-.last {
-    color: #f84119;
+.pagination ul li.list-item.first {
+  margin: 0px 3px 0 -5px;
 }
 
-.tui-ico-first {
-    display: none;
+.pagination ul li.list-item.last {
+  margin: 0px -5px 0 3px;
 }
 
-.tui-ico-last {
-    display: none;
+.pagination ul li.dots {
+  font-size: 22px;
+  cursor: default;
+}
+
+.pagination ul li.btn.list-item {
+  
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  border: 0px solid #B7B7B7;
+}
+
+.pagination li.active,
+.pagination ul li.list-item:hover,
+.pagination ul li:first-child:hover,
+.pagination ul li:last-child:hover {
+  color: #fff;
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+}
+
+.pag-rrow-left {
+  width: 20px;
+  height: 20px;
 }

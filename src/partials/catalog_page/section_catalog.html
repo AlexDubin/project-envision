@@ -15,18 +15,27 @@
         </div>
       </div>
       <button class="clear-btn" type="reset"></button>
+      <select id="year-select" class="year-select">
+          <option value="-1">Year</option>
+        </select>
+        <select id="country-select" class="country-select">
+          <option value="-1">Year</option>
+        </select>
       <button type="submit">
         <svg class="search-svg-btn" width="18" height="18">
           <use href="/src/img/icons.svg#icon-search"></use>
         </svg>
       </button>
-      <select id="year-select">
-          <option value="-1">Year</option>
-        </select>
+      
     </form>
     <ul id="anchor" class="gallery">
       <!-- Карточки изображений -->
     </ul>
-    <div id="tui-pagination-container" class="tui-pagination"></div>
+    <div class="pagination">
+      <ul>
+        <!--pages or li are comes from javascript -->
+      </ul>
+    </div>
+    <!-- <div id="tui-pagination-container" class="tui-pagination"></div> -->
   </div>
 </section>
