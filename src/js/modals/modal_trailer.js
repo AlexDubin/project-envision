@@ -1,8 +1,5 @@
 import { fetchRandomTrailerKey } from '../api/fetch-api.js';
 import { modalTrailerRefs } from '../refs/modal_trailer-refs.js';
-import { heroRefs } from '../refs/hero-refs.js';
-
-heroRefs.heroContainer.addEventListener('click', onTrailerBtnClick);
 
 export async function onTrailerBtnClick(event) {
   try {
