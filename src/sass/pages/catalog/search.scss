@@ -1,103 +1,314 @@
+.section-catalog {
+  padding-top: 40px;
+  position: relative;
+}
+
 .search-form {
-    width: 100%;
-    padding: 20px;
-    background: rgb(0,59,70);
-    background: linear-gradient(150deg, rgba(0,59,70,1) 10%, rgba(7,87,91,1) 40%, rgba(102,165,173,1) 75%);
-    text-align: center;
-  }
+  max-width: 100%;
+  margin-bottom: 16px;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+//   .search-form input[name="searchQuery"] {
+//     width: 224px;
+//     padding: 10px;
+//     padding-left: 20px;
+
+//     font-size: 14px;
+//     color: $white-color;
+//     background-color: $black-color;
+//     border: 1px solid $light-grey-color;
+//     border-radius: 8px;
+//     transition: 0.3s all;
+//   }
+
+//   .search-form input[name="searchQuery"]::placeholder {
+//     font-family: 'Roboto';
+//         font-style: normal;
+//         font-weight: 400;
+//         font-size: 14px;
+//         line-height: 16px;
+//         display: flex;
+//         align-items: center;
+//         text-align: left;
+//     color: $light-grey-color;
+
+//   }
+
+//   .search-form input[name="searchQuery"]:focus {
+//     outline: none;
+//     border-color: $white-color;
+//   }
+
+.box-search {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  transition: all 0.5s;
+}
+
+.input-div {
+  position: relative;
+}
+
+.form-input {
+  width: 224px;
+  font-size: 14px;
+  outline: none;
+
+  padding: 10px;
+  padding-left: 20px;
+  transition: 0.5s;
+  background-color: transparent;
+  padding: 10px;
+  border: 1px solid $light-grey-color;
+  border-radius: 8px;
+  color: $white-color;
+  color: $light-grey-color;
+}
+
+.form-input ~ span {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+
+  align-items: center;
+  text-align: left;
+  color: $light-grey-color;
+
+  position: absolute;
+  left: 10px;
+  top: 7px;
+  padding: 5px;
+  transition: 0.3s;
+
+  background-color: $black-color;
+
+  letter-spacing: 1px;
+
+  z-index: -1;
+}
+
+.form-input:valid ~ span,
+.form-input:focus ~ span {
+  transform: translateY(-7px);
+  top: 0;
+  padding: 0 10px;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  color: white;
+  font-size: 0.8rem;
+  z-index: 1;
+}
+
+.form-input:focus,
+.form-input:valid {
+  border: 2px solid white;
+  color: white;
+}
+
+//
+
+.search-form button[type='submit'],
+.load-more {
+  width: 40px;
+  height: 40px;
+  padding: 11px;
+
+  background: linear-gradient(
+      141.22deg,
+      $gradient-orange-color 9.4%,
+      $gradient-red-color 91.91%
+    )
+    border-box;
+
+  border-radius: 50%;
+  transition: color $transition $transition-cubic-bezier;
+  border: 1px solid transparent;
+}
+
+.search-svg-btn {
+  stroke: $white-color;
+  fill: transparent;
+}
+
+.search-form button[type='submit']:focus-visible,
+.search-form button[type='submit']:hover,
+.search-svg-btn:focus-visible,
+.search-svg-btn:hover {
+  text-decoration: none;
+  color: $orange-color;
+  // TODO: Заменить $black-color на CSS переменную темы
+  background: linear-gradient($white-color, $white-color) padding-box,
+    linear-gradient(
+        141.22deg,
+        $gradient-orange-color 9.4%,
+        $gradient-red-color 91.91%
+      )
+      border-box;
+}
+
+.search-form button[type='submit']:focus-visible .search-svg-btn,
+.search-form button[type='submit']:hover .search-svg-btn {
+  stroke: $orange-color;
+  fill: transparent;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 16px;
+  margin-bottom: 20px;
+}
+
+// .gallery .photo-card {
+//   flex-basis: calc((100% - 32px) / 1);
+// }
+
+// .gallery .photo-card .gallery__link {
+//   display: flex;
+// }
+
+.gallery .photo-card .card-image {
+  object-fit: fill;
+  border-radius: 10px;
+}
+
+// .clear-btn {
+//   cursor: pointer;
+//   margin: 0 auto;
+//   padding: 15px 35px;
+//   font-size: 16px;
+//   display: none;
+// }
+
+// .clear-btn.is-active {
+//   display: block;
+// }
+
+//
+
+.form-input,
+.clear-btn,
+.search-wrapper {
+  position: relative;
+}
+
+.search-wrapper {
+  width: 500px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.clear-btn {
+  border: 1px solid transparent;
+  background-color: transparent;
+  display: inline-block;
+
+  display: none;
+  vertical-align: middle;
+  outline: 0;
+  cursor: pointer;
+}
+
+.clear-btn:after {
+  content: 'X';
+  display: block;
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  background-color: $darker-grey-color;
+  z-index: 1;
+  right: 14px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 6px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  font-weight: normal;
+  font-size: 14px;
+  box-shadow: 0 0 2px $grey-color;
+  cursor: pointer;
+}
+
+.clear-btn.is-active {
+  display: inline-block;
+}
+
+//
+
+.tui-pagination {
+  display: flex;
+  justify-content: center;
+  column-gap: 8px;
+}
+
+strong {
+  width: 24px;
+  height: 24px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 10px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  border-radius: 50%;
+  justify-content: center;
+}
+
+
+
+.tui-prev {
+  color: #ffffff;
+}
+
+.tui-page-btn {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 10px;
+  /* identical to box height, or 100% */
+
+  display: flex;
+  align-items: center;
+
   
-  .search-form input[name="searchQuery"] {
-    width: 300px;
-    padding: 10px;
-    font-size: 14px;
-    color: #003B46;
-    background-color: #c4dfe6;
-    border: 2px solid #66a5ad;
-    border-radius: 5px;
-    transition: 0.3s all;
-  }
-  
-  .search-form input[name="searchQuery"]::placeholder {
-    color: #003B46;
-    font-size: 14px;
-  }
-  
-  .search-form input[name="searchQuery"]:focus {
-    outline: none;
-    border-color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .search-form button[type="submit"],
-  .load-more {
-    padding: 12px 20px 10px;
-    font-size: 12px;
-    color: #C4DFE6;
-    background-color: #003B46;
-    border: 2px solid #003B46;
-    border-radius: 5px;
-    transition: 0.3s all;
-  }
-  
-  .search-form button[type="submit"]:hover,
-  .search-form button[type="submit"]:focus,
-  .load-more:hover,
-  .load-more:focus {
-    color: #003B46;
-    background-color: #C4DFE6;
-    border: 2px solid #C4DFE6;
-  }
-  
-  .gallery {
-    max-width: 1216px;
-    padding: 70px 30px;
-    margin: 0 auto;
-    display: flex;
-    gap: 16px;
-    row-gap: 32px;
-    flex-wrap: wrap;
-    list-style: none;
-  }
-  
-  .gallery .photo-card {
-    flex-basis: calc((100% - 32px) / 3);
-  }
-  
-  .gallery .photo-card .gallery__link {
-    display: flex;
-  }
-  
-  .gallery .photo-card .card-image {
-    min-height: 574px;
-    object-fit: fill;
-    border-radius: 10px;
-  }
-  
-  .gallery .photo-card .info {
-    display: flex;
-    gap: 10px;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
-  
-  .gallery .photo-card .info .info-item {
-    font-size: 18px;
-    flex-basis: calc((100% - 40px) / 4);
-    color: #003B46;
-  }
-  
-  .clear-btn {
-    cursor: pointer;
-    margin: 0 auto;
-    padding: 15px 35px;
-    font-size: 16px;
+
+  color: #b7b7b7;
+
+  width: 24px;
+  height: 24px;
+
+
+
+  border: 1px solid #b7b7b7;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+
+.last {
+    color: #f84119;
+}
+
+.tui-ico-first {
     display: none;
-  }
-  
-  .clear-btn.is-active {
-    display: block;
-  }
-  
-  .tui-pagination {
-    display: flex;
-    justify-content: center;
-  }
+}
+
+.tui-ico-last {
+    display: none;
+}

@@ -6,7 +6,11 @@ Loading.circle({
   svgColor: '#F87719',
   clickToClose: false,
 });
-Loading.remove(1923);
+Loading.remove(1000);
+
+
+
+
   
 
 

@@ -1,26 +1,26 @@
 // -----mobile
 .weekly-trends {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  padding-left: 20px;
-  padding-right: 20px;
-  color: white;
+  font-family: $font-family, $font-primary;
+  font-weight: $font-weight-medium;
+  padding-top: 40px;
+  padding-bottom: 32px;
+  color: $white-color;
 }
 
 .wrapper-weekly-trends {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 40px;
+  font-size: 16px;
+  line-height: 1.18;
+
   margin-bottom: 24px;
 }
 .title-weekly-trends {
-  font-size: 16px;
-  line-height: 1.18;
-  color: white;
+  color: $white-color;
 }
 .link-weekly-trends {
-  color: #f87719;
+  color: $orange-color;
 }
 
 // -------cards
@@ -44,16 +44,18 @@
   z-index: 20;
   bottom: 0;
   left: 0;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 12px;
+  padding-right: 10px;
+  padding-bottom: 10px;
   font-size: 12px;
   line-height: 1.6;
   width: 100%;
 }
 
 .title-movie-card {
+  text-align: left;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $white-color;
   margin-top: 0;
   margin-bottom: 12px;
 }
@@ -69,11 +71,9 @@
 }
 .wrapper-movie-card {
   display: flex;
-  gap: 12px;
   justify-content: space-between;
-
-  margin-bottom: 10px;
-  color: #b7b7b7;
+  align-items: center;
+  color: $light-grey-color;
 }
 
 .genre-year-movie-card {
@@ -82,11 +82,10 @@
 }
 .divider-movie-card {
   margin: 0 5px;
-  color: #b7b7b7;
+  color: $light-grey-color;
 }
 
 .genre-movie-card {
-  max-width: 100px;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -94,6 +93,10 @@
 .rating {
   display: flex;
   align-items: flex-end;
+
+  font-size: 13.3px;
+  line-height: 1;
+  margin: 0;
 }
 .rating-body {
   position: relative;
@@ -101,6 +104,10 @@
 .rating-body::before {
   content: '★★★★★';
   display: block;
+  letter-spacing: 4px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: $text-color-accent;
+  color: transparent;
 }
 .rating-active {
   position: absolute;
@@ -113,12 +120,13 @@
 
 .rating-active::before {
   content: '★★★★★';
+  letter-spacing: 4px;
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  color: #f87719;
+  color: $text-color-accent;
 }
 
 .rating-items {
@@ -128,14 +136,11 @@
   height: 100%;
   top: 0;
   left: 0;
-  overflow: hidden;
 }
 .rating-item {
   flex: 0 0 20%;
   height: 100%;
   opacity: 0;
-  width: 14px;
-  height: 14px;
 }
 
 .rating-value {
@@ -151,10 +156,15 @@
 }
 // --------tablet-------
 @media screen and (min-width: 768px) {
-  .title-weekly-trends {
+  .weekly-trends {
+    padding-top: 52px;
+    padding-bottom: 44px;
+  }
+  .wrapper-weekly-trends {
     font-size: 24px;
     line-height: 1.16;
   }
+
   .list-movie-card {
     column-gap: 16px;
   }
@@ -164,11 +174,21 @@
   }
   .info-movie-card {
     line-height: 1.5;
+    padding-bottom: 12px;
+  }
+
+  .rating {
+    font-size: 9px;
   }
 }
 // --------desktop-------
 @media screen and (min-width: 1280px) {
-  .title-weekly-trends {
+  .weekly-trends {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+  .wrapper-weekly-trends {
+    margin-bottom: 28px;
     font-size: 28px;
     line-height: 1.17;
   }
@@ -183,5 +203,11 @@
   .info-movie-card {
     font-size: 20px;
     line-height: 1.15;
+    padding-left: 20px;
+    padding-right: 18px;
+    padding-bottom: 20px;
+  }
+  .rating {
+    font-size: 17.5px;
   }
 }

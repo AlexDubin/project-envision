@@ -36,7 +36,7 @@
   }
 
   #{&}__search-btn {
-    @include standard-orange-button();
+    @include standard-orange-button(1.125rem, 156%);
   }
 
   @include media-query(mobile) {
@@ -66,7 +66,7 @@
   }
 
   #{&}__load-more {
-    @include standard-orange-button();
+    @include standard-orange-button(1.125rem, 156%);
   }
 
   @include media-query(mobile) {

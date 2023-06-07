@@ -6,4 +6,8 @@ html {
 
 body {
     background-color: $black-color;
+    font-family: 'Roboto';
+    &.modal-open {
+            overflow: hidden;
+        }
 }
