@@ -1,0 +1,44 @@
+// normalize
+
+@import './base/normalize.scss';
+
+// features
+
+@import './base/variables.scss';
+@import './features/breakpoints.scss';
+@import './components/container.scss';
+@import './features/animations.scss';
+
+@import './features/loader.scss';
+@import './features/visually_hidden.scss';
+
+// base
+
+@import './base/reset';
+@import './base/fonts.scss';
+
+@import './base/base';
+@import './base/typography.scss';
+
+//components
+
+@import './components/section';
+@import './components/buttons.scss';
+@import './components/footer.scss';
+@import './components/header.scss';
+@import './components/modal_film.scss';
+@import './components/modal_team.scss';
+@import './components/modal_trailer.scss';
+@import './components/pagination.scss';
+@import './components/select.scss';
+
+// Home page
+@import './pages/home/hero';
+@import './pages/home/weekly_trends.scss';
+
+// Library page
+@import './pages/library/hero.scss';
+@import './pages/library/library.scss';
+
+// Hidden class
+@import './base/hidden.scss';
