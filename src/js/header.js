@@ -30,3 +30,10 @@
   document
   .getElementById('theme-switcher')
   .addEventListener('click', switchTheme);
+
+
+  let localS = localStorage.getItem('theme');
+
+  if (localS === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+  };
