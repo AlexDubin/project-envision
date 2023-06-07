@@ -21,3 +21,30 @@ export const fetchTrendingMoviesByDay = async () => {
     console.log(error);
   }
 };
+
+export async function fetchRandomTrailerKey(movieId) {
+  try {
+    const url = `${BASE_URL}/movie/${movieId}/videos`;
+
+    const responseTrailer = await axios.get(url, options);
+
+    const movieTrailer = await responseTrailer.data;
+
+    if (movieTrailer.results.length === 0) {
+      return null;
+    }
+
+    const trailers = movieTrailer.results.filter(
+      trailer => trailer.type === 'Trailer' && trailer.site === 'YouTube'
+    );
+
+    if (trailers.length === 0) {
+      return null;
+    }
+
+    return trailers[0].key;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
