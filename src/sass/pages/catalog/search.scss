@@ -119,12 +119,10 @@
   width: 95px;
   display: flex;
   align-items: center;
-  
+
   justify-content: center;
 
-  
   height: 40px;
-  
 
   /* White */
 
@@ -143,10 +141,10 @@
   align-items: center;
   color: $light-grey-color;
   font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .custom-select-panel {
@@ -155,7 +153,7 @@
   background-color: black;
   padding: 0.5em;
   display: block;
-  
+
   justify-content: center;
   align-items: center;
   color: $light-grey-color;
@@ -165,9 +163,9 @@
   font-size: 14px;
   z-index: 3;
   max-height: 269px;
-  
+
   border: 1px solid $light-grey-color;
-    border-radius: 8px;
+  border-radius: 8px;
 }
 
 //
@@ -362,18 +360,15 @@
 //   display: none;
 // }
 
-
-
 .pagination ul {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   background: transparent;
-  
+
   border-radius: 50px;
   justify-content: center;
   align-items: center;
-  
 }
 
 .pagination ul li {
@@ -395,36 +390,35 @@
   width: 24px;
   height: 24px;
   margin: 0 4px;
-  
+
   border-radius: 50%;
-  border: 1px solid #B7B7B7;
+  border: 1px solid #b7b7b7;
   justify-content: center;
   align-items: center;
   font-style: normal;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 10px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 10px;
 }
 
 .pagination ul li.list-item.first {
-  margin: 0px 3px 0 -5px;
+  margin: 0px 4px 0 4px;
 }
 
 .pagination ul li.list-item.last {
-  margin: 0px -5px 0 3px;
+  // margin: 0px -4px 0 4px;
 }
 
 .pagination ul li.dots {
-  font-size: 22px;
+  font-size: 10px;
   cursor: default;
 }
 
 .pagination ul li.btn.list-item {
-  
   border-radius: 50px;
   width: 20px;
   height: 20px;
-  border: 0px solid #B7B7B7;
+  border: 0px solid #b7b7b7;
 }
 
 .pagination li.active,
@@ -432,11 +426,62 @@
 .pagination ul li:first-child:hover,
 .pagination ul li:last-child:hover {
   color: white;
-    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 }
 
-.pag-rrow-left {
-  width: 20px;
-  height: 20px;
-  stroke: #FFC226;
+// .pag-rrow-left {
+//   width: 20px;
+//   height: 20px;
+//   stroke: #ffc226;
+// }
+
+li.btn.prev.list-item {
+ 
+
+  font-size: 22px;
+
+  font-family: 'Roboto';
+  color: $light-grey-color;
+  font-style: normal;
+  line-height: 10px;
+  text-align: center;
+
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+li.btn.next.list-item {
+
+
+  font-size: 22px;
+
+  font-family: 'Roboto';
+  color: $light-grey-color;
+  font-style: normal;
+  line-height: 10px;
+  text-align: center;
+
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+li.btn.prev.list-item.active,
+li.btn.prev.list-item:hover {
+  color: white;
+  background: transparent;
+  font-size: 26px;
+}
+
+
+li.btn.next.list-item.active,
+li.btn.next.list-item:hover {
+  color: white;
+  font-size: 26px;
+  background: transparent;
 }

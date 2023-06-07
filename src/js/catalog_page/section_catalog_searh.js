@@ -1,26 +1,19 @@
+import axios from 'axios';
 import Notiflix from 'notiflix';
 import Pagination from 'tui-pagination';
 import customSelect from 'custom-select';
-import axios from 'axios';
 import initRatings from '../utils/initRating';
 import dataYears from '../years.json';
-import 'custom-select/build/custom-select.css';
 import { buildGallery } from './section_catalog';
+import { API_KEY } from '../api/catalogAPI';
+import { URL } from '../api/catalogAPI';
+import { buildGallery } from './catalog_gallery_markup';
 import { galleryOfWeek } from './section_catalog';
+import { noMovie } from './catalog_gallery_markup';
+import { refs } from './catalog-refs';
+import Pagination from '../utils/pagination';
+import 'custom-select/build/custom-select.css';
 
-
-const URL = 'https://api.themoviedb.org/3/';
-const API_KEY =
-  'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NWQzY2MzZDA1Nzk2OGE0YWJlZGY1MzVkOGNiZDIwMiIsInN1YiI6IjY0N2EzNjI3Y2FlZjJkMDExOWJmMDc3ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vnk9Mx4FCU9-aMju8ubwqMt0iiZWjWxQo-T3KlsNAWg';
-
-
-
-const form = document.querySelector('#search-form');
-const searchInput = document.querySelector('[name="searchQuery"]');
-const gallery = document.querySelector('.gallery');
-const clearBtn = document.querySelector('.clear-btn');
-const yearSelectEl = document.getElementById('year-select');
-const pagaContainer = document.getElementById('tui-pagination-container');
 const Pagination = require('tui-pagination');
 
 let formData = '';
@@ -29,7 +22,7 @@ let currentPage = 1;
 
 
 populateYearsOptions(dataYears.year);
-const yearSelect = customSelect(yearSelectEl)[0];
+const yearSelect = customSelect(refs.yearSelectEl)[0];
 
 yearSelect.select.addEventListener('change', filterMoviesYear);
 
@@ -40,7 +33,7 @@ function populateYearsOptions(years) {
     optionEl.textContent = year.name;
     optionEl.value = year.id;
 
-    yearSelectEl.appendChild(optionEl);
+    refs.yearSelectEl.appendChild(optionEl);
   });
 }
 
@@ -49,19 +42,6 @@ function filterMoviesYear(evt) {
   yearParam = `&primary_release_year=${year}`;
   console.log(yearParam);
 }
-
-
-function noMovie() {
-  pagaContainer.innerHTML = '';
-  gallery.innerHTML = `
-    <div class="gallery-empty"
-        <h2 class="title-empty">OOPS...</h2>
-        <p class="text-empty">We are very sorry!
-        We don’t have any results matching your search.</p>
-    </div>   
-    `;
-}
-
 
 async function fetchMoviesSearch() {
   try {
@@ -83,45 +63,17 @@ async function fetchMoviesSearch() {
   }
 }
 
+function paginationSeach(props) { 
+  const pageCount = props.total_pages;
+  let pageIndex = currentPage;
 
-import Pagination from '../utils/pagination';
-
-const paginationContainer = document.querySelector('.pagination ul');
-
-const pageCount = 100;
-let pageIndex = 1;
-
-new Pagination({
-  container: paginationContainer,
-  count: pageCount,
-  index: pageIndex,
-  
-});
-
-
-// function paginationSeach(props) {
-//   const instance = new Pagination(pagaContainer, {
-//     page: currentPage,
-//     totalItems: props.total_pages,
-//     visiblePages: 3,
-//     firstItemClassName: 'first',
-//     lastItemClassName: 'last',
-//       centerAlign: true,
-//   });
-//   instance.on('beforeMove', eventData => {
-//     const perPage = eventData;
-//     currentPage = perPage.page;
-//     searchMovie();
-//     scrollToAnchor();
-//   });
-//   instance.getCurrentPage();
-  
-// }
-
-
-
-
-
+  new Pagination({
+    container: refs.paginationContainer,
+    count: pageCount,
+    index: pageIndex,
+    
+  });
+}
 
 async function searchMovie() {
   try {
@@ -131,7 +83,7 @@ async function searchMovie() {
       return noMovie();
     }
     paginationSeach(result);
-    gallery.innerHTML = addingMovies;
+    refs.gallery.innerHTML = addingMovies;
     initRatings();
   } catch (error) {
     console.log(error);
@@ -140,8 +92,8 @@ async function searchMovie() {
 
 function inputSubmit(event) {
   event.preventDefault();
-  gallery.innerHTML = '';
-  formData = searchInput.value.trim();
+  refs.gallery.innerHTML = '';
+  formData = refs.searchInput.value.trim();
   if (yearParam === '') {
     galleryOfWeek();
     return Notiflix.Notify.failure('Choose Year, please.');
@@ -155,20 +107,20 @@ function inputSubmit(event) {
 }
 
 function clearInput() {
-  searchInput.addEventListener('input', function () {
-    if (searchInput.value) {
-      clearBtn.classList.add('is-active');
+  refs.searchInput.addEventListener('input', function () {
+    if (refs.searchInput.value) {
+      refs.clearBtn.classList.add('is-active');
     }
-    if (searchInput.value === '' || searchInput.value === ' ') {
-      clearBtn.classList.remove('is-active');
+    if (refs.searchInput.value === '' || refs.searchInput.value === ' ') {
+      refs.clearBtn.classList.remove('is-active');
       currentPage = 1;
       galleryOfWeek();
     }
   });
-  clearBtn.addEventListener('click', function () {
-    searchInput.value = '';
-    clearBtn.classList.remove('is-active');
-    gallery.innerHTML = '';
+  refs.clearBtn.addEventListener('click', function () {
+    refs.searchInput.value = '';
+    refs.clearBtn.classList.remove('is-active');
+    refs.gallery.innerHTML = '';
     currentPage = 1;
     galleryOfWeek();
   });
@@ -176,5 +128,5 @@ function clearInput() {
 
 clearInput();
 
-form.addEventListener('submit', inputSubmit);
+refs.form.addEventListener('submit', inputSubmit);
 
