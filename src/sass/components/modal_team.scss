@@ -12,6 +12,10 @@
 .close-icon:focus {
   stroke: $orange-color;
 }
+.github-icon {
+  fill: $light-grey-color;
+  margin-right: 5px;
+}
 .logo-icon {
   margin-right: 8px;
 }
@@ -72,7 +76,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 266px;
-  padding: 24px 24px 40px 24px;
+  padding: 24px 15px 40px 15px;
   background-color: $black-color;
   transform: translate(-50%, -50%);
   transition-property: transform;
@@ -99,12 +103,26 @@
   margin-top: 6px;
   margin-bottom: 4px;
 }
-.modal-team-deskr {
+.modal-team-deskr,
+.github-link {
   color: $light-grey-color;
   font-family: $font-family;
   font-weight: 500;
   font-size: 12px;
   line-height: calc(20 / 12);
+}
+.github-link {
+  margin-top: 2px;
+  transition-property: color;
+  transition-duration: $transition;
+  transition-timing-function: $transition-cubic-bezier;
+  display: flex;
+  align-items: end;
+}
+
+.github-link:hover,
+.github-link:focus {
+  color: $orange-color;
 }
 .hidden {
   overflow: hidden;
@@ -123,7 +141,7 @@
 @media screen and (min-width: 768px) {
   .footer-modal {
     width: 640px;
-    padding-bottom: 60px;
+    padding: 24px 24px 60px 24px;
   }
   .modal-team-list {
     display: flex;
