@@ -5,16 +5,6 @@ import movieCardMarkup from '../markup/movieCardMarkup';
 import { Notify } from 'notiflix';
 import { loadMovies } from '../api/libraryAPI';
 import initRatings from '../utils/initRating';
-import axios from 'axios';
-
-const BASE_URL = 'https://api.themoviedb.org/3';
-const options = {
-  headers: {
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYjE3NzU3ZjU2ZDg1NmM5YzE2MmE1OWEzZWZlMmY5MyIsInN1YiI6IjY0NzhkNWZjOWI2ZTQ3MDBkZThlOTBlZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BE22YVTai34Dh5C1jSxEZ2DzzjnxJfKFgEIpWS2JFcI',
-    accept: 'application/json',
-  },
-};
 
 const genresSelectEl = document.getElementById('genres-select');
 const moviesListEl = document.getElementById('library-movie-list');
@@ -73,65 +63,35 @@ function filterMoviesByGenre(evt) {
 
 async function initLibrary() {
   try {
-    const movies = loadMovies();
+    const movies = await loadMovies(PAGE_SIZE);
+
     if (movies.length === 0) {
       emptyLibEl.classList.remove('is-hidden');
       libCatalogEl.classList.add('is-hidden');
       return;
     }
 
-    let resultMovies = [];
-
-    if (movies.length <= PAGE_SIZE) {
+    if (movies.length < PAGE_SIZE) {
       loadMoreBtnEl.classList.add('is-hidden');
-      resultMovies = await Promise.all(movies.map(fetchMovie));
-    } else {
-      resultMovies = await Promise.all(
-        movies.slice(0, PAGE_SIZE).map(fetchMovie)
-      );
     }
 
-    appendMoviesToLibrary(resultMovies);
+    appendMoviesToLibrary(movies);
   } catch (err) {
     onError(err);
   }
-}
-
-async function fetchMovie({ id }) {
-  const responce = await axios.get(
-    `${BASE_URL}/movie/${id}?language=en-US`,
-    options
-  );
-  const {
-    data: { poster_path, title, vote_average, release_date, genres },
-  } = responce;
-  const genre_ids = genres.map(({ id }) => id);
-
-  return { genre_ids, poster_path, title, vote_average, release_date, id };
 }
 
 async function onLoadMore() {
-  try {
-    const movies = loadMovies();
-    let resultMovies = [];
-    const moviesBefore = PAGE_SIZE * page;
+  debugger;
+  const movies = await loadMovies(PAGE_SIZE, page);
 
-    if (movies.length - moviesBefore <= PAGE_SIZE) {
-      loadMoreBtnEl.classList.add('is-hidden');
-      resultMovies = await Promise.all(
-        movies.slice(moviesBefore).map(fetchMovie)
-      );
-    } else {
-      resultMovies = await Promise.all(
-        movies.slice(moviesBefore, moviesBefore + PAGE_SIZE).map(fetchMovie)
-      );
-      page += 1;
-    }
-
-    appendMoviesToLibrary(resultMovies);
-  } catch (err) {
-    onError(err);
+  if (movies.length < PAGE_SIZE) {
+    loadMoreBtnEl.classList.add('is-hidden');
   }
+
+  page += 1;
+
+  appendMoviesToLibrary(movies);
 }
 
 function onError(error) {
