@@ -41,15 +41,15 @@
 
   @include media-query(mobile) {
     padding-top: 44px;
-    padding-bottom: 42px;
+    // padding-bottom: 42px;
   }
   @include media-query(tablet) {
     padding-top: 80px;
-    padding-bottom: 60px;
+    // padding-bottom: 60px;
   }
   @include media-query(desktop) {
     padding-top: 160px;
-    padding-bottom: 108px;
+    // padding-bottom: 108px;
   }
 }
 
@@ -70,16 +70,16 @@
   }
 
   @include media-query(mobile) {
-    padding: 40px 0;
+    padding-top: 40px;
   }
 
   @include media-query(tablet) {
-    padding: 60px 0;
+    padding-top: 60px;
   }
 
   @include media-query(desktop) {
     padding-top: 80px;
-    padding-bottom: 96px;
+    // padding-bottom: 96px;
   }
 
   @include custom-select(173px, 144px, 260px);
