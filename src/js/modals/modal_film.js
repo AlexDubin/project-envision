@@ -153,7 +153,9 @@ function createCardMarkup(data) {
       <p class="film-add__text">${overview}</p>
     </div>
 
-    <button type="button" class="film-add__btn btn">Add to my library</button>
+    <button class="upcoming__addToLibrary-button" type="button" id="addToMyLibrary">
+        <p>Add to my library</p>
+      </button>
   </div>
 </li>`;
 } 
