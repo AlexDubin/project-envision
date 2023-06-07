@@ -70,8 +70,9 @@ export const markupRandomTrendingMovie = async () => {
       </div>`;
   } finally {
     heroRefs.heroContainer.innerHTML = markup;
+    const trailerBtn = document.getElementById('watch-trailer');
     if (trailerBtn) {
-      heroRefs.trailerBtn.addEventListener('click', event => {
+      trailerBtn.addEventListener('click', event => {
         onTrailerBtnClick(event);
       });
     }
