@@ -57,13 +57,13 @@ export function removeMovie(id) {
  * @param {number} limit - Limit of returned movies
  * @returns Array of movies
  */
-export async function loadMovies(limit = 0, page = 1) {
+export async function loadMovies(limit = 0, page = 0) {
   try {
     const previousMovies = page * limit;
     const savedMovies = loadMoviesFromStorage();
 
     const moviesToLoad =
-      page <= 1
+      page === 0
         ? savedMovies.slice(0, limit)
         : savedMovies.slice(previousMovies, previousMovies + limit);
 
