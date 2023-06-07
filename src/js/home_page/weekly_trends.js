@@ -2,6 +2,9 @@ import genres from '../genres.json';
 import axios from 'axios';
 import movieCardMarkup from '../markup/movieCardMarkup';
 import initRatings from '../utils/initRating';
+import refs from '../refs/weekly_trends-refs';
+// закомитила импорт потому что с ним у меня исчезаеют карточки фильмов
+// import onOpenModalFilm from '../modals/modal_film';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const options = {
@@ -24,9 +27,7 @@ async function getTrendingMoviesByWeek(page = 1) {
   }
 }
 
-const movieList = document.querySelector('.list-movie-card');
-
-if (movieList) {
+if (refs.movieList) {
   const genresObject = {};
   genres.genres.forEach(genre => {
     genresObject[genre.id] = genre.name;
@@ -48,8 +49,10 @@ function createMarkupMovies({ results }, genresObject) {
 }
 
 function markupMovie(moviesToShow) {
-  movieList.innerHTML = moviesToShow.map(movieCardMarkup).join('');
+  refs.movieList.innerHTML = moviesToShow.map(movieCardMarkup).join('');
   initRatings();
+  refs.movieList.addEventListener('click', onOpenModalFilm);
+  window.addEventListener('keydown', onEscKeyPress);
 }
 
 function getRandomMovieToShow(results) {
