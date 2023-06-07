@@ -24,9 +24,9 @@ export default class Pagination {
 
     if (this.pageCount > 1) {
       //show the next button if the page value is greater than 1
-      liTag += `<li class="btn prev list-item"><span><i class="fas fa-angle-left"></i> <svg id="icon-sun " width: 20px
-    height: 20px; class="pag-rrow-left>
-        <use href="/src/img/icons.svg#icon-sun"></use>
+      liTag += `<li class="btn prev list-item"><span><i class="fas fa-angle-left"></i> <svg id="icon-arrow-left " width: 20
+         height: 20 class="pag-rrow-left>
+        <use href="/src/img/icons.svg#icon-arrow-left"></use>
       </svg></span></li>`;
     }
 
@@ -101,7 +101,7 @@ export default class Pagination {
 
     if (this.pageCount > 1) {
       //show the next button if the page value is less than totalPage
-      liTag += `<li class="btn next list-item"><span>Sex <i class="fas fa-angle-right"></i></span></li>`;
+      liTag += `<li class="btn next list-item"><span>To <i class="fas fa-angle-right"></i></span></li>`;
     }
     if (this.container) {
       this.container.innerHTML = liTag;
