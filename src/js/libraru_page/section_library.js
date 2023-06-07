@@ -82,7 +82,6 @@ async function initLibrary() {
 }
 
 async function onLoadMore() {
-  debugger;
   const movies = await loadMovies(PAGE_SIZE, page);
 
   if (movies.length < PAGE_SIZE) {
