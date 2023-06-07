@@ -1,13 +1,12 @@
 import movieCardMarkup from '../markup/movieCardMarkup';
-import { loadMovies } from '../api/libraryAPI';
 import populateOptions from '../utils/populateOptions';
 import initRatings from '../utils/initRating';
+import { loadMovies } from '../api/libraryAPI';
 
 import customSelect from 'custom-select';
 
 import data from '../genres.json';
 import 'custom-select/build/custom-select.css';
-import { Loading } from 'notiflix';
 import loaderWrapper from '../loader';
 
 const refs = {
@@ -41,21 +40,6 @@ function appendMoviesToLibrary(movies) {
   initRatings();
 }
 
-function filterMoviesByGenre(evt) {
-  const movies = refs.moviesListEl.childNodes;
-  let filter = evt.target.value;
-
-  if (filter === '-1') {
-    movies.forEach(movie => movie.classList.remove('is-hidden'));
-  } else {
-    movies.forEach(movie => {
-      movie.dataset.genres.split(',').includes(filter)
-        ? movie.classList.remove('is-hidden')
-        : movie.classList.add('is-hidden');
-    });
-  }
-}
-
 async function initLibrary() {
   const movies = await loaderWrapper(loadMovies(PAGE_SIZE));
 
@@ -70,6 +54,21 @@ async function initLibrary() {
   }
 
   appendMoviesToLibrary(movies);
+}
+
+function filterMoviesByGenre(evt) {
+  const movies = refs.moviesListEl.childNodes;
+  let filter = evt.target.value;
+
+  if (filter === '-1') {
+    movies.forEach(movie => movie.classList.remove('is-hidden'));
+  } else {
+    movies.forEach(movie => {
+      movie.dataset.genres.split(',').includes(filter)
+        ? movie.classList.remove('is-hidden')
+        : movie.classList.add('is-hidden');
+    });
+  }
 }
 
 async function onLoadMore() {
