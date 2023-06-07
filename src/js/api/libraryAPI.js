@@ -26,7 +26,7 @@ const options = {
  * Saves movie object to localStorage
  * @param {Object} movie - movie to save
  * @param {number} movie.id - id of movie (Required)
- * @throws Will throw an error if movie already in library
+ * @throws Will throw an error if movie already in library or if id is not provided
  */
 export function saveMovie(movie) {
   const movies = loadMoviesFromStorage();
@@ -55,6 +55,7 @@ export function removeMovie(id) {
 /**
  * Loads movies from localStorage
  * @param {number} limit - Limit of returned movies
+ * @param {number} page - Page to load (starts from zero)
  * @returns Array of movies
  */
 export async function loadMovies(limit = 0, page = 0) {
