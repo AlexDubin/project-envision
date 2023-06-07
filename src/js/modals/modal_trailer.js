@@ -1,16 +1,16 @@
 import axios from 'axios';
 
 const API_KEY = '381b93c9cb735b46bfc762a57bc33888';
-const BASE_URL = 'https://api.themoviedb.org/3/';
+const BASE_URL = 'https://api.themoviedb.org/3';
 
-let trailerContainerEl;
-let noMovieContainerEl;
 const heroEl = document.querySelector('.hero');
 const trailerIframe = document.getElementById('trailerIframe');
 const trailerBackdropEl = document.querySelector('.trailer-modal__backdrop');
 const trailerCloseBtnEl = document.querySelector(
   '.trailer-modal__button-close'
 );
+const trailerContainerEl = document.querySelector('.trailer-container');
+const noMovieContainerEl = document.querySelector('.no-movie-container');
 
 heroEl.addEventListener('click', onTrailerBtnClick);
 
@@ -21,9 +21,6 @@ export async function onTrailerBtnClick(event) {
 
     if (!movieId) return;
     showTrailerModal();
-
-    trailerContainerEl = document.querySelector('.trailer-container');
-    noMovieContainerEl = document.querySelector('.no-movie-container');
 
     trailerContainerEl.classList.remove('trailer-is-hidden');
     noMovieContainerEl.classList.add('trailer-is-hidden');
@@ -80,12 +77,12 @@ async function renderTrailer(movieId) {
 
 async function getRandomTrailerKey(movieId) {
   try {
-    const BASE_URL = `https://api.themoviedb.org/3/movie/${movieId}/videos`;
+    const url = `${BASE_URL}/movie/${movieId}/videos`;
     const params = {
       api_key: API_KEY,
     };
 
-    const response = await axios.get(BASE_URL, { params });
+    const response = await axios.get(url, { params });
 
     const movieTrailer = await response.data;
 
