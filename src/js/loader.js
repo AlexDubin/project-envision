@@ -14,6 +14,6 @@ export default async function loaderWrapper(promise) {
   });
 
   const res = await promise;
-  Loading.remove(1000);
+  Loading.remove();
   return res;
 }
