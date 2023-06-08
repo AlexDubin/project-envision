@@ -1,6 +1,7 @@
 import { fetchTrendingMoviesByDay } from '../api/fetch-api.js';
 import { onTrailerBtnClick } from '../modals/modal_trailer.js';
 import { heroRefs } from '../refs/hero-refs.js';
+import { onOpenModalFilm } from '../modals/modal_film.js';
 
 export const markupRandomTrendingMovie = async () => {
   let markup = '';
@@ -40,11 +41,19 @@ export const markupRandomTrendingMovie = async () => {
             </p>
             <div class="hero__btns" id="${id}">
               <button id="watch-trailer" class="hero__btn hero__btn--primary hero__btn--watch-trailer" data-movie-id="${id}">Watch trailer</button>
-              <button class="hero__btn hero__btn--secondary" data-movie="info">More details</button>
+              <button class="hero__btn hero__btn--secondary m-modal data-movie-id="${id}" data-id="${id}" >More details</button>
             </div>
           </div>
         </div>
       </div>`;
+
+    heroRefs.heroContainer.innerHTML = markup;
+
+    const trailerBtn = document.getElementById('watch-trailer');
+    trailerBtn.addEventListener('click', e => onTrailerBtnClick(e));
+
+    const movieInfoBtn = document.querySelector('.hero__btn.m-modal');
+    movieInfoBtn.addEventListener('click', e => onOpenModalFilm(e));
   } catch (error) {
     heroRefs.heroContainer.classList.toggle('hero--bg-lib');
     markup = `
@@ -59,14 +68,16 @@ export const markupRandomTrendingMovie = async () => {
           </p>
         </div>
       </div>`;
-  } finally {
+
     heroRefs.heroContainer.innerHTML = markup;
-    const trailerBtn = document.getElementById('watch-trailer');
-    if (trailerBtn) {
-      trailerBtn.addEventListener('click', event => {
-        onTrailerBtnClick(event);
-      });
-    }
+  } finally {
+    // heroRefs.heroContainer.innerHTML = markup;
+    // const trailerBtn = document.getElementById('watch-trailer');
+    // if (trailerBtn) {
+    //   trailerBtn.addEventListener('click', event => {
+    //     onTrailerBtnClick(event);
+    //   });
+    // }
   }
 };
 
