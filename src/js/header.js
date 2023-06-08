@@ -57,4 +57,20 @@
   if (theme === 'light') document.body.classList.add('light-theme');
 
   themeSwitcherBtn.addEventListener('click', onThemeSwitch);
+
+  const setActiveLink = list => {
+    const activeLink = [...list.children].find(item => {
+      const currentLocation =
+        location.pathname === '/'
+          ? location.origin + '/index.html'
+          : location.origin + location.pathname;
+
+      return item.querySelector('a').href === currentLocation;
+    });
+    activeLink.querySelector('a').classList.add('active');
+  };
+
+  const linkListEls = document.querySelectorAll('.js-link-list');
+
+  linkListEls.forEach(setActiveLink);
 })();

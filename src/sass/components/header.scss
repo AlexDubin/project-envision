@@ -91,7 +91,7 @@
     line-height: 114.285714%; /* 16px/14px */
     color: $light-grey-color;
 
-    &_active {
+    &.active {
       color: $orange-color;
     }
   }
@@ -169,14 +169,15 @@
   position: absolute;
   z-index: 15;
 
-  width: 100%;
+  width: 0;
   height: 100%;
 
   top: 0;
   left: 0;
   background-color: transparent;
-  transition: background-color $transition * 1.5 $transition-cubic-bezier;
-  transform: translateX(-100vw);
+  // Хак чтобы бэкдроп не мешался при кликах
+  transition: background-color $transition * 1.5 $transition-cubic-bezier,
+    width 0s linear $transition * 1.5;
 
   #{&}__container {
     width: 204px;
@@ -192,7 +193,10 @@
 
   &.is-open {
     background-color: rgba(255, 255, 255, 0.2);
-    transform: translateX(0);
+    // Хак чтобы бэкдроп не мешался при кликах
+    width: 100%;
+    transition: background-color $transition * 1.5 $transition-cubic-bezier 1ms,
+      width 0s linear;
 
     .mobile-menu__container {
       transform: translateX(0);
@@ -231,7 +235,7 @@
     text-transform: uppercase;
     text-decoration: none;
 
-    &_active {
+    &.active {
       color: $orange-color;
     }
   }
