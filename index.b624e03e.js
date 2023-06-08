@@ -1,11 +1,11 @@
-!function(){function e(e){return e&&e.__esModule?e.default:e}var t,a="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},i={},n={},o=a.parcelRequire34ff;null==o&&((o=function(e){if(e in i)return i[e].exports;if(e in n){var t=n[e];delete n[e];var a={id:e,exports:{}};return i[e]=a,t.call(a.exports,a,a.exports),a.exports}var o=Error("Cannot find module '"+e+"'");throw o.code="MODULE_NOT_FOUND",o}).register=function(e,t){n[e]=t},a.parcelRequire34ff=o),o("i8Q71");var r=o("8yl2Y"),s=o("faU4B"),l=o("6U7c4");let c=async()=>{let e="",t="background-size: cover";try{let{results:a}=await (0,r.fetchTrendingMoviesByDay)(),{id:i,title:n,overview:o,backdrop_path:s,vote_average:l}=a[Math.floor(20*Math.random())+0],c=`https://image.tmdb.org/t/p/original/${s}`;window.innerWidth<768&&(t="background-size: 768px; background-position: center"),e=`
-      <div class="hero__wrap" style="background: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(${c}); ${t}; background-repeat: no-repeat;">
+!function(){function e(e){return e&&e.__esModule?e.default:e}var t,a="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},i={},n={},o=a.parcelRequire34ff;null==o&&((o=function(e){if(e in i)return i[e].exports;if(e in n){var t=n[e];delete n[e];var a={id:e,exports:{}};return i[e]=a,t.call(a.exports,a,a.exports),a.exports}var o=Error("Cannot find module '"+e+"'");throw o.code="MODULE_NOT_FOUND",o}).register=function(e,t){n[e]=t},a.parcelRequire34ff=o),o("i8Q71");var r=o("8yl2Y"),s=o("faU4B"),l=o("6U7c4"),c=o("16wVm");let d=async()=>{let e="",t="background-size: cover";try{let{results:a}=await (0,r.fetchTrendingMoviesByDay)(),{id:i,title:n,overview:o,backdrop_path:d,vote_average:p}=a[Math.floor(20*Math.random())+0],g=`https://image.tmdb.org/t/p/original/${d}`;window.innerWidth<768&&(t="background-size: 768px; background-position: center"),e=`
+      <div class="hero__wrap" style="background: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(${g}); ${t}; background-repeat: no-repeat;">
         <div class="container">
           <div class="hero__inner" >
             <h1 class="hero__title">${n}</h1>
             <div class="hrating">
               <div class="hrating__body">
-                <div class="hrating__active" style="width: ${10*l}%;"></div>
+                <div class="hrating__active" style="width: ${10*p}%;"></div>
                 <div class="hrating__items">
                   <input type="radio" class="hrating__item" value="1" name="rating" />
                   <input type="radio" class="hrating__item" value="2" name="rating" />
@@ -18,13 +18,13 @@
             <p class="hero__text hero__text--trunc">
               ${o}
             </p>
-            <div class="hero__btns" id="${i}">
+            <div class="hero__btns">
               <button id="watch-trailer" class="hero__btn hero__btn--primary hero__btn--watch-trailer" data-movie-id="${i}">Watch trailer</button>
-              <button class="hero__btn hero__btn--secondary" data-movie="info">More details</button>
+              <button class="hero__btn hero__btn--secondary m-modal data-movie-id="${i}" data-id="${i}">More details</button>
             </div>
           </div>
         </div>
-      </div>`}catch(t){(0,l.heroRefs).heroContainer.classList.toggle("hero--bg"),e=`
+      </div>`,l.heroRefs.heroContainer.innerHTML=e;let u=document.getElementById("watch-trailer");u.addEventListener("click",e=>(0,s.onTrailerBtnClick)(e));let v=document.querySelector(".hero__btn.m-modal");v.addEventListener("click",e=>(0,c.onOpenModalFilm)(e))}catch(t){(0,l.heroRefs).heroContainer.classList.toggle("hero--bg"),e=`
       <div class="hero__wrap">
         <div class="container">
           <div class="hero__inner">
@@ -44,7 +44,7 @@
             </div>
           </div>
         </div>
-      </div>`}finally{l.heroRefs.heroContainer.innerHTML=e;let t=document.getElementById("watch-trailer");t&&t.addEventListener("click",e=>{(0,s.onTrailerBtnClick)(e)})}};c();var d=o("6JpON"),p=o("dIxxU");let g={method:"GET",headers:{accept:"application/json",Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2FhN2IzMjk5NmM0N2RhMTQxZWI1N2IwZTVjZTQ3NiIsInN1YiI6IjY0N2M5OTdkZTMyM2YzMDEyNzUyM2IzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Blrs7t4WoJ6-3sy6A_Vz3twkTCmEg9nM0JyuAHg88WM"}};async function u(){try{let e=await (0,p.default).get("https://api.themoviedb.org/3/movie/upcoming",g);return e.data}catch(e){console.log(e),Notiflix.Notify.failure("Oops! Something went wrong. Try again, please!")}}var v=o("XcJ0g");let h="",m=e(v).genres,_=document.querySelector(".upcoming");u().then(e=>{!function({results:e}){let t;let a=Math.floor(Math.random()*e.length),{adult:i,backdrop_path:n,genre_ids:o,id:r,original_language:s,original_title:l,overview:c,popularity:d,poster_path:p,release_date:g,title:u,video:v,vote_average:y,vote_count:f}=e[a];t=[],o.forEach(e=>{m.forEach(a=>{e===a.id&&t.push(a.name)})}),h=t.length>2?`${t[0]} and others...`:2===t.length?`${t[0]}, ${t[1]}`:`${t[0]}`,_.innerHTML=`<div class="container">
+      </div>`,l.heroRefs.heroContainer.innerHTML=e}};d();var p=o("6JpON"),g=o("dIxxU");let u={method:"GET",headers:{accept:"application/json",Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2FhN2IzMjk5NmM0N2RhMTQxZWI1N2IwZTVjZTQ3NiIsInN1YiI6IjY0N2M5OTdkZTMyM2YzMDEyNzUyM2IzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Blrs7t4WoJ6-3sy6A_Vz3twkTCmEg9nM0JyuAHg88WM"}};async function v(){try{let e=await (0,g.default).get("https://api.themoviedb.org/3/movie/upcoming",u);return e.data}catch(e){console.log(e),Notiflix.Notify.failure("Oops! Something went wrong. Try again, please!")}}var m=o("XcJ0g");let h="",_=e(m).genres,y=document.querySelector(".upcoming");v().then(e=>{!function({results:e}){let t;let a=Math.floor(Math.random()*e.length),{adult:i,backdrop_path:n,genre_ids:o,id:r,original_language:s,original_title:l,overview:c,popularity:d,poster_path:p,release_date:g,title:u,video:v,vote_average:m,vote_count:f}=e[a];t=[],o.forEach(e=>{_.forEach(a=>{e===a.id&&t.push(a.name)})}),h=t.length>2?`${t[0]} and others...`:2===t.length?`${t[0]}, ${t[1]}`:`${t[0]}`,y.innerHTML=`<div class="container">
     <h2 class="upcoming__section-title">UPCOMING THIS MONTH</h2>
     <div class="upcoming__block">
       <div class="upcoming__poster">
@@ -65,7 +65,7 @@
             <div class="upcoming__vote">
               <p class="upcoming__vote--title">Vote / Votes</p>
               <p class="upcoming__vote--value">
-                <span class="upcoming__vote--value-average">${y}</span> /
+                <span class="upcoming__vote--value-average">${m}</span> /
                 <span class="upcoming__vote--value-count">${f}</span>
               </p>
             </div>
@@ -88,7 +88,7 @@
         </button>
         </div>
       </div>
-    </div>`,document.querySelector("#addToMyLibrary")}(e)}).catch(t=>{console.log(t),e(d).Notify.failure("Oops! Something went wrong. Try again, please!")});var v=(o("XcJ0g"),o("XcJ0g")),y=({poster_path:t,title:a,vote_average:i,genre_ids:n,release_date:o,id:r})=>{let s={},l="";return e(v).genres.forEach(e=>{s[e.id]=e.name}),n.length>0&&(l=1===n.length||n.join(", ").length<=20?s[n[0]]:`${s[n[0]]}, ${s[n[1]]}`),`<li class='item-movie-card m-modal' data-genres='${n}' data-id='${r}'>
+    </div>`,document.querySelector("#addToMyLibrary")}(e)}).catch(t=>{console.log(t),e(p).Notify.failure("Oops! Something went wrong. Try again, please!")});var m=(o("XcJ0g"),o("XcJ0g")),f=({poster_path:t,title:a,vote_average:i,genre_ids:n,release_date:o,id:r})=>{let s={},l="";return e(m).genres.forEach(e=>{s[e.id]=e.name}),n.length>0&&(l=1===n.length||n.join(", ").length<=20?s[n[0]]:`${s[n[0]]}, ${s[n[1]]}`),`<li class='item-movie-card m-modal' data-genres='${n}' data-id='${r}'>
   <button class="button" data-action="open-modal">${null===t?"<img class='poster-movie-card' src='' alt='default poster'>":`<img
   class='poster-movie-card'
   src='https://image.tmdb.org/t/p/original${t}'
@@ -128,5 +128,5 @@
     </div>
   </div>
 </button>
-</li>`},f=o("14Rx2");let b={movieList:document.querySelector(".list-movie-card")};var p=o("dIxxU");let w={headers:{Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMmFhZDQ4MjlkYjI1ZWQ1Mjc0NmY0NmY4YzQ1NzRlYSIsInN1YiI6IjY0NzIzZDc3OWFlNjEzMDBjNGM3NmY1NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.v_Pd0M6hpO0qy1_8-nNBGtFxbeHjE8i8mgfszlHvjZc",accept:"application/json"}};async function $(e=1){try{let t=await (0,p.default).get(`https://api.themoviedb.org/3/trending/movie/week?language=en-US&page=${e}`,w);return t.data}catch(e){console.log(e)}}if(b.movieList){let a={};e(v).genres.forEach(e=>{a[e.id]=e.name}),t=a,$().then(e=>{(function({results:e},t){let a=function(e){let t=[];for(;t.length<3;){let a=Math.floor(Math.random()*e.length);t.includes(a)||t.push(a)}return t}(e),i=a.map(t=>e[t]);b.movieList.innerHTML=i.map(y).join(""),(0,f.default)(),b.movieList.addEventListener("click",onOpenModalFilm),window.addEventListener("keydown",onEscKeyPress)})(e,0)}).catch(e=>console.log(e))}o("bf8lc"),o("7hKzD"),o("cs2b8")}();
-//# sourceMappingURL=index.cd6de6a8.js.map
+</li>`},b=o("14Rx2");let w={movieList:document.querySelector(".list-movie-card")};var g=o("dIxxU");let $={headers:{Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMmFhZDQ4MjlkYjI1ZWQ1Mjc0NmY0NmY4YzQ1NzRlYSIsInN1YiI6IjY0NzIzZDc3OWFlNjEzMDBjNGM3NmY1NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.v_Pd0M6hpO0qy1_8-nNBGtFxbeHjE8i8mgfszlHvjZc",accept:"application/json"}};async function M(e=1){try{let t=await (0,g.default).get(`https://api.themoviedb.org/3/trending/movie/week?language=en-US&page=${e}`,$);return t.data}catch(e){console.log(e)}}if(w.movieList){let a={};e(m).genres.forEach(e=>{a[e.id]=e.name}),t=a,M().then(e=>{(function({results:e},t){let a=function(e){let t=[];for(;t.length<3;){let a=Math.floor(Math.random()*e.length);t.includes(a)||t.push(a)}return t}(e),i=a.map(t=>e[t]);w.movieList.innerHTML=i.map(f).join(""),(0,b.default)(),w.movieList.addEventListener("click",onOpenModalFilm),window.addEventListener("keydown",onEscKeyPress)})(e,0)}).catch(e=>console.log(e))}o("bf8lc"),o("7hKzD"),o("cs2b8")}();
+//# sourceMappingURL=index.b624e03e.js.map
