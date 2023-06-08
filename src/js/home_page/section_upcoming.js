@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 import genres from '../genres.json';
 
 let genresNames = '';
@@ -21,7 +22,10 @@ getUpcomingMovies()
   .then(data => {
     markupUpcomingMovies(data);
   })
-  .catch(error => console.log(error));
+  .catch(error => {
+    console.log(error);
+    Notiflix.Notify.failure('Oops! Something went wrong. Try again, please!');
+  });
 
 async function getUpcomingMovies() {
   try {
@@ -29,6 +33,7 @@ async function getUpcomingMovies() {
     return response.data;
   } catch (error) {
     console.log(error);
+    Notiflix.Notify.failure('Oops! Something went wrong. Try again, please!');
   }
 }
 
