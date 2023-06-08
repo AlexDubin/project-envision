@@ -17,12 +17,12 @@ async function getMovieDetails(movieId) {
 }
 
 const filmTrendsCards = document.querySelector('.list-movie-card'); //ul трендів
-const filmCatalogCards = document.querySelector('.js-gallery'); //li з каталогу
+const filmCatalogCards = document.querySelector('.gallery'); //li з каталогу
 const modBackdrop = document.querySelector('.modal-backdrop'); //div мій
 const closeBtn = document.querySelector('.modal__close-btn'); //моя кнопка
 const modalListRef = document.querySelector('.cards-film'); //ul моє з розмітки
 
-// filmTrendsCards.addEventListener('click', onOpenModalFilm);
+filmTrendsCards.addEventListener('click', onOpenModalFilm);
 // filmCatalogCards.addEventListener('click', onOpenModalFilm);
 closeBtn.addEventListener('click', onCloseModalFilm);
 modBackdrop.addEventListener('click', onBackDropClick);
@@ -53,18 +53,6 @@ function onCloseModalFilm() {
   modBackdrop.classList.add('is-hidden');
 }
 
-// function onCloseModalFilm(event) {
-//   if (
-//     event.target === modBackdrop ||
-//     event.target === closeBtn ||
-//     event.code === 'Escape'
-//   ) {
-//     onCloseModalFilm();
-//   } else if (event.target === filmTrendsCards) {
-//     onOpenModalFilm();
-//   }
-//   return;
-// }
 
 // CLOSE MODAL by CLICKING BACKDROP
 function onBackDropClick(event) {
