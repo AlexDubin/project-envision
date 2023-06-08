@@ -47,6 +47,10 @@ $bg-color: var(--bg-color); //                                     black / white
 $header-bg-color: var(--header-bg-color); //                        #000 / white
 $header-logo-color: var(--header-logo-color); //               white / dark-grey
 $header-link-color: var(--header-link-color); //               light-grey / grey
+$mobile-menu-bg-color: var(--mobile-menu-bg-color); //       #171717 / off-white
+$mobile-menu-backdrop-color: var(
+  --mobile-menu-backdrop-color
+); //                                                    white 0.2 / black 0.2
 $upcoming-grey-text-color: var(
   --upcoming-grey-text-color
 ); //                                                         light-grey / black

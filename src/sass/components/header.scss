@@ -1,5 +1,6 @@
 .header {
   padding: 8px 0;
+  background-color: $header-bg-color;
 
   @include media-query(tablet) {
     padding: 6px 0;
@@ -35,7 +36,7 @@
     margin-left: 8px;
     font-size: $font-size-subbody;
     line-height: 116.666667%; /* 28px / 24px */
-    color: $white-color;
+    color: $header-logo-color;
 
     @include media-query(mobile) {
       display: none;
@@ -50,7 +51,7 @@
     font-weight: $font-weight-medium;
     font-size: $font-size-caption;
     line-height: 116.666667%; /* 14px / 12px */
-    color: $light-grey-color;
+    color: $header-link-color;
 
     @include media-query(mobile) {
       display: block;
@@ -89,7 +90,7 @@
     text-decoration: none;
     font-size: $font-size-tiny;
     line-height: 114.285714%; /* 16px/14px */
-    color: $light-grey-color;
+    color: $header-link-color;
 
     &.active {
       color: $orange-color;
@@ -183,7 +184,7 @@
     width: 204px;
     height: 428px;
 
-    background-color: #171717;
+    background-color: $mobile-menu-bg-color;
     border-radius: 0px 8px 8px 0px;
     padding: 8px 20px;
 
@@ -192,7 +193,7 @@
   }
 
   &.is-open {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: $mobile-menu-backdrop-color;
     // Хак чтобы бэкдроп не мешался при кликах
     width: 100%;
     transition: background-color $transition * 1.5 $transition-cubic-bezier 1ms,
@@ -231,7 +232,7 @@
   #{&}__link {
     font-size: 14px;
     line-height: 16px;
-    color: $white-color;
+    color: $header-link-color;
     text-transform: uppercase;
     text-decoration: none;
 
