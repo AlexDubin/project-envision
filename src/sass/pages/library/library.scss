@@ -13,7 +13,7 @@
 
   #{&}__text {
     text-align: center;
-    color: $white-color;
+    color: $title-text-color;
 
     @include media-query(mobile) {
       margin-bottom: 20px;
