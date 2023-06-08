@@ -4,7 +4,7 @@
   font-size: 16px;
   line-height: 19px;
   text-transform: uppercase;
-  color: $white-color;
+  color: $title-text-color;
 }
 
 .upcoming__poster {
@@ -24,7 +24,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 23px;
-  color: $white-color;
+  color: $title-text-color;
   margin-bottom: 20px;
 }
 
@@ -42,7 +42,7 @@
   margin-bottom: 12px;
   font-size: 16px;
   line-height: 19px;
-  color: $light-grey-color;
+  color: $upcoming-grey-text-color;
 }
 
 .upcoming__genre--title {
@@ -50,7 +50,7 @@
   margin-bottom: 20px;
   font-size: 16px;
   line-height: 19px;
-  color: $light-grey-color;
+  color: $upcoming-grey-text-color;
 }
 
 .upcoming__release-date--value {
@@ -65,20 +65,20 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
-  color: $black-color;
-  background: $white-color;
+  color: $upcoming-shield-text-color;
+  background: $upcoming-shield-bg-color;
   border-radius: 5px;
 }
 
 .upcoming__vote--value {
-  color: $white-color;
+  color: $upcoming-white-text-color;
 }
 
 .upcoming__popularity--value,
 .upcoming__genre--value {
   font-size: 16px;
   line-height: 19px;
-  color: $white-color;
+  color: $upcoming-white-text-color;
 }
 
 .upcoming__about {
@@ -86,7 +86,7 @@
   font-size: 16px;
   line-height: 19px;
   text-transform: uppercase;
-  color: $light-grey-color;
+  color: $upcoming-grey-text-color;
 }
 
 .upcoming__overview {
@@ -98,7 +98,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: $off-white-color;
+  color: $text-color;
   overflow: hidden;
 }
 
