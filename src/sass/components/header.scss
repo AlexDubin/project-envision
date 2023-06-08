@@ -92,6 +92,8 @@
     line-height: 114.285714%; /* 16px/14px */
     color: $header-link-color;
 
+    &:focus-visible,
+    &:hover,
     &.active {
       color: $orange-color;
     }
@@ -226,6 +228,8 @@
     text-transform: uppercase;
     text-decoration: none;
 
+    &:focus-visible,
+    &:hover,
     &.active {
       color: $orange-color;
     }
