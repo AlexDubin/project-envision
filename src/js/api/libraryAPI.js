@@ -53,6 +53,16 @@ export function removeMovie(id) {
 }
 
 /**
+ * Check for movie in storage
+ * @param {number} id - id of movie to check
+ * @returns true if movie in the storage
+ */
+export function checkMovie(id) {
+  const movies = loadMoviesFromStorage();
+  return movies.some(movie => movie.id === id);
+}
+
+/**
  * Loads movies from localStorage
  * @param {number} limit - Limit of returned movies
  * @param {number} page - Page to load (starts from zero)
