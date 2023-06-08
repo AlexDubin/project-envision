@@ -8,6 +8,9 @@
   transition-duration: $transition;
   transition-timing-function: $transition-cubic-bezier;
 }
+.use-close {
+  stroke: $header-logo-color;
+}
 .close-icon:hover,
 .close-icon:focus {
   stroke: $orange-color;
@@ -26,7 +29,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: calc(24 / 20);
-  color: $title-text-color;
+  color: $header-logo-color;
   display: flex;
   align-items: center;
   margin-bottom: 12px;
@@ -100,7 +103,7 @@
   padding-left: 10px;
   padding-bottom: 6px;
   padding-top: 6px;
-  background-color: $select-option-bg-color;
+  background-color: $header-bg-color;
 }
 .modal-team-aftertitle {
   color: $footer-text-color;
@@ -197,6 +200,8 @@
 }
 
 .modal-team-item {
+  box-shadow: 1px 1px 7px 2px rgba(1, 1, 1, 0.4);
+  border-radius: 5px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -208,6 +213,7 @@
   transform: translateY(0);
 }
 .modal-team-item:hover {
+  box-shadow: 1px 1px 7px 2px rgba(255, 107, 8, 0.42);
   transform: scale(1.1); /* Збільшити масштаб зображення */
   z-index: 20;
 }

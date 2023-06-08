@@ -23,6 +23,10 @@
   color: $orange-color;
 }
 
+.link-weekly-trends:hover {
+  text-decoration: none;
+  color: $light-grey-color;
+}
 // -------cards
 .list-movie-card {
   display: flex;
