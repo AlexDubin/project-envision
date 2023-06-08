@@ -115,58 +115,58 @@
   color: white;
 }
 
-.custom-select-container {
-  width: 95px;
-  display: flex;
-  align-items: center;
+// .custom-select-container {
+//   width: 95px;
+//   display: flex;
+//   align-items: center;
 
-  justify-content: center;
+//   justify-content: center;
 
-  height: 40px;
+//   height: 40px;
 
-  /* White */
+//   /* White */
 
-  border: 1px solid $light-grey-color;
-  border-radius: 8px;
-}
+//   border: 1px solid $light-grey-color;
+//   border-radius: 8px;
+// }
 
-.custom-select-opener {
-  cursor: pointer;
-  width: 100%;
-  background-color: transparent;
-  padding: 0.5em;
-  display: block;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  color: $light-grey-color;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-}
+// .custom-select-opener {
+//   cursor: pointer;
+//   width: 100%;
+//   background-color: transparent;
+//   padding: 0.5em;
+//   display: block;
+//   display: flex;
+//   justify-content: left;
+//   align-items: center;
+//   color: $light-grey-color;
+//   font-family: 'Roboto';
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 14px;
+//   line-height: 16px;
+// }
 
-.custom-select-panel {
-  cursor: pointer;
-  width: 100%;
-  background-color: black;
-  padding: 0.5em;
-  display: block;
+// .custom-select-panel {
+//   cursor: pointer;
+//   width: 100%;
+//   background-color: black;
+//   padding: 0.5em;
+//   display: block;
 
-  justify-content: center;
-  align-items: center;
-  color: $light-grey-color;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  z-index: 3;
-  max-height: 269px;
+//   justify-content: center;
+//   align-items: center;
+//   color: $light-grey-color;
+//   font-family: 'Roboto';
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 14px;
+//   z-index: 3;
+//   max-height: 269px;
 
-  border: 1px solid $light-grey-color;
-  border-radius: 8px;
-}
+//   border: 1px solid $light-grey-color;
+//   border-radius: 8px;
+// }
 
 //
 
@@ -484,4 +484,9 @@ li.btn.next.list-item:hover {
   color: white;
   font-size: 26px;
   background: transparent;
+}
+
+
+.year-select {
+  @include custom-select(173px, 144px, 260px, false);
 }

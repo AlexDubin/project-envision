@@ -1,8 +1,7 @@
-import Notiflix from 'notiflix';
-import Pagination from 'tui-pagination'; 
+import Notiflix from 'notiflix'; 
 import axios from 'axios';
 import initRatings from '../utils/initRating';
-import genres from '../genres.json';
+import movieCardMarkup from '../markup/movieCardMarkup';
 
 
 
@@ -11,157 +10,95 @@ const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NWQzY2MzZDA1Nzk2OGE0YWJlZGY1Mz
 
 
 const gallery = document.querySelector('.gallery');
-const pagaContainer = document.getElementById('tui-pagination-container');
-const Pagination = require('tui-pagination');
-
-
-let currentPage = 1;
+const paginationContainer = document.querySelector('.pagination ul');
 
 
 
-function scrollToAnchor() {
-    gallery.scrollIntoView({behavior: "smooth", block: "start", inline: "start"});
+export async function fetchMoviesOfweek(currentPage) {
+  try {
+    const { data } = await axios.get(
+      `${URL}trending/all/week?language=en-US&page=${currentPage}`,
+      {
+        headers: {
+          Authorization: `Bearer ${API_KEY}`,
+          accept: 'application/json',
+        },
+      }
+    );
+    console.log(data);
+    return data;
+  } catch (error) {
+    Notiflix.Notify.failure(
+      'Sorry, there are no movies matching your search query. Please try again.'
+    );
+  }
 }
 
 
 
-async function fetchMoviesOfweek() {
-    try {
-        const {data} = await axios.get(`${URL}trending/all/week?language=en-US&page=${currentPage}`, {
-            headers: {
-                Authorization: `Bearer ${API_KEY}`,
-                accept: 'application/json',
-            },
-        });
-        console.log(data);
-        return data;
-    } catch (error) {
-        Notiflix.Notify.failure('Sorry, there are no movies matching your search query. Please try again.');
-    }
-}
-
-
-
-export function buildGallery(movies) {
-    return movies
-    .filter((movies) => !Object.values(movies).includes(null))
-    .map(({
-        poster_path,
-        title,
-        vote_average,
-        genre_ids,
-        release_date,
-        id,
-      }) => {
-        const genresObject = {};
-        let genreNames = '';
+export function buildGallery(movies) {  
+  return movies.map(movie => {
+    if (movie.release_date)
+      return movieCardMarkup(movie);
+    return '';
       
-        genres.genres.forEach(genre => {
-          genresObject[genre.id] = genre.name;
-        });
-      
-        if (genre_ids.length > 0) {
-          if (genre_ids.length === 1 || genre_ids.join(', ').length <= 20) {
-            genreNames = genresObject[genre_ids[0]];
-          } else {
-            genreNames = `${genresObject[genre_ids[0]]}, ${
-              genresObject[genre_ids[1]]
-            }`;
-          }
-        }
-        
-        if(release_date) {
-            return `<li class='item-movie-card' data-genres='${genre_ids}' data-id='${id}'><button class="button" data-action="open-modal">
-            <img
-            class='poster-movie-card'
-            src='https://image.tmdb.org/t/p/original${poster_path}'
-            srcset='https://image.tmdb.org/t/p/w342${poster_path} 342w,
-            https://image.tmdb.org/t/p/w500${poster_path} 500w,
-            https://image.tmdb.org/t/p/w780${poster_path} 780w,
-            https://image.tmdb.org/t/p/original${poster_path} 1500w'
-            sizes='(max-width:767px) 280px,
-            (max-width:1279px) 224px,
-            395px'
-            width='395'
-            height='574'
-            alt='${title} poster'
-            loading='lazy'
-            >
-            <div class='overlay-movie-card'></div>
-            <div class='info-movie-card'>
-              <h4 class='title-movie-card'>${title}</h4>
-              <div class='wrapper-movie-card'>
-                <div class='genre-year-movie-card'>
-                  <p class='genre-movie-card span'>${genreNames}</p>
-                  <span class='divider-movie-card'>&#124</span>
-                  <p class='year-movie-card span'>${release_date.slice(0, 4)}</p>
-                </div>
-                  <div class="rating">
-                    <div class="rating-body">
-                      <div class="rating-active"></div>
-                      <div class="rating-items">
-                        <input type="radio" class="rating-item" value="1" name="rating" />
-                        <input type="radio" class="rating-item" value="2" name="rating" />
-                        <input type="radio" class="rating-item" value="3" name="rating" />
-                        <input type="radio" class="rating-item" value="4" name="rating" />
-                        <input type="radio" class="rating-item" value="5" name="rating" />
-                      </div>
-                    </div>
-                  <div class="rating-value">${vote_average}</div>
-              </div>
-            </div>
-          <button>
-          </li>`;
-        } 
-    })
-    .join('');
+    }).join('');
 }
 
-export async function galleryOfWeek() {
-    try {
-        let result = await fetchMoviesOfweek();
-        const addingMovies = buildGallery(result.results);
-        gallery.innerHTML = addingMovies;
-        initRatings();
-        if (result.total_results === 0) {
-            return noMovie();
-        }
-        paginationWeek(result);
-    } catch (error) {
-        console.log(error);
+export async function galleryOfWeek(currentPage) {
+  debugger;
+  try {
+    let result = await fetchMoviesOfweek(currentPage);
+    const addingMovies = buildGallery(result.results);
+    gallery.innerHTML = addingMovies;
+    initRatings();
+    if (result.total_results === 0) {
+      return noMovie();
     }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-galleryOfWeek();
+
+initGalleryOfWeek();
+
+async function initGalleryOfWeek() {
+  debugger;
+  try {
+    let result = await fetchMoviesOfweek(1);
+    const addingMovies = buildGallery(result.results);
+    gallery.innerHTML = addingMovies;
+    initRatings();
+    if (result.total_results === 0) {
+      return noMovie();
+    }
+    paginationWeek(result);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
 
 
 import Pagination from '../utils/pagination';
+import movieCardMarkup from '../markup/movieCardMarkup';
 
-const paginationContainer = document.querySelector('.pagination ul');
 
-const pageCount = 100;
-let pageIndex = 1;
 
-new Pagination({
-  container: paginationContainer,
-  count: pageCount,
-  index: pageIndex,
-});
 
-// function paginationWeek(props) {
-//     const instance = new Pagination(pagaContainer, {
-//         page: currentPage,
-//         totalItems: props.total_pages,
-//         visiblePages: 4,
-//         centerAlign: true
-//     });
-//     instance.on("beforeMove", (eventData) => {
-//         const perPage = eventData;
-//         currentPage = perPage.page;
-//         galleryOfWeek();
-//         scrollToAnchor();
-//     });
-//     instance.getCurrentPage();
-// }
+
+
+
+function paginationWeek(props) {
+    new Pagination({
+      container: paginationContainer,
+      count: Math.min(props.total_pages, 197),
+      index: 1,
+      callback: galleryOfWeek,
+    });
+  
+}
 
 

@@ -1,12 +1,15 @@
+import { galleryOfWeek } from '../catalog_page/section_catalog';
+
 export default class Pagination {
   pageCount = 0;
   pageIndex = 0;
   container = null;
 
-  constructor({ container, count, index }) {
+  constructor({ container, count, index, callback }) {
     this.pageCount = count;
     this.pageIndex = index;
     this.container = container;
+    this.callBack = callback;
 
     this.render = this.render.bind(this);
     this.handlePaginationItemClick = this.handlePaginationItemClick.bind(this);
@@ -105,25 +108,37 @@ export default class Pagination {
     }
   }
 
-  handlePaginationItemClick(e) {
+  async handlePaginationItemClick(e) {
     e.stopPropagation();
     const target = e.target;
     const anchorEl = target.closest('.list-item');
     const isButton = anchorEl?.classList.contains('btn') || false;
     const isPrev = anchorEl?.classList.contains('prev') || false;
 
-    if (isButton) {
+
+    if (isButton) {  
+      
       if (this.pageIndex < this.pageCount && !isPrev) {
         this.setPageIndex(this.pageIndex + 1);
       } else if (this.pageIndex > 1 && isPrev) {
         this.setPageIndex(this.pageIndex - 1);
+      } else if (this.pageIndex === this.pageCount && !isPrev) {
+        anchorEl.disabled = true
       }
+
+      console.log(this.callBack);
+      this.callBack(this.pageIndex);
+      scrollToAnchor();
       return;
     }
 
     if (anchorEl) {
+      
       const dataIndex = parseInt(anchorEl.dataset.index, 10);
       this.setPageIndex(dataIndex);
+
+      this.callBack(dataIndex);
+      scrollToAnchor();
     }
   }
 
@@ -131,4 +146,15 @@ export default class Pagination {
     this.pageIndex = newIndex;
     this.render();
   }
+}
+
+const gallery = document.querySelector('.gallery')
+
+function scrollToAnchor() {
+   
+  gallery.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+    inline: 'start',
+  });
 }

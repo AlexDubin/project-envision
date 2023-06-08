@@ -3,10 +3,10 @@ import Pagination from 'tui-pagination';
 import customSelect from 'custom-select';
 import axios from 'axios';
 import initRatings from '../utils/initRating';
-import dataYears from '../years.json';
 import 'custom-select/build/custom-select.css';
 import { buildGallery } from './section_catalog';
 import { galleryOfWeek } from './section_catalog';
+import populateOptions from '../utils/populateOptions';
 
 
 const URL = 'https://api.themoviedb.org/3/';
@@ -20,29 +20,27 @@ const searchInput = document.querySelector('[name="searchQuery"]');
 const gallery = document.querySelector('.gallery');
 const clearBtn = document.querySelector('.clear-btn');
 const yearSelectEl = document.getElementById('year-select');
-const pagaContainer = document.getElementById('tui-pagination-container');
-const Pagination = require('tui-pagination');
+const paginationContainer = document.querySelector('.pagination ul');
+
 
 let formData = '';
 let yearParam = '';
-let currentPage = 1;
 
+const years = [];
 
-populateYearsOptions(dataYears.year);
-const yearSelect = customSelect(yearSelectEl)[0];
-
-yearSelect.select.addEventListener('change', filterMoviesYear);
-
-function populateYearsOptions(years) {
-  years.forEach(year => {
-    const optionEl = document.createElement('option');
-
-    optionEl.textContent = year.name;
-    optionEl.value = year.id;
-
-    yearSelectEl.appendChild(optionEl);
+for (let year = 2023; year >= 1895; year -= 1) {
+  years.push({
+    id: year,
+    name: year
   });
 }
+
+populateOptions(years, yearSelectEl);
+const yearSelect = customSelect(yearSelectEl)[0];
+yearSelect.select.addEventListener('change', filterMoviesYear);
+
+
+
 
 function filterMoviesYear(evt) {
   let year = evt.target.value;
@@ -52,7 +50,7 @@ function filterMoviesYear(evt) {
 
 
 function noMovie() {
-  pagaContainer.innerHTML = '';
+  paginationContainer.innerHTML = '';
   gallery.innerHTML = `
     <div class="gallery-empty"
         <h2 class="title-empty">OOPS...</h2>
@@ -63,7 +61,7 @@ function noMovie() {
 }
 
 
-async function fetchMoviesSearch() {
+async function fetchMoviesSearch(currentPage) {
   try {
     const { data } = await axios.get(
       `${URL}search/movie?query=${formData}&page=${currentPage}${yearParam}`,
@@ -86,54 +84,43 @@ async function fetchMoviesSearch() {
 
 import Pagination from '../utils/pagination';
 
-const paginationContainer = document.querySelector('.pagination ul');
-
-const pageCount = 100;
-let pageIndex = 1;
-
-new Pagination({
-  container: paginationContainer,
-  count: pageCount,
-  index: pageIndex,
-
-});
-
-
-// function paginationSeach(props) {
-//   const instance = new Pagination(pagaContainer, {
-//     page: currentPage,
-//     totalItems: props.total_pages,
-//     visiblePages: 3,
-//     firstItemClassName: 'first',
-//     lastItemClassName: 'last',
-//       centerAlign: true,
-//   });
-//   instance.on('beforeMove', eventData => {
-//     const perPage = eventData;
-//     currentPage = perPage.page;
-//     searchMovie();
-//     scrollToAnchor();
-//   });
-//   instance.getCurrentPage();
-  
-// }
-
-
- 
 
 
 
 
+function paginationSearh(props) {
+  new Pagination({
+    container: paginationContainer,
+    count: Math.min(props.total_pages, 197),
+    index: 1,
+    callback: searchMovie,
+  });
+}
 
 
-async function searchMovie() {
+ async function searchMovie(currentPage) {
   try {
-    const result = await fetchMoviesSearch();
+    const result = await fetchMoviesSearch(currentPage);
     const addingMovies = buildGallery(result.results);
     if (result.total_results === 0) {
       return noMovie();
     }
-    paginationSeach(result);
+    gallery.innerHTML = addingMovies;
+    initRatings();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function initSearchMovie() {
+  try {
+    const result = await fetchMoviesSearch(1);
+    const addingMovies = buildGallery(result.results);
+    if (result.total_results === 0) {
+      return noMovie();
+    }
+
+    paginationSearh(result);
     gallery.innerHTML = addingMovies;
     initRatings();
   } catch (error) {
@@ -145,16 +132,12 @@ function inputSubmit(event) {
   event.preventDefault();
   gallery.innerHTML = '';
   formData = searchInput.value.trim();
-  if (yearParam === '') {
-    galleryOfWeek();
-    return Notiflix.Notify.failure('Choose Year, please.');
-  }
   if (formData === '' || formData === ' ') {
     galleryOfWeek();
     return Notiflix.Notify.failure('Type something, please.');
   }
   currentPage = 1;
-  searchMovie();
+  initSearchMovie();
 }
 
 function clearInput() {
