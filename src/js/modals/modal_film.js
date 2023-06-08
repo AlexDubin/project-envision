@@ -118,8 +118,7 @@ function createCardMarkup(data) {
       <li class="film-add__item">
         <span class="film-add__subtitle">Vote / Votes</span
         ><span class="film-add__span votes average"
-          >${vote_average}</span> / <span class="film-add__span votes count"
-          >${vote_count}</span>
+          >${vote_average}</span><span class="simbol">&#47</span><span class="film-add__span votes count">${vote_count}</span>
       </li>
       <li class="film-add__item">
         <span class="film-add__subtitle">Popularity</span
