@@ -46,7 +46,6 @@ export function buildGallery(movies) {
 }
 
 export async function galleryOfWeek(currentPage) {
-  debugger;
   try {
     let result = await fetchMoviesOfweek(currentPage);
     const addingMovies = buildGallery(result.results);
@@ -64,7 +63,6 @@ export async function galleryOfWeek(currentPage) {
 initGalleryOfWeek();
 
 async function initGalleryOfWeek() {
-  debugger;
   try {
     let result = await fetchMoviesOfweek(1);
     const addingMovies = buildGallery(result.results);
