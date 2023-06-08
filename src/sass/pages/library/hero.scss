@@ -1,5 +1,6 @@
 .lib-hero {
   height: 380px;
+  background-color: $black-color; // Чтобы не было странного свечения на светлой теме
 
   @include screen(tablet) {
     height: 432px;

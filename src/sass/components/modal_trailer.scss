@@ -2,7 +2,7 @@ body.show-trailer-modal .trailer-modal__backdrop {
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
-  background-color: rgba($black-color, 0.8);
+  background-color: $mobile-menu-backdrop-color; // TODO: Сделать отдельную переменную для бэкдропа
 }
 
 .trailer-modal__backdrop {
@@ -19,7 +19,7 @@ body.show-trailer-modal .trailer-modal__backdrop {
 }
 
 .trailer-modal {
-  background-color: $black-color;
+  background-color: $bg-color;
   padding-top: 50px;
   padding-bottom: 8px;
   padding-left: 33px;
@@ -100,7 +100,7 @@ body.show-trailer-modal .trailer-modal__backdrop {
 }
 
 .close-icon {
-  stroke: $white-color;
+  stroke: $header-logo-color;
   transition: stroke $transition-cubic-bezier;
 }
 
@@ -126,7 +126,7 @@ body.show-trailer-modal .trailer-modal__backdrop {
   margin-bottom: 20px;
   font-size: $font-size-small;
   line-height: 1.19;
-  color: $white-color;
+  color: $title-text-color;
 
   @include media-query(tablet) {
     position: absolute;

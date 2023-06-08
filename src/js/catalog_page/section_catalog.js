@@ -2,16 +2,11 @@ import Notiflix from 'notiflix';
 import axios from 'axios';
 import initRatings from '../utils/initRating';
 import movieCardMarkup from '../markup/movieCardMarkup';
-
-
-
-const URL = 'https://api.themoviedb.org/3/';
-const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NWQzY2MzZDA1Nzk2OGE0YWJlZGY1MzVkOGNiZDIwMiIsInN1YiI6IjY0N2EzNjI3Y2FlZjJkMDExOWJmMDc3ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vnk9Mx4FCU9-aMju8ubwqMt0iiZWjWxQo-T3KlsNAWg';
-
-
-const gallery = document.querySelector('.gallery');
-const paginationContainer = document.querySelector('.pagination ul');
-
+import Pagination from '../utils/pagination';
+import movieCardMarkup from '../markup/movieCardMarkup';
+import { API_KEY } from '../api/catalogAPI';
+import { URL } from '../api/catalogAPI';
+import { refs } from './catalog-refs';
 
 
 export async function fetchMoviesOfweek(currentPage) {
@@ -46,11 +41,10 @@ export function buildGallery(movies) {
 }
 
 export async function galleryOfWeek(currentPage) {
-  debugger;
   try {
     let result = await fetchMoviesOfweek(currentPage);
     const addingMovies = buildGallery(result.results);
-    gallery.innerHTML = addingMovies;
+    refs.gallery.innerHTML = addingMovies;
     initRatings();
     if (result.total_results === 0) {
       return noMovie();
@@ -64,11 +58,11 @@ export async function galleryOfWeek(currentPage) {
 initGalleryOfWeek();
 
 async function initGalleryOfWeek() {
-  debugger;
+
   try {
     let result = await fetchMoviesOfweek(1);
     const addingMovies = buildGallery(result.results);
-    gallery.innerHTML = addingMovies;
+    refs.gallery.innerHTML = addingMovies;
     initRatings();
     if (result.total_results === 0) {
       return noMovie();
@@ -80,20 +74,9 @@ async function initGalleryOfWeek() {
 }
 
 
-
-
-import Pagination from '../utils/pagination';
-import movieCardMarkup from '../markup/movieCardMarkup';
-
-
-
-
-
-
-
 function paginationWeek(props) {
     new Pagination({
-      container: paginationContainer,
+      container: refs.paginationContainer,
       count: Math.min(props.total_pages, 197),
       index: 1,
       callback: galleryOfWeek,

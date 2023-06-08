@@ -16,7 +16,9 @@
   stroke: $orange-color;
 }
 .github-icon {
-  fill: $light-grey-color;
+
+  fill: $header-logo-color;
+
   margin-right: 5px;
 }
 .logo-icon {
@@ -61,7 +63,7 @@
 //   transform: scale(1.2); /* Збільшити масштаб зображення */
 // }
 .backdrop {
-  background-color: rgba(35, 35, 42, 0.5);
+  background-color: $mobile-menu-backdrop-color;
   z-index: 100;
   position: fixed;
   top: 0;
@@ -90,7 +92,10 @@
   transition-timing-function: linear;
 }
 .modal-team-title {
-  color: $light-grey-color;
+
+
+  color: $footer-text-color;
+
   font-family: $font-family;
   font-style: normal;
   font-weight: 500;
@@ -106,7 +111,9 @@
   background-color: $header-bg-color;
 }
 .modal-team-aftertitle {
-  color: $light-grey-color;
+
+  color: $footer-text-color;
+
   font-family: $font-family;
   font-weight: 500;
   font-size: 12px;
@@ -116,7 +123,9 @@
 }
 .modal-team-deskr,
 .github-link {
-  color: $light-grey-color;
+
+  color: $footer-text-color;
+
   font-family: $font-family;
   font-weight: 500;
   font-size: 12px;
