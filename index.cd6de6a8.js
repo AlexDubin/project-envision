@@ -44,51 +44,51 @@
             </div>
           </div>
         </div>
-      </div>`}finally{l.heroRefs.heroContainer.innerHTML=e;let t=document.getElementById("watch-trailer");t&&t.addEventListener("click",e=>{(0,s.onTrailerBtnClick)(e)})}};c();var d=o("dIxxU"),p=o("XcJ0g");let g="",u=document.querySelector(".upcoming"),v={method:"GET",headers:{accept:"application/json",Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2FhN2IzMjk5NmM0N2RhMTQxZWI1N2IwZTVjZTQ3NiIsInN1YiI6IjY0N2M5OTdkZTMyM2YzMDEyNzUyM2IzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Blrs7t4WoJ6-3sy6A_Vz3twkTCmEg9nM0JyuAHg88WM"}};(async function(){try{let e=await (0,d.default).get("https://api.themoviedb.org/3/movie/upcoming",v);return console.log(e.data),e.data}catch(e){console.log(e)}})().then(t=>{console.log(t),function({results:t}){let a=Math.floor(Math.random()*t.length),{adult:i,backdrop_path:n,genre_ids:o,id:r,original_language:s,original_title:l,overview:c,popularity:d,poster_path:v,release_date:_,title:m,video:h,vote_average:y,vote_count:f}=t[a];(function(t){let a={};e(p).genres.forEach(e=>{a[e.id]=e.name}),t.length>0&&(g=1===t.length||t.join(", ").length<=20?a[t[0]]:`${a[t[0]]}, ${a[t[1]]}`)})(o),u.innerHTML=`<div class="container">
-  <h2 class="upcoming__section-title">UPCOMING THIS MONTH</h2>
-  <div class="upcoming__block">
-    <div class="upcoming__poster">
-      <img
-        class="upcoming__picture"
-        src="https://image.tmdb.org/t/p/original${n}"
-        alt="${m}"
-      />
-    </div>
-    <div class="upcoming__info">
-      <h3 class="upcoming__title">${m}</h3>
-      <ul class="list upcoming__list-info">
-        <li class="upcoming__list-info--left">
-          <div class="upcoming__release-date">
-            <p class="upcoming__release-date--title">Release date</p>
-            <p class="upcoming__release-date--value">${_}</p>
-          </div>
-          <div class="upcoming__vote">
-            <p class="upcoming__vote--title">Vote / Votes</p>
-            <p class="upcoming__vote--value">
-              <span class="upcoming__vote--value-average">${y}</span> /
-              <span class="upcoming__vote--value-count">${f}</span>
-            </p>
-          </div>
-        </li>
-        <li class="upcoming__list-info--right">
-          <div class="upcoming__popularity">
-            <p class="upcoming__popularity--title">Popularity</p>
-            <p class="upcoming__popularity--value">${d}</p>
-          </div>
-          <div class="upcoming__genre">
-            <p class="upcoming__genre--title">Genre</p>
-            <p class="upcoming__genre--value">${g}</p>
-          </div>
-        </li>
-      </ul>
-      <h4 class="upcoming__about">About</h4>
-      <p class="upcoming__overview">${c}</p>
-      <button class="upcoming__addToLibrary-button" type="button" id="addToMyLibrary">
+      </div>`}finally{l.heroRefs.heroContainer.innerHTML=e;let t=document.getElementById("watch-trailer");t&&t.addEventListener("click",e=>{(0,s.onTrailerBtnClick)(e)})}};c();var d=o("6JpON"),p=o("dIxxU");let g={method:"GET",headers:{accept:"application/json",Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2FhN2IzMjk5NmM0N2RhMTQxZWI1N2IwZTVjZTQ3NiIsInN1YiI6IjY0N2M5OTdkZTMyM2YzMDEyNzUyM2IzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Blrs7t4WoJ6-3sy6A_Vz3twkTCmEg9nM0JyuAHg88WM"}};async function u(){try{let e=await (0,p.default).get("https://api.themoviedb.org/3/movie/upcoming",g);return e.data}catch(e){console.log(e),Notiflix.Notify.failure("Oops! Something went wrong. Try again, please!")}}var v=o("XcJ0g");let h="",m=e(v).genres,_=document.querySelector(".upcoming");u().then(e=>{!function({results:e}){let t;let a=Math.floor(Math.random()*e.length),{adult:i,backdrop_path:n,genre_ids:o,id:r,original_language:s,original_title:l,overview:c,popularity:d,poster_path:p,release_date:g,title:u,video:v,vote_average:y,vote_count:f}=e[a];t=[],o.forEach(e=>{m.forEach(a=>{e===a.id&&t.push(a.name)})}),h=t.length>2?`${t[0]} and others...`:2===t.length?`${t[0]}, ${t[1]}`:`${t[0]}`,_.innerHTML=`<div class="container">
+    <h2 class="upcoming__section-title">UPCOMING THIS MONTH</h2>
+    <div class="upcoming__block">
+      <div class="upcoming__poster">
+        <img
+          class="upcoming__picture"
+          src="https://image.tmdb.org/t/p/original${n}"
+          alt="${u}"
+        />
+      </div>
+      <div class="upcoming__info">
+        <h3 class="upcoming__title">${u}</h3>
+        <ul class="list upcoming__list-info">
+          <li class="upcoming__list-info--left">
+            <div class="upcoming__release-date">
+              <p class="upcoming__release-date--title">Release date</p>
+              <p class="upcoming__release-date--value">${g}</p>
+            </div>
+            <div class="upcoming__vote">
+              <p class="upcoming__vote--title">Vote / Votes</p>
+              <p class="upcoming__vote--value">
+                <span class="upcoming__vote--value-average">${y}</span> /
+                <span class="upcoming__vote--value-count">${f}</span>
+              </p>
+            </div>
+          </li>
+          <li class="upcoming__list-info--right">
+            <div class="upcoming__popularity">
+              <p class="upcoming__popularity--title">Popularity</p>
+              <p class="upcoming__popularity--value">${d}</p>
+            </div>
+            <div class="upcoming__genre">
+              <p class="upcoming__genre--title">Genre</p>
+              <p class="upcoming__genre--value">${h}</p>
+            </div>
+          </li>
+        </ul>
+        <h4 class="upcoming__about">About</h4>
+        <p class="upcoming__overview">${c}</p>
+        <button class="upcoming__addToLibrary-button" type="button" id="addToMyLibrary">
         <p>Add to my library</p>
-      </button>
-    </div>
-  </div>
-</div>`,function(){let e=document.querySelector("#addToMyLibrary");console.log(e)}()}(t)}).catch(e=>console.log(e));var p=(o("XcJ0g"),o("XcJ0g")),_=({poster_path:t,title:a,vote_average:i,genre_ids:n,release_date:o,id:r})=>{let s={},l="";return e(p).genres.forEach(e=>{s[e.id]=e.name}),n.length>0&&(l=1===n.length||n.join(", ").length<=20?s[n[0]]:`${s[n[0]]}, ${s[n[1]]}`),`<li class='item-movie-card m-modal' data-genres='${n}' data-id='${r}'>
+        </button>
+        </div>
+      </div>
+    </div>`,document.querySelector("#addToMyLibrary")}(e)}).catch(t=>{console.log(t),e(d).Notify.failure("Oops! Something went wrong. Try again, please!")});var v=(o("XcJ0g"),o("XcJ0g")),y=({poster_path:t,title:a,vote_average:i,genre_ids:n,release_date:o,id:r})=>{let s={},l="";return e(v).genres.forEach(e=>{s[e.id]=e.name}),n.length>0&&(l=1===n.length||n.join(", ").length<=20?s[n[0]]:`${s[n[0]]}, ${s[n[1]]}`),`<li class='item-movie-card m-modal' data-genres='${n}' data-id='${r}'>
   <button class="button" data-action="open-modal">${null===t?"<img class='poster-movie-card' src='' alt='default poster'>":`<img
   class='poster-movie-card'
   src='https://image.tmdb.org/t/p/original${t}'
@@ -128,5 +128,5 @@
     </div>
   </div>
 </button>
-</li>`},m=o("14Rx2");let h={movieList:document.querySelector(".list-movie-card")};var d=o("dIxxU");let y={headers:{Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMmFhZDQ4MjlkYjI1ZWQ1Mjc0NmY0NmY4YzQ1NzRlYSIsInN1YiI6IjY0NzIzZDc3OWFlNjEzMDBjNGM3NmY1NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.v_Pd0M6hpO0qy1_8-nNBGtFxbeHjE8i8mgfszlHvjZc",accept:"application/json"}};async function f(e=1){try{let t=await (0,d.default).get(`https://api.themoviedb.org/3/trending/movie/week?language=en-US&page=${e}`,y);return t.data}catch(e){console.log(e)}}if(h.movieList){let a={};e(p).genres.forEach(e=>{a[e.id]=e.name}),t=a,f().then(e=>{(function({results:e},t){let a=function(e){let t=[];for(;t.length<3;){let a=Math.floor(Math.random()*e.length);t.includes(a)||t.push(a)}return t}(e),i=a.map(t=>e[t]);h.movieList.innerHTML=i.map(_).join(""),(0,m.default)(),h.movieList.addEventListener("click",onOpenModalFilm),window.addEventListener("keydown",onEscKeyPress)})(e,0)}).catch(e=>console.log(e))}o("bf8lc"),o("7hKzD"),o("cs2b8")}();
-//# sourceMappingURL=index.59f054ba.js.map
+</li>`},f=o("14Rx2");let b={movieList:document.querySelector(".list-movie-card")};var p=o("dIxxU");let w={headers:{Authorization:"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMmFhZDQ4MjlkYjI1ZWQ1Mjc0NmY0NmY4YzQ1NzRlYSIsInN1YiI6IjY0NzIzZDc3OWFlNjEzMDBjNGM3NmY1NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.v_Pd0M6hpO0qy1_8-nNBGtFxbeHjE8i8mgfszlHvjZc",accept:"application/json"}};async function $(e=1){try{let t=await (0,p.default).get(`https://api.themoviedb.org/3/trending/movie/week?language=en-US&page=${e}`,w);return t.data}catch(e){console.log(e)}}if(b.movieList){let a={};e(v).genres.forEach(e=>{a[e.id]=e.name}),t=a,$().then(e=>{(function({results:e},t){let a=function(e){let t=[];for(;t.length<3;){let a=Math.floor(Math.random()*e.length);t.includes(a)||t.push(a)}return t}(e),i=a.map(t=>e[t]);b.movieList.innerHTML=i.map(y).join(""),(0,f.default)(),b.movieList.addEventListener("click",onOpenModalFilm),window.addEventListener("keydown",onEscKeyPress)})(e,0)}).catch(e=>console.log(e))}o("bf8lc"),o("7hKzD"),o("cs2b8")}();
+//# sourceMappingURL=index.cd6de6a8.js.map
