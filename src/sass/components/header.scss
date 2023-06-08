@@ -169,6 +169,7 @@
 }
 
 .mobile-menu {
+  display: none;
   position: absolute;
   z-index: 15;
 
@@ -181,6 +182,10 @@
   // Хак чтобы бэкдроп не мешался при кликах
   transition: background-color $transition * 1.5 $transition-cubic-bezier,
     width 0s linear $transition * 1.5;
+
+  @include media-query(mobile) {
+    display: block;
+  }
 
   #{&}__container {
     width: 204px;
