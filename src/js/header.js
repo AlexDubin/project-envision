@@ -26,4 +26,35 @@
     openMenuBtn.setAttribute('aria-expanded', false);
     document.body.classList.remove('scroll-lock');
   });
+
+  const storageKey = 'theme';
+
+  const getColorPreference = () => {
+    if (localStorage.getItem(storageKey))
+      return localStorage.getItem(storageKey);
+    else {
+      const theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+
+      localStorage.setItem(storageKey, theme);
+      return theme;
+    }
+  };
+
+  const onThemeSwitch = () => {
+    document.body.classList.toggle('light-theme');
+
+    window.localStorage.setItem(
+      storageKey,
+      document.body.classList.contains('light-theme') ? 'light' : 'dark'
+    );
+  };
+
+  const themeSwitcherBtn = document.querySelector('.js-theme-switcher');
+  const theme = getColorPreference();
+
+  if (theme === 'light') document.body.classList.add('light-theme');
+
+  themeSwitcherBtn.addEventListener('click', onThemeSwitch);
 })();
