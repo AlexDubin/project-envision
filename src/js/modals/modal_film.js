@@ -12,36 +12,31 @@ const options = {
 // Отримує Id та повертає промікс з цим фільмом
 
 async function getMovieDetails(movieId) {
-  const response = await axios.get(
-    `${BASE_URL}${movieId}`,
-      options
-  );
+  const response = await axios.get(`${BASE_URL}${movieId}`, options);
   return response.data;
 }
 
-const filmTrendsCards = document.querySelector('.list-movie-card');//ul трендів
-const filmCatalogCards = document.querySelector('.js-gallery');//li з каталогу
-const modBackdrop = document.querySelector('.modal-backdrop');//div мій
-const closeBtn = document.querySelector('.modal__close-btn');//моя кнопка
-const modalListRef = document.querySelector('.cards-film');//ul моє з розмітки
+const filmTrendsCards = document.querySelector('.list-movie-card'); //ul трендів
+const filmCatalogCards = document.querySelector('.js-gallery'); //li з каталогу
+const modBackdrop = document.querySelector('.modal-backdrop'); //div мій
+const closeBtn = document.querySelector('.modal__close-btn'); //моя кнопка
+const modalListRef = document.querySelector('.cards-film'); //ul моє з розмітки
 
-
-
-filmTrendsCards.addEventListener('click', onOpenModalFilm);
+// filmTrendsCards.addEventListener('click', onOpenModalFilm);
 // filmCatalogCards.addEventListener('click', onOpenModalFilm);
 closeBtn.addEventListener('click', onCloseModalFilm);
 modBackdrop.addEventListener('click', onBackDropClick);
 
 // OPEN MODAL WINDOW//
 export function onOpenModalFilm(event) {
-    const getParentalEl = event.target.closest('.item-movie-card');
-    document.body.classList.add('modal-open');
+  const getParentalEl = event.target.closest('.m-modal');
+  document.body.classList.add('modal-open');
 
   if (!getParentalEl) {
     return;
   }
 
- // GET ID
+  // GET ID
   const movieId = getParentalEl.dataset.id;
 
   loadIntoModal(movieId);
@@ -71,7 +66,6 @@ function onCloseModalFilm() {
 //   return;
 // }
 
-
 // CLOSE MODAL by CLICKING BACKDROP
 function onBackDropClick(event) {
   if (event.currentTarget === event.target) {
@@ -88,21 +82,22 @@ function onEscKeyPress(event) {
 }
 
 function loadIntoModal(idMovie) {
-    try {
-        const data = getMovieDetails(idMovie);
+  try {
+    const data = getMovieDetails(idMovie);
 
-        getMovieDetails(idMovie)
-        .then(data => {
-            console.log(data);
-            const modalMovie = createCardMarkup(data);
-            
-            modalListRef.innerHTML = modalMovie;
-        })
-        .catch(err => console.log(err));
-    } catch (err) {
-        modalListRef.innerHTML = '<div class="modal__empty">Sorry, info is unavailable</div>';
-        return;
-    }
+    getMovieDetails(idMovie)
+      .then(data => {
+        console.log(data);
+        const modalMovie = createCardMarkup(data);
+
+        modalListRef.innerHTML = modalMovie;
+      })
+      .catch(err => console.log(err));
+  } catch (err) {
+    modalListRef.innerHTML =
+      '<div class="modal__empty">Sorry, info is unavailable</div>';
+    return;
+  }
 }
 // CREATE MARCUP
 function createCardMarkup(data) {
@@ -156,5 +151,5 @@ function createCardMarkup(data) {
     <button type="button" class="film-add__btn btn">Add to my library</button>
   </div>
 </li>`;
-} 
+}
 // export {onOpenModalFilm}
