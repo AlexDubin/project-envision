@@ -43,17 +43,20 @@
 .modal-team-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .team-img {
-  transition: transform 0.3s ease;
+  // transition: transform 0.3s ease;
   width: 264px;
   height: 260px;
 }
-.team-img:hover {
-  transform: scale(1.2); /* Збільшити масштаб зображення */
-}
+// .modal-team-item {
+//   transition: transform 0.3s ease;
+// }
+// .modal-team-item:hover {
+//   transform: scale(1.2); /* Збільшити масштаб зображення */
+// }
 .backdrop {
   background-color: rgba(35, 35, 42, 0.5);
   z-index: 100;
@@ -76,7 +79,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 266px;
-  padding: 24px 15px 40px 15px;
+  padding: 30px 15px 40px 15px;
   background-color: $black-color;
   transform: translate(-50%, -50%);
   transition-property: transform;
@@ -91,7 +94,13 @@
   font-size: 16px;
   line-height: calc(24 / 16);
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
+}
+.descr-wrap {
+  padding-left: 10px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  background-color: $black-color;
 }
 .modal-team-aftertitle {
   color: $light-grey-color;
@@ -100,7 +109,6 @@
   font-size: 12px;
   line-height: calc(20 / 12);
   text-transform: uppercase;
-  margin-top: 6px;
   margin-bottom: 4px;
 }
 .modal-team-deskr,
@@ -157,6 +165,9 @@
   .modal-team-close {
     // margin-right: 12px;
   }
+  .modal-team-title {
+    margin-bottom: 24px;
+  }
 }
 @media screen and (min-width: 1280px) {
   .footer-modal {
@@ -189,9 +200,14 @@
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
 .modal-team-item.animate {
   opacity: 1;
   transform: translateY(0);
+}
+.modal-team-item:hover {
+  transform: scale(1.1); /* Збільшити масштаб зображення */
+  z-index: 20;
 }
