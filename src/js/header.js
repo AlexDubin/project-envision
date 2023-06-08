@@ -34,6 +34,6 @@
 
   let localS = localStorage.getItem('theme');
 
-  if (localS === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
+  if (localS === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
   };
