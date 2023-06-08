@@ -16,7 +16,9 @@
   stroke: $orange-color;
 }
 .github-icon {
+
   fill: $header-logo-color;
+
   margin-right: 5px;
 }
 .logo-icon {
@@ -90,7 +92,10 @@
   transition-timing-function: linear;
 }
 .modal-team-title {
+
+
   color: $footer-text-color;
+
   font-family: $font-family;
   font-style: normal;
   font-weight: 500;
@@ -106,7 +111,9 @@
   background-color: $header-bg-color;
 }
 .modal-team-aftertitle {
+
   color: $footer-text-color;
+
   font-family: $font-family;
   font-weight: 500;
   font-size: 12px;
@@ -116,7 +123,9 @@
 }
 .modal-team-deskr,
 .github-link {
+
   color: $footer-text-color;
+
   font-family: $font-family;
   font-weight: 500;
   font-size: 12px;
