@@ -30,9 +30,7 @@ function t(t,e,r,n){Object.defineProperty(t,e,{get:r,set:n,enumerable:!0,configu
       <p class="film-add__text">${s}</p>
     </div>
 
-    <button class="upcoming__addToLibrary-button" type="button" id="addToMyLibrary">
-        <p>Add to my library</p>
-      </button>
+    <button type="button" class="film-add__btn btn">Add to my library</button>
   </div>
 </li>`}(t);l.innerHTML=e}).catch(t=>console.log(t))}catch(t){l.innerHTML='<div class="modal__empty">Sorry, info is unavailable</div>';return}})(r),s.classList.remove("is-hidden"),document.body.classList.add("modal-open"),window.addEventListener("keydown",c)}),u.addEventListener("click",f),s.addEventListener("click",function(t){t.currentTarget===t.target&&f()})}),i.register("dNY8V",function(t,e){let r={openModalBtn:document.querySelector(".footer-link"),closeModalBtn:document.querySelector(".modal-team-close"),backdrop:document.querySelector(".backdrop"),bodyEl:document.querySelector("body"),teamItems:document.querySelectorAll(".modal-team-item"),svgEl:document.querySelector(".close-icon"),useEl:document.querySelector(".use-close")};function n(){r.bodyEl.classList.remove("hidden"),r.backdrop.classList.add("is-hidden")}function i(t){t.target===r.backdrop||t.target===r.svgEl||t.target===r.closeModalBtn||t.target===r.useEl||"Escape"===t.code?n():t.target===r.openModalBtn&&(r.bodyEl.classList.add("hidden"),r.backdrop.classList.remove("is-hidden"),r.teamItems.forEach((t,e)=>{setTimeout(()=>{t.classList.add("animate")},200*e)}))}r.openModalBtn.addEventListener("click",i),r.backdrop.addEventListener("click",i),r.closeModalBtn.addEventListener("click",i),window.addEventListener("keydown",function(t){"Escape"===t.code&&n()})}),i.register("epHO8",function(t,e){}),i.register("5kw5v",function(t,e){let r=document.getElementById("scrollToTopBtn");window.addEventListener("scroll",()=>{window.scrollY>100?(r.classList.add("show-btn"),r.classList.remove("remove-btn")):0===window.scrollY&&(r.classList.remove("show-btn"),r.classList.add("remove-btn"))}),r.addEventListener("click",()=>{window.scroll({top:0,left:0,behavior:"smooth"})})});
-//# sourceMappingURL=catalog.88c84c97.js.map
+//# sourceMappingURL=catalog.ea5612b7.js.map
