@@ -1,36 +1,59 @@
 <header class="header">
-    <div class="container head-div">
-            <a class="head-next" href="/src/index.html">
-            <svg class="icon-logo" width="40" height="40">
-                <use href="/src/img/icons.svg#icon-logo"></use>
-            </svg>
-            <p class="head-logo">Cinemania</p>
+  <div class="container">
+    <a class="header__logo" href="/src/index.html">
+      <svg class="header__logo-icon" width="48" height="48">
+        <use href="/src/img/icons.svg#icon-logo"></use>
+      </svg>
+      <p class="header__logo-text">Cinemania</p>
+    </a>
+
+    <div class="mobile-menu js-menu-container">
+      <div class="mobile-menu__container">
+        <a class="mobile-menu__logo" href="/src/index.html">
+          <svg width="32" height="32">
+            <use href="/src/img/icons.svg#icon-logo"></use>
+          </svg>
         </a>
-        <div class="mob-menu is-hidden" data-menu>
-            <div class="mob-container" data-menu-close>
-                <svg class="menu-logo" width="32" height="32" >
-                    <use href="/src/img/icons.svg#icon-logo"></use>
-                </svg> 
-           <ul class="menu-list">
-                <li class="menu-item"><a class="menu-link-one" href="/src/index.html">Home</a></li>
-                <li class="menu-item"><a class="menu-link-two" href="/src/catalog.html">CATALOG</a></li>
-                <li class="menu-item"><a class="menu-link-three" href="/src/library.html">my library</a></li>
-            </ul>
-        </div>
-        </div>
-    <p class="paragraph-head" data-menu-open>MENU</p>
-    <ul class="header-list">
-        <li class="header-item"><a class="header-link-one" href="/src/index.html">Home</a></li>
-        <li class="header-item"><a class="header-link-two" href="/src/catalog.html">CATALOG</a></li>
-        <li class="header-item"><a class="header-link-three" href="/src/library.html">my library</a></li>
+        <ul class="js-link-list">
+          <li class="mobile-menu__item">
+            <a class="mobile-menu__link" href="/src/index.html">Home</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a class="mobile-menu__link" href="/src/catalog.html">CATALOG</a>
+          </li>
+          <li class="mobile-menu__item">
+            <a class="mobile-menu__link" href="/src/library.html">my library</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <button
+      class="header__menu-open js-open-menu"
+      type="button"
+      aria-label="Open mobile menu"
+    >
+      MENU
+    </button>
+    <ul class="header__list js-link-list">
+      <li class="header__item">
+        <a class="header__link" href="/src/index.html">Home</a>
+      </li>
+      <li class="header__item">
+        <a class="header__link" href="/src/catalog.html">CATALOG</a>
+      </li>
+      <li class="header__item">
+        <a class="header__link" href="/src/library.html">my library</a>
+      </li>
     </ul>
- <div class="header__theme-switcher" id="theme-switcher">
-      <svg id="icon-moon">
+
+    <div class="theme-switcher js-theme-switcher">
+      <svg class="theme-switcher__icon" id="icon-moon" width="13" height="13">
         <use href="/src/img/icons.svg#icon-moon"></use>
       </svg>
-      <svg id="icon-sun">
+      <svg class="theme-switcher__icon" id="icon-sun" width="13" height="13">
         <use href="/src/img/icons.svg#icon-sun"></use>
       </svg>
     </div>
-    </div>
-    </header>
+  </div>
+</header>

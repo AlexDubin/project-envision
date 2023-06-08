@@ -1,13 +1,57 @@
 // Базовые стили
+:root {
+  --title-text-color: #{$white-color};
+  --text-color: #{$off-white-color};
+  --bg-color: #{$black-color};
+  --header-bg-color: #000;
+  --header-logo-color: #{$white-color};
+  --header-link-color: #{$light-grey-color};
+  --mobile-menu-bg-color: #171717;
+  --mobile-menu-backdrop-color: rgba(255, 255, 255, 0.2);
+  --upcoming-grey-text-color: #{$light-grey-color};
+  --upcoming-white-text-color: #{$white-color};
+  --upcoming-shield-bg-color: #{$white-color};
+  --upcoming-shield-text-color: #{$black-color};
+  --footer-text-color: #{$light-grey-color};
+  --pagination-main-color: #{$dark-grey-color};
+  --pagination-secondary-color: #{$off-white-color};
+  --select-main-color: #{$white-color};
+  --select-secondary-color: #{$dark-grey-color};
+  --select-option-bg-color: #{$darker-grey-color};
+  --modal-film-text-color: #{$off-white-color};
+}
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: $black-color;
-    font-family: 'Roboto';
-    &.modal-open {
-            overflow: hidden;
-        }
+  background-color: $bg-color;
+  font-family: 'Roboto';
+
+  &.modal-open {
+    overflow: hidden;
+  }
+
+  &.light-theme {
+    --title-text-color: #{$black-color};
+    --text-color: #{$dark-grey-color};
+    --bg-color: #{$white-color};
+    --header-bg-color: #{$white-color};
+    --header-logo-color: #{$dark-grey-color};
+    --header-link-color: #{$grey-color};
+    --mobile-menu-bg-color: #{$off-white-color};
+    --mobile-menu-backdrop-color: rgba(0, 0, 0, 0.2);
+    --upcoming-grey-text-color: #{$black-color};
+    --upcoming-white-text-color: #{$dark-grey-color};
+    --upcoming-shield-bg-color: #{$off-white-color};
+    --upcoming-shield-text-color: #{$dark-grey-color};
+    --footer-text-color: #{$grey-color};
+    --pagination-main-color: #{$grey-color};
+    --pagination-secondary-color: #{$grey-color};
+    --select-main-color: #{$grey-color};
+    --select-secondary-color: #{$grey-color};
+    --select-option-bg-color: #{$off-white-color};
+    --modal-film-text-color: #{$black-color};
+  }
 }
