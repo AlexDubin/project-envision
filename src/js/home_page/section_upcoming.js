@@ -1,8 +1,8 @@
 import axios from 'axios';
 import genres from '../genres.json';
-// console.log(genres);
 
-let genreNames = '';
+let genresNames = '';
+const genresArray = genres.genres;
 const upcoming = document.querySelector('.upcoming');
 const API_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2FhN2IzMjk5NmM0N2RhMTQxZWI1N2IwZTVjZTQ3NiIsInN1YiI6IjY0N2M5OTdkZTMyM2YzMDEyNzUyM2IzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Blrs7t4WoJ6-3sy6A_Vz3twkTCmEg9nM0JyuAHg88WM';
@@ -19,15 +19,13 @@ const options = {
 
 getUpcomingMovies()
   .then(data => {
-    console.log(data);
     markupUpcomingMovies(data);
   })
-  .catch(err => console.log(err));
+  .catch(error => console.log(error));
 
 async function getUpcomingMovies() {
   try {
     const response = await axios.get(BASE_URL, options);
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -53,7 +51,7 @@ function markupUpcomingMovies({ results }) {
     vote_count,
   } = results[randomIndex];
 
-  convertGenreIds(genre_ids);
+  convertGenresToNames(genre_ids, genresArray);
 
   upcoming.innerHTML = `<div class="container">
   <h2 class="upcoming__section-title">UPCOMING THIS MONTH</h2>
@@ -88,42 +86,43 @@ function markupUpcomingMovies({ results }) {
           </div>
           <div class="upcoming__genre">
             <p class="upcoming__genre--title">Genre</p>
-            <p class="upcoming__genre--value">${genreNames}</p>
+            <p class="upcoming__genre--value">${genresNames}</p>
           </div>
         </li>
       </ul>
       <h4 class="upcoming__about">About</h4>
       <p class="upcoming__overview">${overview}</p>
       <button class="upcoming__addToLibrary-button" type="button" id="addToMyLibrary">
-        <p>Add to my library</p>
+      <p>Add to my library</p>
       </button>
+      </div>
     </div>
-  </div>
-</div>`;
-connectLibraryBtn();
+  </div>`;
+  connectLibraryBtn();
 }
 
 function connectLibraryBtn() {
   const upcomingBtn = document.querySelector('#addToMyLibrary');
   // upcomingBtn.addEventListener('click', functionAddToMyLibrary);
-  console.log(upcomingBtn);
+  // console.log(upcomingBtn);
 }
 
-function convertGenreIds(genre_ids) {
-  const genresObject = {};
+function convertGenresToNames(array, arrayOfObjects) {
+  let genresNamesArray = [];
 
-  genres.genres.forEach(genre => {
-    genresObject[genre.id] = genre.name;
+  array.forEach(code => {
+    arrayOfObjects.forEach(number => {
+      if (code === number.id) {
+        genresNamesArray.push(number.name);
+      }
+    });
   });
 
-  if (genre_ids.length > 0) {
-    if (genre_ids.length === 1 || genre_ids.join(', ').length <= 20) {
-      genreNames = genresObject[genre_ids[0]];
-    } else {
-      genreNames = `${genresObject[genre_ids[0]]}, ${
-        genresObject[genre_ids[1]]
-      }`;
-    }
+  if (genresNamesArray.length > 2) {
+    genresNames = `${genresNamesArray[0]} and others...`;
+  } else if (genresNamesArray.length === 2) {
+    genresNames = `${genresNamesArray[0]}, ${genresNamesArray[1]}`;
+  } else {
+    genresNames = `${genresNamesArray[0]}`;
   }
-  // console.log(genreNames);
 }
