@@ -13,8 +13,6 @@ import { URL } from '../api/catalogAPI';
 import { refs } from './catalog-refs';
 import dataGenres from '../genres.json';
 
-
-
 let formData = '';
 let yearParam = '';
 
@@ -23,7 +21,7 @@ const years = [];
 for (let year = 2023; year >= 1895; year -= 1) {
   years.push({
     id: year,
-    name: year
+    name: year,
   });
 }
 
@@ -51,29 +49,23 @@ function filterMoviesByGenre(evt) {
 
 genresSelect.select.addEventListener('change', filterMoviesByGenre);
 
-
-
-
-
-
 function filterMoviesYear(evt) {
   let year = evt.target.value;
   yearParam = `&primary_release_year=${year}`;
   console.log(yearParam);
 }
 
-
 function noMovie() {
   refs.paginationContainer.innerHTML = '';
   refs.gallery.innerHTML = `
     <div class="gallery-empty"
-        <h2 class="title-empty">OOPS...</h2>
-        <p class="text-empty">We are very sorry!
-        We don’t have any results matching your search.</p>
+        <p class="text-empty">OOPS...<br>
+        We are very sorry!<br>
+        We don’t have any results matching your search.
+        </p>
     </div>   
     `;
 }
-
 
 async function fetchMoviesSearch(currentPage) {
   try {
@@ -95,8 +87,6 @@ async function fetchMoviesSearch(currentPage) {
   }
 }
 
-
-
 function paginationSearh(props) {
   new Pagination({
     container: refs.paginationContainer,
@@ -106,8 +96,7 @@ function paginationSearh(props) {
   });
 }
 
-
- async function searchMovie(currentPage) {
+async function searchMovie(currentPage) {
   try {
     const result = await fetchMoviesSearch(currentPage);
     const addingMovies = buildGallery(result.results);
@@ -172,4 +161,3 @@ function clearInput() {
 clearInput();
 
 refs.form.addEventListener('submit', inputSubmit);
-
