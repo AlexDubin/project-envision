@@ -46,7 +46,7 @@ export default ({
 >`;
   }
 
-  return `<li class='item-movie-card' data-genres='${genre_ids}' data-id='${id}'>
+  return `<li class='item-movie-card m-modal' data-genres='${genre_ids}' data-id='${id}'>
   <button class="button" data-action="open-modal">${imageMovie}
   <div class='overlay-movie-card'></div>
   <div class='info-movie-card'>
