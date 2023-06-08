@@ -359,6 +359,29 @@
     fill: currentColor;
     stroke: white;
 }
+.film-add__wrap {
+  width: 248px;
+  height: 315px;
+  border-radius: 5px;
+  overflow: hidden;
+  
+  @include media-query(tablet) {
+    width: 294px;
+    height: 400px;
+    margin-right: 14px;
+  }
+  @include media-query(desktop) {
+    width: 375px;
+    height: 478px;
+    margin-right: 20px;
+  }
+}
+.film-add__img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}                                           
 
 .film--add {
     display: flex;
@@ -428,7 +451,7 @@
 }
 
 .film-add__list {
-    margin-bottom: 4px;
+    margin-bottom: 20px;
 
     @include media-query(tablet) {
         margin-bottom: 20px;
@@ -521,13 +544,13 @@
     color: $light-grey-color;
 
     @include media-query(tablet) {
-        margin-bottom: 24px;
+        margin-bottom: 16px;
     }
 
     @include media-query(desktop) {
         font-size: 16px;
         line-height: 1;
-        margin-bottom: 24px;
+        margin-bottom: 16px;
     }
 }
 
