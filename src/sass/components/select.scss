@@ -16,7 +16,7 @@
     font-size: 0.875rem;
 
     .custom-select-panel {
-      background-color: $darker-grey-color;
+      background-color: $select-option-bg-color;
       border-radius: 8px;
 
       transition: max-height $transition * 1.5 $transition-cubic-bezier,
@@ -29,11 +29,11 @@
       display: flex;
       justify-content: space-between;
 
-      border: 1px solid $white-color;
+      border: 1px solid $select-main-color;
       border-radius: 8px;
 
       background-color: transparent;
-      color: $light-grey-color;
+      color: $input-text-color;
 
       padding: 12px;
       padding-left: 16px;
@@ -67,14 +67,14 @@
         transform: rotate(0deg);
       }
       .custom-select-panel {
-        border: 1px solid $white-color;
+        border: 1px solid $select-main-color;
         max-height: 44px * 6;
       }
     }
   }
 
   .custom-select-option {
-    color: $off-white-color;
+    color: $text-color;
     cursor: pointer;
     line-height: 143%;
     padding: 14px 20px 10px 20px;
@@ -108,7 +108,7 @@
 
     @if ($separator) {
       &:nth-child(n + 3) {
-        border-top: 0.5px solid $light-grey-color;
+        border-top: 0.5px solid $input-text-color;
       }
     }
   }

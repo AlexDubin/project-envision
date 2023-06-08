@@ -69,8 +69,7 @@
   &:hover {
     text-decoration: none;
     color: $orange-color;
-    // TODO: Заменить $black-color на CSS переменную темы
-    background: linear-gradient($black-color, $black-color) padding-box,
+    background: linear-gradient($bg-color, $bg-color) padding-box,
       linear-gradient(
           141.22deg,
           $gradient-orange-color 9.4%,

@@ -67,10 +67,9 @@
   transition: 0.5s;
   background-color: transparent;
   padding: 10px;
-  border: 1px solid $light-grey-color;
+  border: 1px solid $select-main-color;
   border-radius: 8px;
-  color: $white-color;
-  color: $light-grey-color;
+  color: $input-text-color;
 }
 
 .form-input ~ span {
@@ -82,7 +81,7 @@
 
   align-items: center;
   text-align: left;
-  color: $light-grey-color;
+  color: $input-text-color;
 
   position: absolute;
   left: 10px;
@@ -90,7 +89,7 @@
   padding: 5px;
   transition: 0.3s;
 
-  background-color: $black-color;
+  background-color: $bg-color;
 
   letter-spacing: 1px;
 
@@ -102,17 +101,17 @@
   transform: translateY(-7px);
   top: 0;
   padding: 0 10px;
-  border-left: 2px solid white;
-  border-right: 2px solid white;
-  color: white;
+  border-left: 2px solid $select-main-color;
+  border-right: 2px solid $select-main-color;
+  color: $input-text-color;
   font-size: 0.8rem;
   z-index: 1;
 }
 
 .form-input:focus,
 .form-input:valid {
-  border: 2px solid white;
-  color: white;
+  border: 2px solid $select-main-color;
+  color: $input-text-color;
 }
 
 // .custom-select-container {
@@ -189,7 +188,7 @@
 }
 
 .search-svg-btn {
-  stroke: $white-color;
+  stroke: $title-text-color;
   fill: transparent;
 }
 
@@ -199,7 +198,6 @@
 .search-svg-btn:hover {
   text-decoration: none;
   color: $orange-color;
-  // TODO: Заменить $black-color на CSS переменную темы
   background: linear-gradient($white-color, $white-color) padding-box,
     linear-gradient(
         141.22deg,
@@ -288,7 +286,7 @@
   padding: 6px;
   border-radius: 8px;
   text-align: center;
-  color: white;
+  color: $select-main-color;
   font-weight: normal;
   font-size: 14px;
   box-shadow: 0 0 2px $grey-color;
@@ -373,7 +371,7 @@
 
 .pagination ul li {
   font-family: 'Roboto';
-  color: $light-grey-color;
+  color: $input-text-color;
   font-style: normal;
   line-height: 10px;
   text-align: center;
@@ -392,7 +390,7 @@
   margin: 0 4px;
 
   border-radius: 50%;
-  border: 1px solid #b7b7b7;
+  border: 1px solid $input-text-color;
   justify-content: center;
   align-items: center;
   font-style: normal;
@@ -418,14 +416,14 @@
   border-radius: 50px;
   width: 20px;
   height: 20px;
-  border: 0px solid #b7b7b7;
+  border: 0px solid $input-text-color;
 }
 
 .pagination li.active,
 .pagination ul li.list-item:hover,
 .pagination ul li:first-child:hover,
 .pagination ul li:last-child:hover {
-  color: white;
+  color: $header-logo-color;
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 }
 
@@ -436,12 +434,10 @@
 // }
 
 li.btn.prev.list-item {
- 
-
   font-size: 22px;
 
   font-family: 'Roboto';
-  color: $light-grey-color;
+  color: $pagination-secondary-color;
   font-style: normal;
   line-height: 10px;
   text-align: center;
@@ -454,12 +450,10 @@ li.btn.prev.list-item {
 }
 
 li.btn.next.list-item {
-
-
   font-size: 22px;
 
   font-family: 'Roboto';
-  color: $light-grey-color;
+  color: $pagination-secondary-color;
   font-style: normal;
   line-height: 10px;
   text-align: center;
@@ -473,19 +467,17 @@ li.btn.next.list-item {
 
 li.btn.prev.list-item.active,
 li.btn.prev.list-item:hover {
-  color: white;
+  color: $title-text-color;
   background: transparent;
   font-size: 26px;
 }
-
 
 li.btn.next.list-item.active,
 li.btn.next.list-item:hover {
-  color: white;
+  color: $title-text-color;
   font-size: 26px;
   background: transparent;
 }
-
 
 .year-select {
   @include custom-select(173px, 144px, 260px, false);
