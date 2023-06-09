@@ -115,12 +115,48 @@
     $gradient-orange-color 9.4%,
     $gradient-red-color 91.91%
   );
+  border: 1px solid transparent;
   border-radius: 74px;
 }
 
 .upcoming__addToLibrary-button:hover {
   color: $orange-color;
   background: $white-color;
+  border: 1px solid;
+  border-color: linear-gradient(
+    141.22deg,
+    $gradient-orange-color 9.4%,
+    $gradient-red-color 91.91%
+  );
+}
+
+.upcoming__addToLibrary-button--added {
+  align-items: center;
+  text-align: center;
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: $black-color;
+  background: $white-color;
+  border: 1px solid;
+  border-color: linear-gradient(
+    141.22deg,
+    $gradient-orange-color 9.4%,
+    $gradient-red-color 91.91%
+  );
+  border-radius: 74px;
+}
+
+.upcoming__addToLibrary-button--added:hover {
+  color: $black-color;
+  background: linear-gradient(
+    141.22deg,
+    $gradient-orange-color 9.4%,
+    $gradient-red-color 91.91%
+  );
+  border: 1px solid;
+  border-color: $gradient-orange-color;
 }
 
 @media screen and (max-width: 1279px) and (min-width: 768px) {

@@ -1,9 +1,9 @@
 import genres from '../genres.json';
+import Notiflix from 'notiflix';
 let genresNames = '';
+let switchCounter = 0;
 const genresArray = genres.genres;
 const upcoming = document.querySelector('.upcoming');
-
-// export { markupUpcomingMovies, connectLibraryBtn, convertGenresToNames };
 
 export default function markupUpcomingMovies({ results }) {
   const randomIndex = Math.floor(Math.random() * results.length);
@@ -77,18 +77,42 @@ export default function markupUpcomingMovies({ results }) {
   </div>
 </div>
 `;
-  connectLibraryBtn();
+  connectLibraryBtn(results[randomIndex]);
 }
 
-function connectLibraryBtn() {
+function connectLibraryBtn(data) {
   const upcomingBtn = document.querySelector('#addToMyLibrary');
-  // upcomingBtn.addEventListener('click', functionAddToMyLibrary);
-  // console.log(upcomingBtn);
+  const filmId = data.title;
+  const filmData = JSON.stringify(data);
+  upcomingBtn.addEventListener('click', event => {
+    event.preventDefault();
+    if (switchCounter === 0) {
+      if (localStorage.hasOwnProperty(filmId)) {
+        Notiflix.Notify.warning('This film already in your library!');
+        return;
+      }
+      localStorage.setItem(filmId, filmData);
+      Notiflix.Notify.success('The film added into your Library');
+      upcomingBtn.textContent = 'Remove from my library';
+      upcomingBtn.classList.add('upcoming__addToLibrary-button--added');
+      upcomingBtn.classList.remove('upcoming__addToLibrary-button');
+      switchCounter = 1;
+      return;
+    }
+    if ((switchCounter = 1)) {
+      localStorage.removeItem(filmId);
+      Notiflix.Notify.info('The film removed your Library');
+      upcomingBtn.textContent = 'Add to my library';
+      upcomingBtn.classList.add('upcoming__addToLibrary-button');
+      upcomingBtn.classList.remove('upcoming__addToLibrary-button--added');
+      switchCounter = 0;
+      return;
+    }
+  });
 }
 
 function convertGenresToNames(array, arrayOfObjects) {
   let genresNamesArray = [];
-
   array.forEach(code => {
     arrayOfObjects.forEach(number => {
       if (code === number.id) {
