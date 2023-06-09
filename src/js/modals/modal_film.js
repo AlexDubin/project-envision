@@ -110,34 +110,32 @@ function createCardMarkup(data) {
   return `<li class="film--add" data-id="${id}">
   <div class="film-add__wrap">
     <img class="film-add__img"
-        src="https://image.tmdb.org/t/p/original/${poster_path}" 
-        alt="${original_title}" 
-        loading="lazy" />
+        src="https://image.tmdb.org/t/p/original/${poster_path}"
+        alt="${original_title}"
+        loading="lazy"
+    />
   </div>
   <div class="film-add__desc">
     <h2 class="film-add__title">${original_title}</h2>
-
     <ul class="film-add__list list">
       <li class="film-add__item">
-        <span class="film-add__subtitle">Vote / Votes</span
-        ><span class="film-add__span votes average"
-          >${vote_average}</span><span class="simbol">&#47</span><span class="film-add__span votes count">${vote_count}</span>
+        <span class="film-add__subtitle">Vote / Votes</span>
+        <span class="film-add__span-modal votes average">${vote_average}</span>
+        <span class="simbol">&#47</span><span class="film-add__span-modal votes count">${vote_count}</span>
       </li>
       <li class="film-add__item">
-        <span class="film-add__subtitle">Popularity</span
-        ><span class="film-add__span">${popularity}</span>
+        <span class="film-add__subtitle">Popularity</span>
+        <span class="film-add__span-modal">${popularity}</span>
       </li>
       <li class="film-add__item">
-        <span class="film-add__subtitle">Genre</span
-        ><span class="film-add__span genres">${genresList}</span>
+        <span class="film-add__subtitle">Genre</span>
+        <span class="film-add__span-modal genres">${genresList}</span>
       </li>
     </ul>
-
     <div class="film-add__wrap-desc">
       <h3 class="film-add__about">About</h3>
       <p class="film-add__text">${overview}</p>
     </div>
-
     <button type="button" class="film-add__btn btn js-add-to-lib-btn" data-id="${id}">Add to my library</button>
   </div>
 </li>`;

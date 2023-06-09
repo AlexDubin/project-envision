@@ -300,7 +300,7 @@
   transform: translate(-50%, -50%);
   width: 280px;
   height: 847;
-  background-color: $bg-color;
+  background-color: $bg-color; //!
   padding: 52px 16px;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -484,8 +484,7 @@
     line-height: 1.19;
   }
 }
-
-.film-add__span {
+.film-add__span-modal {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -557,7 +556,7 @@
   font-size: 12px;
   line-height: 1.67;
   color: $modal-film-text-color;
-  max-height: 188px;
+  max-height: 180px;
   overflow: auto;
 
   @include media-query(tablet) {
@@ -602,5 +601,5 @@
   }
 }
 .simbol {
-  color: $white-color;
+  color: $title-text-color;
 }
