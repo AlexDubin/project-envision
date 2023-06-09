@@ -47,7 +47,7 @@ export function onOpenModalFilm(event) {
 }
 
 // CLOSE MODAL
-function onCloseModalFilm() {
+export function onCloseModalFilm() {
   modalListRef.innerHTML = '';
   document.body.classList.remove('modal-open');
   modBackdrop.classList.add('is-hidden');
