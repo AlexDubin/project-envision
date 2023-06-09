@@ -1,4 +1,4 @@
-!function(){var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},i={},t={},a=e.parcelRequire34ff;null==a&&((a=function(e){if(e in i)return i[e].exports;if(e in t){var a=t[e];delete t[e];var r={id:e,exports:{}};return i[e]=r,a.call(r.exports,r,r.exports),r.exports}var n=Error("Cannot find module '"+e+"'");throw n.code="MODULE_NOT_FOUND",n}).register=function(e,i){t[e]=i},e.parcelRequire34ff=a),a("i8Q71");var r=a("8yl2Y"),n=a("faU4B"),o=a("6U7c4"),l=a("16wVm");let d=async()=>{let e="",i="background-size: cover";try{let{results:t}=await (0,r.fetchTrendingMoviesByDay)(),{id:a,title:d,overview:s,backdrop_path:c,vote_average:h}=t[Math.floor(20*Math.random())+0],_=`https://image.tmdb.org/t/p/original/${c}`;window.innerWidth<768&&(i="background-size: 768px; background-position: center"),e=`
+var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},i={},t={},a=e.parcelRequire34ff;null==a&&((a=function(e){if(e in i)return i[e].exports;if(e in t){var a=t[e];delete t[e];var r={id:e,exports:{}};return i[e]=r,a.call(r.exports,r,r.exports),r.exports}var n=Error("Cannot find module '"+e+"'");throw n.code="MODULE_NOT_FOUND",n}).register=function(e,i){t[e]=i},e.parcelRequire34ff=a),a("bUb57");var r=a("e0qAQ"),n=a("3OIsu"),o=a("bh4hP"),s=a("b3SuP");const d=async()=>{let e="",i="background-size: cover";try{let{results:t}=await (0,r.fetchTrendingMoviesByDay)(),{id:a,title:d,overview:l,backdrop_path:c,vote_average:h}=t[Math.floor(20*Math.random())+0],_=`https://image.tmdb.org/t/p/original/${c}`;window.innerWidth<768&&(i="background-size: 768px; background-position: center"),e=`
       <div class="hero__wrap" style="background: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(${_}); ${i}; background-repeat: no-repeat;">
         <div class="container">
           <div class="hero__inner" >
@@ -16,7 +16,7 @@
               </div>
             </div>
             <p class="hero__text hero__text--trunc">
-              ${s}
+              ${l}
             </p>
             <div class="hero__btns" id="${a}">
               <button id="watch-trailer" class="hero__btn hero__btn--primary hero__btn--watch-trailer" data-movie-id="${a}">Watch trailer</button>
@@ -24,7 +24,7 @@
             </div>
           </div>
         </div>
-      </div>`,o.heroRefs.heroContainer.innerHTML=e;let g=document.getElementById("watch-trailer");g.addEventListener("click",e=>(0,n.onTrailerBtnClick)(e));let u=document.querySelector(".hero__btn.m-modal");u.addEventListener("click",e=>(0,l.onOpenModalFilm)(e))}catch(i){(0,o.heroRefs).heroContainer.classList.toggle("hero--bg-lib"),e=`
+      </div>`,o.heroRefs.heroContainer.innerHTML=e;let u=document.getElementById("watch-trailer");u.addEventListener("click",e=>(0,n.onTrailerBtnClick)(e));let g=document.querySelector(".hero__btn.m-modal");g.addEventListener("click",e=>(0,s.onOpenModalFilm)(e))}catch(i){(0,o.heroRefs).heroContainer.classList.toggle("hero--bg-lib"),e=`
       <div class="container">
         <div class="lib-hero__wrap">
           <h1 class="lib-hero__title">Create Your Dream Cinema</h1>
@@ -35,5 +35,5 @@
             dim lighting, and movie theater snacks.
           </p>
         </div>
-      </div>`,o.heroRefs.heroContainer.innerHTML=e}finally{}};d(),a("lQkPo"),a("bf8lc"),a("7hKzD"),a("cs2b8")}();
-//# sourceMappingURL=library.5db0d1f0.js.map
+      </div>`,o.heroRefs.heroContainer.innerHTML=e}finally{}};d(),a("1yZIa"),a("1Hrz4"),a("5kw5v");
+//# sourceMappingURL=library.b13a4c05.js.map
