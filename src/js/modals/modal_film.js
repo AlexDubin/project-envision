@@ -125,7 +125,7 @@ function createCardMarkup(data) {
       </li>
       <li class="film-add__item">
         <span class="film-add__subtitle">Popularity</span>
-        <span class="film-add__span-modal">${popularity}</span>
+        <span class="film-add__span-modal">${popularity.toFixed(1)}</span>
       </li>
       <li class="film-add__item">
         <span class="film-add__subtitle">Genre</span>
