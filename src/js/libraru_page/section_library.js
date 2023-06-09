@@ -2,6 +2,7 @@ import movieCardMarkup from '../markup/movieCardMarkup';
 import populateOptions from '../utils/populateOptions';
 import initRatings from '../utils/initRating';
 import { loadMovies } from '../api/libraryAPI';
+import { onOpenModalFilmById } from '../modals/modal_film';
 
 import customSelect from 'custom-select';
 
@@ -54,6 +55,14 @@ async function initLibrary() {
   }
 
   appendMoviesToLibrary(movies);
+
+  // START Добавляем слушателя для открытия модалки
+  const catalog = document.querySelector('.list-movie-card.js-gallery');
+  catalog.addEventListener('click', e => {
+    const movieId = e.target.parentNode.dataset.id;
+    onOpenModalFilmById(movieId);
+  });
+  // END
 }
 
 function filterMoviesByGenre(evt) {
