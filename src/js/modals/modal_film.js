@@ -1,4 +1,5 @@
 import axios from 'axios';
+import initAddToLibraryBtn from '../utils/initAddToLibraryBtn';
 
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '5708ddba333b2f1cf02bfd604f4dc65c';
@@ -47,7 +48,7 @@ export function onOpenModalFilm(event) {
 }
 
 // CLOSE MODAL
-function onCloseModalFilm() {
+export function onCloseModalFilm() {
   modalListRef.innerHTML = '';
   document.body.classList.remove('modal-open');
   modBackdrop.classList.add('is-hidden');
@@ -78,6 +79,9 @@ function loadIntoModal(idMovie) {
         const modalMovie = createCardMarkup(data);
 
         modalListRef.innerHTML = modalMovie;
+
+        const addBtnEl = modalListRef.querySelector('.js-add-to-lib-btn');
+        initAddToLibraryBtn(addBtnEl);
       })
       .catch(err => console.log(err));
   } catch (err) {
@@ -134,7 +138,7 @@ function createCardMarkup(data) {
       <p class="film-add__text">${overview}</p>
     </div>
 
-    <button type="button" class="film-add__btn btn">Add to my library</button>
+    <button type="button" class="film-add__btn btn js-add-to-lib-btn" data-id="${id}">Add to my library</button>
   </div>
 </li>`;
 }

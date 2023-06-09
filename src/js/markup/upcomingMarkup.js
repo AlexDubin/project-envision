@@ -1,4 +1,5 @@
 import genres from '../genres.json';
+import initAddToLibraryBtn from '../utils/initAddToLibraryBtn';
 let genresNames = '';
 const genresArray = genres.genres;
 const upcoming = document.querySelector('.upcoming');
@@ -65,8 +66,8 @@ export default function markupUpcomingMovies({ results }) {
         </ul>
         <h4 class="upcoming__about">About</h4>
         <p class="upcoming__overview">${overview}</p>
-        <button class="upcoming__addToLibrary-button" type="button" id="addToMyLibrary">
-        <p>Add to my library</p>
+        <button class="upcoming__addToLibrary-button" type="button" data-id="${id}" id="addToMyLibrary">
+        Add to my library
         </button>
         </div>
       </div>
@@ -76,6 +77,7 @@ export default function markupUpcomingMovies({ results }) {
 
 function connectLibraryBtn() {
   const upcomingBtn = document.querySelector('#addToMyLibrary');
+  initAddToLibraryBtn(upcomingBtn);
   // upcomingBtn.addEventListener('click', functionAddToMyLibrary);
   // console.log(upcomingBtn);
 }
