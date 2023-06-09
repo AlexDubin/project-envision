@@ -2,6 +2,7 @@
 
 .to-top-btn {
   display: none;
+  z-index: 50;
 }
 
 @media screen and (min-width: 470px) {
@@ -21,11 +22,13 @@
     transition: opacity 1s $transition-cubic-bezier,
       transform 1s $transition-cubic-bezier;
     writing-mode: vertical-rl;
+    z-index: 50;
   }
 
   .to-top-btn svg {
     margin-left: 5px;
     fill: $orange-color;
+    z-index: 50;
   }
 
   .to-top-btn:hover,
@@ -35,16 +38,19 @@
 
   .to-top-btn.show-btn {
     opacity: 1;
+    z-index: 50;
   }
 
   .to-top-btn.remove-btn {
     opacity: 0;
+    z-index: 50;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .to-top-btn {
     right: 0;
+    z-index: 50;
   }
 }
 
