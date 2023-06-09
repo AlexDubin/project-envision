@@ -3,6 +3,7 @@ import movieCardMarkup from '../markup/movieCardMarkup';
 import initRatings from '../utils/initRating';
 import refs from '../refs/weekly_trends-refs';
 import { getTrendingMoviesByWeek } from '../api/weekly_trends-api';
+import { onOpenModalFilmById } from '../modals/modal_film.js';
 
 if (refs.movieList) {
   const genresObject = {};
@@ -28,8 +29,16 @@ function createMarkupMovies({ results }, genresObject) {
 function markupMovie(moviesToShow) {
   refs.movieList.innerHTML = moviesToShow.map(movieCardMarkup).join('');
   initRatings();
-  refs.movieList.addEventListener('click', onOpenModalFilm);
-  window.addEventListener('keydown', onEscKeyPress);
+  // refs.movieList.addEventListener('click', onOpenModalFilm);
+  // window.addEventListener('keydown', onEscKeyPress);
+
+  // START Добавляем слушателя для открытия модалки
+  const catalog = document.querySelector('.list-movie-card.js-gallery');
+  catalog.addEventListener('click', e => {
+    const movieId = e.target.parentNode.dataset.id;
+    onOpenModalFilmById(movieId);
+  });
+  // END
 }
 
 function getRandomMovieToShow(results) {

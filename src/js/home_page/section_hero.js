@@ -1,7 +1,8 @@
 import { fetchTrendingMoviesByDay } from '../api/fetch-api.js';
 import { onTrailerBtnClick } from '../modals/modal_trailer.js';
 import { heroRefs } from '../refs/hero-refs.js';
-import { onOpenModalFilm } from '../modals/modal_film.js';
+// import { onOpenModalFilm } from '../modals/modal_film.js';
+import { onOpenModalFilmById } from '../modals/modal_film.js';
 
 export const markupRandomTrendingMovie = async () => {
   let markup = '';
@@ -53,7 +54,10 @@ export const markupRandomTrendingMovie = async () => {
     trailerBtn.addEventListener('click', e => onTrailerBtnClick(e));
 
     const movieInfoBtn = document.querySelector('.hero__btn.m-modal');
-    movieInfoBtn.addEventListener('click', e => onOpenModalFilm(e));
+    // movieInfoBtn.addEventListener('click', e => onOpenModalFilm(e));
+    movieInfoBtn.addEventListener('click', e =>
+      onOpenModalFilmById(movieInfoBtn.dataset.id)
+    );
   } catch (error) {
     heroRefs.heroContainer.classList.toggle('hero--bg');
     markup = `
