@@ -1,6 +1,10 @@
 import { checkMovie, removeMovie, saveMovie } from '../api/libraryAPI';
 import { onCloseModalFilm } from '../modals/modal_film';
 
+/**
+ * Initialize button "Add to library"
+ * @param {HTMLButtonElement} btnEl - Button "Add to library"
+ */
 export default btnEl => {
   const id = Number.parseInt(btnEl.dataset.id);
 
