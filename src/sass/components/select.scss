@@ -41,11 +41,15 @@
       line-height: 114.285714%; /* 16px / 14px */
 
       &::after {
+        $arrow-svg-url: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 10.25L8 5.75L12.5 10.25" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+
         content: '';
         display: block;
         width: 16px;
         height: 16px;
-        background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 10.25L8 5.75L12.5 10.25" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+        background-color: $select-main-color;
+        -webkit-mask-image: $arrow-svg-url;
+        mask-image: $arrow-svg-url;
         transform: rotate(180deg);
         transition: transform $transition $transition-cubic-bezier;
       }
