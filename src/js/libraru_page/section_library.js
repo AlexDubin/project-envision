@@ -3,20 +3,13 @@ import populateOptions from '../utils/populateOptions';
 import initRatings from '../utils/initRating';
 import { loadMovies } from '../api/libraryAPI';
 import { onOpenModalFilmById } from '../modals/modal_film';
+import refs from '../refs/library-refs';
 
 import customSelect from 'custom-select';
 
 import data from '../genres.json';
 import 'custom-select/build/custom-select.css';
 import loaderWrapper from '../loader';
-
-const refs = {
-  genresSelectEl: document.getElementById('genres-select'),
-  moviesListEl: document.getElementById('library-movie-list'),
-  emptyLibEl: document.getElementById('lib-empty'),
-  libCatalogEl: document.getElementById('lib-catalog'),
-  loadMoreBtnEl: document.getElementById('lib-load-more'),
-};
 
 const PAGE_SIZE = 9;
 let page = 1;
