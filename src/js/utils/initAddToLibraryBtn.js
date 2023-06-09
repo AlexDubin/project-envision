@@ -1,6 +1,6 @@
 import { checkMovie, removeMovie, saveMovie } from '../api/libraryAPI';
+import { removeMovieFromLibrary } from '../libraru_page/section_library';
 import { onCloseModalFilm } from '../modals/modal_film';
-import libRefs from '../refs/library-refs';
 
 /**
  * Initialize button "Add to library"
@@ -44,16 +44,6 @@ const onRemoveFromLibrary = evt => {
       onCloseModalFilm();
     }
 
-    const movieCardList = document.getElementById('library-movie-list');
-
-    const movieCardToRemove = movieCardList.querySelector(
-      `li.item-movie-card[data-id="${id}"]`
-    );
-    movieCardToRemove?.remove();
-
-    if (movieCardList.children.length === 0) {
-      libRefs.emptyLibEl.classList.remove('is-hidden');
-      libRefs.libCatalogEl.classList.add('is-hidden');
-    }
+    removeMovieFromLibrary(id);
   }
 };
