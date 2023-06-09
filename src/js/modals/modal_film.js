@@ -22,7 +22,7 @@ const modBackdrop = document.querySelector('.modal-backdrop'); //div мій
 const closeBtn = document.querySelector('.modal__close-btn'); //моя кнопка
 const modalListRef = document.querySelector('.cards-film'); //ul моє з розмітки
 
-filmTrendsCards.addEventListener('click', onOpenModalFilm);
+// filmTrendsCards.addEventListener('click', onOpenModalFilm);
 // filmCatalogCards.addEventListener('click', onOpenModalFilm);
 closeBtn.addEventListener('click', onCloseModalFilm);
 modBackdrop.addEventListener('click', onBackDropClick);
@@ -53,7 +53,6 @@ function onCloseModalFilm() {
   modBackdrop.classList.add('is-hidden');
 }
 
-
 // CLOSE MODAL by CLICKING BACKDROP
 function onBackDropClick(event) {
   if (event.currentTarget === event.target) {
@@ -65,7 +64,7 @@ function onBackDropClick(event) {
 function onEscKeyPress(event) {
   if (event.code === 'Escape') {
     onCloseModalFilm();
-    window.removeEventListener('keydown', onEscapeKeyboard);
+    // window.removeEventListener('keydown', onEscapeKeyboard);
   }
 }
 
@@ -75,7 +74,7 @@ function loadIntoModal(idMovie) {
 
     getMovieDetails(idMovie)
       .then(data => {
-        console.log(data);
+        // console.log(data);
         const modalMovie = createCardMarkup(data);
 
         modalListRef.innerHTML = modalMovie;
@@ -140,3 +139,11 @@ function createCardMarkup(data) {
 </li>`;
 }
 // export {onOpenModalFilm}
+
+export function onOpenModalFilmById(id) {
+  document.body.classList.add('modal-open');
+  loadIntoModal(id);
+  modBackdrop.classList.remove('is-hidden');
+  document.body.classList.add('modal-open');
+  window.addEventListener('keydown', onEscKeyPress);
+}

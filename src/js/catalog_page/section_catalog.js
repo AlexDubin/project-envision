@@ -1,4 +1,4 @@
-import Notiflix from 'notiflix'; 
+import Notiflix from 'notiflix';
 import axios from 'axios';
 import initRatings from '../utils/initRating';
 import movieCardMarkup from '../markup/movieCardMarkup';
@@ -7,7 +7,7 @@ import movieCardMarkup from '../markup/movieCardMarkup';
 import { API_KEY } from '../api/catalogAPI';
 import { URL } from '../api/catalogAPI';
 import { refs } from './catalog-refs';
-
+import { onOpenModalFilmById } from '../modals/modal_film.js';
 
 export async function fetchMoviesOfweek(currentPage) {
   try {
@@ -29,15 +29,13 @@ export async function fetchMoviesOfweek(currentPage) {
   }
 }
 
-
-
-export function buildGallery(movies) {  
-  return movies.map(movie => {
-    if (movie.release_date)
-      return movieCardMarkup(movie);
-    return '';
-      
-    }).join('');
+export function buildGallery(movies) {
+  return movies
+    .map(movie => {
+      if (movie.release_date) return movieCardMarkup(movie);
+      return '';
+    })
+    .join('');
 }
 
 export async function galleryOfWeek(currentPage) {
@@ -54,15 +52,22 @@ export async function galleryOfWeek(currentPage) {
   }
 }
 
-
 initGalleryOfWeek();
 
 async function initGalleryOfWeek() {
-
   try {
     let result = await fetchMoviesOfweek(1);
     const addingMovies = buildGallery(result.results);
     refs.gallery.innerHTML = addingMovies;
+
+    // START Добавляем слушателя для открытия модалки
+    const catalog = document.querySelector('#anchor');
+    catalog.addEventListener('click', e => {
+      const movieId = e.target.parentNode.dataset.id;
+      onOpenModalFilmById(movieId);
+    });
+    // END
+
     initRatings();
     if (result.total_results === 0) {
       return noMovie();
@@ -73,15 +78,11 @@ async function initGalleryOfWeek() {
   }
 }
 
-
 function paginationWeek(props) {
-    new Pagination({
-      container: refs.paginationContainer,
-      count: Math.min(props.total_pages, 197),
-      index: 1,
-      callback: galleryOfWeek,
-    });
-  
+  new Pagination({
+    container: refs.paginationContainer,
+    count: Math.min(props.total_pages, 197),
+    index: 1,
+    callback: galleryOfWeek,
+  });
 }
-
-
