@@ -29,8 +29,6 @@ function createMarkupMovies({ results }, genresObject) {
 function markupMovie(moviesToShow) {
   refs.movieList.innerHTML = moviesToShow.map(movieCardMarkup).join('');
   initRatings();
-  // refs.movieList.addEventListener('click', onOpenModalFilm);
-  // window.addEventListener('keydown', onEscKeyPress);
 
   // START Добавляем слушателя для открытия модалки
   const catalog = document.querySelector('.list-movie-card.js-gallery');
