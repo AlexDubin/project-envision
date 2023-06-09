@@ -1,19 +1,11 @@
-// .upcoming {
-//   padding-top: 32px;
-// }
-
 .upcoming__section-title {
   margin-bottom: 24px;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   text-transform: uppercase;
-  color: $white-color;
+  color: $title-text-color;
 }
-
-// .upcoming__block {
-//   margin-bottom: 40px;
-// }
 
 .upcoming__poster {
   width: 280px;
@@ -32,7 +24,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 23px;
-  color: $white-color;
+  color: $title-text-color;
   margin-bottom: 20px;
 }
 
@@ -50,7 +42,7 @@
   margin-bottom: 12px;
   font-size: 16px;
   line-height: 19px;
-  color: $light-grey-color;
+  color: $upcoming-grey-text-color;
 }
 
 .upcoming__genre--title {
@@ -58,7 +50,7 @@
   margin-bottom: 20px;
   font-size: 16px;
   line-height: 19px;
-  color: $light-grey-color;
+  color: $upcoming-grey-text-color;
 }
 
 .upcoming__release-date--value {
@@ -73,20 +65,20 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
-  color: $black-color;
-  background: $white-color;
+  color: $upcoming-shield-text-color;
+  background: $upcoming-shield-bg-color;
   border-radius: 5px;
 }
 
-.upcoming__vote--value{
-  color: $white-color;
+.upcoming__vote--value {
+  color: $upcoming-white-text-color;
 }
 
 .upcoming__popularity--value,
 .upcoming__genre--value {
   font-size: 16px;
   line-height: 19px;
-  color: $white-color;
+  color: $upcoming-white-text-color;
 }
 
 .upcoming__about {
@@ -94,17 +86,19 @@
   font-size: 16px;
   line-height: 19px;
   text-transform: uppercase;
-  color: $light-grey-color;
+  color: $upcoming-grey-text-color;
 }
 
 .upcoming__overview {
   width: 280px;
-  height: 220px;
+  height: auto;
+  max-height: 220px;
+  overflow-y: auto;
   margin-bottom: 20px;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: $off-white-color;
+  color: $text-color;
   overflow: hidden;
 }
 
@@ -130,18 +124,10 @@
 }
 
 @media screen and (max-width: 1279px) and (min-width: 768px) {
-  // .upcoming {
-  //   padding-top: 44px;
-  // }
-
   .upcoming__section-title {
     font-size: 24px;
     line-height: 28px;
   }
-
-  // .upcoming__block {
-  //   margin-bottom: 77px;
-  // }
 
   .upcoming__poster {
     width: 704px;
@@ -183,7 +169,9 @@
 
   .upcoming__overview {
     width: 625px;
-    height: 100px;
+    height: auto;
+    max-height: 100px;
+    overflow-y: auto;
   }
 
   .upcoming__addToLibrary-button {
@@ -199,10 +187,6 @@
 }
 
 @media screen and (min-width: 1280px) {
-  // .upcoming {
-  //   padding-top: 60px;
-  // }
-
   .upcoming__section-title {
     margin-bottom: 28px;
     font-size: 28px;
@@ -211,8 +195,6 @@
 
   .upcoming__block {
     display: flex;
-    // margin-bottom: 100px;
-    // padding-bottom: 5px;
   }
 
   .upcoming__info {
@@ -221,7 +203,8 @@
 
   .upcoming__poster {
     width: 805px;
-    height: 100%;
+    height: 458px;
+
     margin-bottom: 0;
   }
 
@@ -233,6 +216,12 @@
 
   .upcoming__overview {
     width: 390px;
-    height: 160px;
+    height: auto;
+    max-height: 120px;
+    overflow-y: auto;
+  }
+
+  .upcoming__addToLibrary-button {
+    margin-bottom: 5px;
   }
 }

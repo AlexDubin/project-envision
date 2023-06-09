@@ -38,3 +38,36 @@ $font-size-helper: 10px;
 
 $transition-cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 $transition: 250ms;
+
+// Можно использовать или sass переменную или css переменную
+// For themes                                         (dark theme / light theme)
+$title-text-color: var(--title-text-color); //                     white / black
+$text-color: var(--text-color); //                         off-white / dark-grey
+$bg-color: var(--bg-color); //                                     black / white
+$header-bg-color: var(--header-bg-color); //                        #000 / white
+$header-logo-color: var(--header-logo-color); //               white / dark-grey
+$header-link-color: var(--header-link-color); //               light-grey / grey
+$mobile-menu-bg-color: var(--mobile-menu-bg-color); //       #171717 / off-white
+$mobile-menu-backdrop-color: var(
+  --mobile-menu-backdrop-color
+); //                                                    white 0.2 / black 0.2
+$upcoming-grey-text-color: var(
+  --upcoming-grey-text-color
+); //                                                         light-grey / black
+$upcoming-white-text-color: var(
+  --upcoming-white-text-color
+); //                                                          white / dark-grey
+$upcoming-shield-bg-color: var(--upcoming-shield-bg-color); // white / off-white
+$upcoming-shield-text-color: var(
+  --upcoming-shield-text-color
+); //                                                          black / dark-grey
+$footer-text-color: var(--footer-text-color); //               light-grey / grey
+$input-text-color: var(--input-text-color); //                 light-grey / grey
+$pagination-main-color: var(--pagination-main-color); //        dark-grey / grey
+$pagination-secondary-color: var(
+  --pagination-secondary-color
+); //                                                           off-white / grey
+$select-main-color: var(--select-main-color); //                    white / grey
+$select-secondary-color: var(--select-secondary-color); //      dark-grey / grey
+$select-option-bg-color: var(--select-option-bg-color); // dark-grey / off-white
+$modal-film-text-color: var(--modal-film-text-color); //       off-white / black

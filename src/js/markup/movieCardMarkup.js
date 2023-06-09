@@ -27,9 +27,9 @@ export default ({
   let imageMovie = '';
   if (poster_path === null) {
     // ---to do src
-    imageMovie = `<img  class='poster-movie-card' src='' alt='default poster'>`;
+    imageMovie = `<img class='poster-movie-card' src='' alt='default poster'>`;
   } else {
-    imageMovie = `  <img
+    imageMovie = `<img
   class='poster-movie-card'
   src='https://image.tmdb.org/t/p/original${poster_path}'
   srcset='https://image.tmdb.org/t/p/w342${poster_path} 342w,
@@ -46,8 +46,8 @@ export default ({
 >`;
   }
 
-  return `<li class='item-movie-card' data-genres='${genre_ids}' data-id='${id}'>
-  <button class="button" data-action="open-modal">${imageMovie}
+  return `<li class='item-movie-card m-modal' data-genres='${genre_ids}' data-id='${id}'>
+  <button class="button" data-action="open-modal" data-id='${id}'>${imageMovie}
   <div class='overlay-movie-card'></div>
   <div class='info-movie-card'>
     <h4 class='title-movie-card'>${title}</h4>
@@ -71,6 +71,6 @@ export default ({
         <div class="rating-value">${vote_average}</div>
     </div>
   </div>
-<button>
+</button>
 </li>`;
 };

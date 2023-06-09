@@ -4,7 +4,7 @@
   font-weight: $font-weight-medium;
   padding-top: 40px;
   padding-bottom: 32px;
-  color: $white-color;
+  color: $title-text-color;
 }
 
 .wrapper-weekly-trends {
@@ -17,12 +17,16 @@
   margin-bottom: 24px;
 }
 .title-weekly-trends {
-  color: $white-color;
+  color: $title-text-color;
 }
 .link-weekly-trends {
   color: $orange-color;
 }
 
+.link-weekly-trends:hover {
+  text-decoration: none;
+  color: $light-grey-color;
+}
 // -------cards
 .list-movie-card {
   display: flex;
@@ -36,9 +40,15 @@
   border-radius: 5px;
   overflow: hidden;
 }
+
+.item-movie-card:hover {
+  box-shadow: 1px 1px 7px 2px rgba(255, 107, 8, 0.42);
+}
+
 .poster-movie-card {
   width: 100%;
 }
+
 .info-movie-card {
   position: absolute;
   z-index: 20;

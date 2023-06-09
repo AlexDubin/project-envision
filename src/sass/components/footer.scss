@@ -1,5 +1,6 @@
 // Стили футера
 .footer-wrap {
+  background-color: $bg-color;
   margin-left: auto;
   margin-right: auto;
   width: 266px;
@@ -9,7 +10,9 @@
   font-weight: 400;
   font-size: 14px;
   line-height: calc(16 / 14);
-  color: $light-grey-color;
+
+  color: $footer-text-color;
+
 }
 .site-footer {
   //   position: fixed;
@@ -17,12 +20,14 @@
   //   left: 0;
   //   right: 0;
   //   bottom: 0;
-  background: #111111;
+  background: $bg-color;
   padding-top: 40px;
   padding-bottom: 28px;
 }
 .footer-link {
-  color: $light-grey-color;
+
+  color: $footer-text-color;
+
   text-decoration: underline;
   display: inline;
   margin-top: 6px;

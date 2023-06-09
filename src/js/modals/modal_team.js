@@ -1,38 +1,37 @@
-const refs = {
-  openModalBtn: document.querySelector('.footer-link'),
-  closeModalBtn: document.querySelector('.modal-team-close'),
-  backdrop: document.querySelector('.backdrop'),
-  bodyEl: document.querySelector('body'),
-  teamItems: document.querySelectorAll('.modal-team-item'),
-  svgEl: document.querySelector('.close-icon'),
-  useEl: document.querySelector('.use-close'),
-};
+import { modalTeamRefs } from '../refs/modal-team-refs';
 
-refs.openModalBtn.addEventListener('click', onButtonClick);
-refs.backdrop.addEventListener('click', onButtonClick);
-refs.closeModalBtn.addEventListener('click', onButtonClick);
-window.addEventListener('keydown', clickOnEscape);
+modalTeamRefs.openModalBtn.addEventListener('click', onButtonTeamClick);
+// modalTeamRefs.backdrop.addEventListener('click', onButtonTeamClick);
+// modalTeamRefs.closeModalBtn.addEventListener('click', onButtonTeamClick);
+// window.addEventListener('keydown', clickOnEscape);
 
-function openModal() {
-  refs.bodyEl.classList.add('hidden');
-  refs.backdrop.classList.remove('is-hidden');
+function openTeamModal() {
+  modalTeamRefs.bodyEl.classList.add('hidden');
+  modalTeamRefs.backdrop.classList.remove('is-hidden');
 }
-function closeModal() {
-  refs.bodyEl.classList.remove('hidden');
-  refs.backdrop.classList.add('is-hidden');
+function closeTeamModal() {
+  modalTeamRefs.bodyEl.classList.remove('hidden');
+  modalTeamRefs.backdrop.classList.add('is-hidden');
 }
 
-function onButtonClick(event) {
+function onButtonTeamClick(event) {
+  modalTeamRefs.openModalBtn.addEventListener('click', onButtonTeamClick);
   if (
-    event.target === refs.backdrop ||
-    event.target === refs.svgEl ||
-    event.target === refs.closeModalBtn ||
-    event.target === refs.useEl ||
+    event.target === modalTeamRefs.backdrop ||
+    event.target === modalTeamRefs.svgEl ||
+    event.target === modalTeamRefs.closeModalBtn ||
+    event.target === modalTeamRefs.useEl ||
     event.code === 'Escape'
   ) {
-    closeModal();
-  } else if (event.target === refs.openModalBtn) {
-    openModal();
+    closeTeamModal();
+    modalTeamRefs.backdrop.removeEventListener('click', onButtonTeamClick);
+    modalTeamRefs.closeModalBtn.removeEventListener('click', onButtonTeamClick);
+  } else if (event.target === modalTeamRefs.openModalBtn) {
+    modalTeamRefs.backdrop.addEventListener('click', onButtonTeamClick);
+    modalTeamRefs.closeModalBtn.addEventListener('click', onButtonTeamClick);
+    window.addEventListener('keydown', clickOnEscape);
+    openTeamModal();
+
     animateTeamItems();
   }
   return;
@@ -40,12 +39,13 @@ function onButtonClick(event) {
 
 function clickOnEscape(event) {
   if (event.code === 'Escape') {
-    closeModal();
+    closeTeamModal();
+    window.removeEventListener('keydown', clickOnEscape);
   }
 }
 
 function animateTeamItems() {
-  refs.teamItems.forEach((item, index) => {
+  modalTeamRefs.teamItems.forEach((item, index) => {
     setTimeout(() => {
       item.classList.add('animate');
     }, index * 200); // Додайте затримку між анімаціями кожного елемента
