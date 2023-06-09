@@ -61,7 +61,7 @@
   const setActiveLink = list => {
     const activeLink = [...list.children].find(item => {
       const currentLocation = location.pathname.endsWith('/')
-        ? location.origin + location.pathname + '/index.html'
+        ? location.origin + location.pathname + 'index.html'
         : location.origin + location.pathname;
 
       return item.querySelector('a').href === currentLocation;
