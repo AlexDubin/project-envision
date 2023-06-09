@@ -53,6 +53,7 @@ async function initLibrary() {
   const catalog = document.querySelector('.list-movie-card.js-gallery');
   catalog.addEventListener('click', e => {
     const closestId = e.target.closest('.m-modal');
+    if (!closestId) return;
     const movieId = closestId.dataset.id;
     onOpenModalFilmById(movieId);
   });

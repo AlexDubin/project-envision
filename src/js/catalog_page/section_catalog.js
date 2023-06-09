@@ -64,6 +64,7 @@ async function initGalleryOfWeek() {
     const catalog = document.querySelector('#anchor');
     catalog.addEventListener('click', e => {
       const closestId = e.target.closest('.m-modal');
+      if (!closestId) return;
       const movieId = closestId.dataset.id;
       onOpenModalFilmById(movieId);
     });
