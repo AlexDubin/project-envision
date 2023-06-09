@@ -29,6 +29,9 @@ html {
 body {
   background-color: $bg-color;
   font-family: 'Roboto';
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   &.modal-open {
     overflow: hidden;
