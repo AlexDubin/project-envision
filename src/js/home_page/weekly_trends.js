@@ -35,7 +35,8 @@ function markupMovie(moviesToShow) {
   // START Добавляем слушателя для открытия модалки
   const catalog = document.querySelector('.list-movie-card.js-gallery');
   catalog.addEventListener('click', e => {
-    const movieId = e.target.parentNode.dataset.id;
+    const closestId = e.target.closest('.m-modal');
+    const movieId = closestId.dataset.id;
     onOpenModalFilmById(movieId);
   });
   // END
