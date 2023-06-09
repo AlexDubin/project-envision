@@ -1,7 +1,7 @@
 import movieCardMarkup from '../markup/movieCardMarkup';
 import populateOptions from '../utils/populateOptions';
 import initRatings from '../utils/initRating';
-import { loadMovies } from '../api/libraryAPI';
+import { loadMovies, loadMovie } from '../api/libraryAPI';
 import { onOpenModalFilmById } from '../modals/modal_film';
 import refs from '../refs/library-refs';
 
@@ -57,6 +57,33 @@ async function initLibrary() {
     onOpenModalFilmById(movieId);
   });
   // END
+}
+
+export async function removeMovieFromLibrary(id) {
+  const movieCardToRemove = refs.moviesListEl.querySelector(
+    `li.item-movie-card[data-id="${id}"]`
+  );
+  movieCardToRemove?.remove();
+
+  const moviesLength = refs.moviesListEl.children.length;
+
+  if (moviesLength < PAGE_SIZE * page) {
+    loaderWrapper(loadMovie(moviesLength))
+      .then(movie => {
+        if (!movie) {
+          libRefs.loadMoreBtnEl.classList.add('is-hidden');
+          return;
+        }
+
+        appendMoviesToLibrary([movie]);
+      })
+      .catch(console.log);
+  }
+
+  if (moviesLength === 0) {
+    libRefs.emptyLibEl.classList.remove('is-hidden');
+    libRefs.libCatalogEl.classList.add('is-hidden');
+  }
 }
 
 function filterMoviesByGenre(evt) {
