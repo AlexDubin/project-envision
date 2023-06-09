@@ -86,6 +86,13 @@ export async function loadMovies(limit = 0, page = 0) {
   }
 }
 
+export async function loadMovie(idx) {
+  const savedMovies = loadMoviesFromStorage();
+  if (idx >= savedMovies.length) return;
+
+  return await fetchMovie(savedMovies[idx]);
+}
+
 function saveMoviesToStorage(movies) {
   try {
     const moviesString = JSON.stringify(movies);
