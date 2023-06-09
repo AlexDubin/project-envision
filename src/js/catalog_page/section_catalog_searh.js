@@ -134,7 +134,6 @@ function inputSubmit(event) {
     galleryOfWeek();
     return Notiflix.Notify.failure('Type something, please.');
   }
-  currentPage = 1;
   initSearchMovie();
 }
 
@@ -145,7 +144,6 @@ function clearInput() {
     }
     if (refs.searchInput.value === '' || refs.searchInput.value === ' ') {
       refs.clearBtn.classList.remove('is-active');
-      currentPage = 1;
       galleryOfWeek();
     }
   });
@@ -153,7 +151,6 @@ function clearInput() {
     refs.searchInput.value = '';
     refs.clearBtn.classList.remove('is-active');
     refs.gallery.innerHTML = '';
-    currentPage = 1;
     galleryOfWeek();
   });
 }
