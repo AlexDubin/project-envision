@@ -151,7 +151,7 @@ function clearInput() {
     refs.searchInput.value = '';
     refs.clearBtn.classList.remove('is-active');
     refs.gallery.innerHTML = '';
-    galleryOfWeek();
+    galleryOfWeek(1);
   });
 }
 
